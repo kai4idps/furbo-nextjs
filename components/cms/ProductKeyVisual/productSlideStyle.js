@@ -1,0 +1,105 @@
+const productSlideStyle = (theme) => ({
+  root: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
+  },
+  center: {
+    backgroundColor: 'white',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  indicatorContainerLeft: {
+    backgroundColor: 'white',
+    width: 'auto',
+    height: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    flexDirection: 'column',
+  },
+  indicatorContainerRight: {
+    backgroundColor: 'white',
+    width: 'auto',
+    height: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+  },
+  indicatorContainer: {
+    backgroundColor: 'transparent',
+    width: '100%',
+    // height: '100%',
+  },
+  carouselContainer: {
+    backgroundColor: 'white',
+    top: '100px',
+    width: '100%',
+    height: 'auto',
+  },
+  button: {
+    padding: '0px',
+  },
+  buttonContainer: {
+    backgroundColor: 'white',
+    margin: '10px',
+    width: '62px',
+    height: '62px',
+  },
+  buttonIcon: {
+    width: '60px',
+    height: '60px',
+  },
+  slide: {
+    backgroundColor: 'white',
+    padding: '30px',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      height: '100%',
+      width: '100%',
+    },
+  },
+  slideImage: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: '100%',
+  },
+  slideVideo: {
+    backgroundColor: 'white',
+    position: 'absolute',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 'auto',
+    width: '100%',
+    height: '100%',
+  },
+  arrow: {
+    position: 'absolute',
+    zIndex: 2,
+    top: 'calc(50% - 15px)',
+    width: 30,
+    height: 30,
+    cursor: 'pointer',
+    backgroundColor: '#f7cd3d',
+    padding: '0px',
+    color: '#fff',
+    '&,&:hover,&:focus': {
+      backgroundColor: '#f7cd3d',
+    },
+  },
+});
+
+export default productSlideStyle;

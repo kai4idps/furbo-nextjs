@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'FuturaPT';
+  font-style: normal;
+  font-display: swap;
+  src: url('public/assets/fonts/FuturaPT.woff2') format('woff2'),
+    url('public/assets/fonts/FuturaPT.woff') format('woff');
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  font-style: normal;
+  font-display: swap;
+  src: url('public/assets/fonts/Avenir.woff2') format('woff2'),
+    url('public/assets/fonts/Avenir.woff') format('woff');
+  unicode-range: U+000-5FF;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+a {
+  color: #1e7bac;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.carousel.slide {
+  background: transparent;
+}
+
+.carousel.carousel-slider {
+  margin: 0;
+  overflow: visible;
+}
+
+.carousel.thumbs-wrapper {
+  margin: 0;
+}
+
+.carousel.control-next.control-arrow {
+  background-image: url('public/assets/images/general/right.svg');
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel.control-prev.control-arrow {
+  background-image: url('public/assets/images/general/left.svg');
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.carousel.control-next.control-arrow:before {
+  display: none;
+}
+
+.carousel.control-prev.control-arrow:before {
+  display: none;
+}
+
+.carousel .carousel-status {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(67, 67, 67, 0.5);
+  width: auto;
+  height: 20px;
+  font-size: 10px;
+  font-family: 'FuturaPT';
+  text-shadow: none;
+  border-radius: 20px;
+  bottom: 35px;
+  right: 35px;
+  top: auto;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+#ada-entry {
+  display:none;
+}

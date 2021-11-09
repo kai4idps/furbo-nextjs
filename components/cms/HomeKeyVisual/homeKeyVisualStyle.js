@@ -1,0 +1,91 @@
+const keyVisualStyle = (theme) => ({
+  root: {
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    height: '600px',
+    width: '100%',
+    flexWrap: 'wrap',
+    backgroundSize: 'auto 100%',
+    backgroundPosition: 'right',
+    backgroundRepeat: 'no-repeat',
+    borderRadius: '5px',
+    margin: '0px 0px 10px',
+    [theme.breakpoints.down('sm')]: {
+      backgroundSize: '100%',
+      backgroundPosition: 'center',
+      minHeight: '600px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      backgroundPosition: 'bottom',
+    },
+  },
+  text: {
+    backgroundColor: 'transparent',
+    padding: '0px 20% 0px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px',
+      width: '100%',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+    },
+  },
+  title: {
+    fontFamily: 'FuturaPT',
+    fontSize: '24px',
+    color: '#434343',
+    height: 'auto',
+    marginTop: '5%',
+    padding: '5px',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+      fontSize: '18px',
+    },
+  },
+  subtitle: {
+    fontFamily: 'FuturaPT',
+    fontSize: '30px',
+    fontWeight: '400',
+    color: '#434343',
+    width: 'auto',
+    height: 'auto',
+    padding: '5px',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      padding: '10px 20px 10px',
+      textAlign: 'center',
+      fontSize: '21px',
+    },
+  },
+  centerImageContainer: {
+    position: 'absolute',
+    pointerEvents: 'none',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'flex-start',
+      paddingBottom: '10px',
+      paddingLeft: '8px',
+    },
+  },
+  centerImage: {
+    width: '350px',
+    height: 'auto',
+    [theme.breakpoints.down('xs')]: {
+      width: '190px',
+      height: 'auto',
+    },
+  },
+});
+
+export default keyVisualStyle;
