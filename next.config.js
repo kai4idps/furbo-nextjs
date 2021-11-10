@@ -29,6 +29,25 @@ module.exports = withBundleAnalyzer({
       };
     }
 
+    if (!isServer && !dev) {
+      config.optimization.splitChunks.cacheGroups = {
+        commons: {
+          name: 'commons',
+
+          minChunks: 2,
+        },
+      };
+
+      // config.optimization.splitChunks.cacheGroups = {
+      //   vendor: {
+      //     test: /node_modules/,
+      //     name: 'vendor',
+      //     chunks: 'all',
+      //     enforce: true,
+      //   },
+      // };
+    }
+
     return config;
   },
   images: {

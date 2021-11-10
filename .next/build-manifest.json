@@ -5,108 +5,80 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/Ee6zOS0w9MQbUq2J7dY5W/_buildManifest.js",
-    "static/Ee6zOS0w9MQbUq2J7dY5W/_ssgManifest.js"
+    "static/UGDrHaAUpCnmsUYg8aWSg/_buildManifest.js",
+    "static/UGDrHaAUpCnmsUYg8aWSg/_ssgManifest.js"
   ],
   "pages": {
     "/": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/pages/index-3470b316eed2572a98bb.js"
+      "static/chunks/pages/index-a5f8bb408950f284b234.js"
     ],
     "/_app": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/framework-d59fe1b9262289c50374.js",
       "static/css/59aaddb0c5800f1029b1.css",
-      "static/chunks/pages/_app-61e63957ed5a6e595615.js"
+      "static/chunks/pages/_app-0787679033ee14132912.js"
     ],
     "/_error": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/pages/_error-737a04e9a0da63c9d162.js"
+      "static/chunks/pages/_error-cc9ed718d2e503e1510e.js"
     ],
     "/ca": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/framework-d59fe1b9262289c50374.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/pages/ca-ba7098ac67d33c962cfa.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca-be80ab89c32030b71043.js"
     ],
     "/ca/pages/brand-story": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/82-a43eb7484fb20dedc480.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/pages/ca/pages/brand-story-a43be4eae6813d924e83.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/pages/brand-story-f4c974b2a60e5076826a.js"
     ],
     "/ca/pages/cart": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/pages/ca/pages/cart-05eb3cce8440cdd8be21.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/pages/cart-097e14e59dd3ae1cfbb7.js"
     ],
     "/ca/pages/designed-for-dogs": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/82-a43eb7484fb20dedc480.js",
-      "static/chunks/679-b24890ca4d7e2303db56.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/441-0314b04f6de377938e04.js",
-      "static/chunks/pages/ca/pages/designed-for-dogs-e6da61c8de4c0861c416.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/pages/designed-for-dogs-5c311f2edc81bcfd74e4.js"
     ],
     "/ca/pages/furbo-for-good": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/82-a43eb7484fb20dedc480.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/441-0314b04f6de377938e04.js",
-      "static/chunks/pages/ca/pages/furbo-for-good-3d6ef2575b0f57e725ed.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/pages/furbo-for-good-c442e8eaab0a352d1682.js"
     ],
     "/ca/pages/order-status": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
+      "static/chunks/commons-14597d3461666932438e.js",
       "static/chunks/717-bfb4ccc7de5e8d9b3e1a.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/pages/ca/pages/order-status-0b3306610ddde8638245.js"
+      "static/chunks/pages/ca/pages/order-status-bfb3e79f4aca7100dff6.js"
     ],
     "/ca/pages/saving-lives": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/82-a43eb7484fb20dedc480.js",
-      "static/chunks/679-b24890ca4d7e2303db56.js",
-      "static/chunks/622-e52e94f46daac7928c1a.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/pages/ca/pages/saving-lives-5d23a9dbcb23157761c6.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/pages/saving-lives-adc0529da24661b22de7.js"
     ],
     "/ca/products/furbo-dog-camera": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/82-a43eb7484fb20dedc480.js",
-      "static/chunks/679-b24890ca4d7e2303db56.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/441-0314b04f6de377938e04.js",
-      "static/chunks/59-ff5a3ec05df70e95e140.js",
-      "static/chunks/pages/ca/products/furbo-dog-camera-f46bcefcf49fa3db2075.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/products/furbo-dog-camera-1d0e997bd0e3c807a915.js"
     ],
     "/ca/products/furbo-dog-nanny": [
-      "static/chunks/webpack-07d9edd3cf7a09ff2ca2.js",
+      "static/chunks/webpack-f47d69457824065d04c3.js",
       "static/chunks/main-84d8cf50d5cd4b596fb4.js",
-      "static/chunks/703-c4cbf8be039375be31fc.js",
-      "static/chunks/82-a43eb7484fb20dedc480.js",
-      "static/chunks/679-b24890ca4d7e2303db56.js",
-      "static/chunks/610-ab8639c57c5f2f8dcbff.js",
-      "static/chunks/441-0314b04f6de377938e04.js",
-      "static/chunks/59-ff5a3ec05df70e95e140.js",
-      "static/chunks/pages/ca/products/furbo-dog-nanny-10beb5df393da22dbab8.js"
+      "static/chunks/commons-14597d3461666932438e.js",
+      "static/chunks/pages/ca/products/furbo-dog-nanny-973587737af5d6a56204.js"
     ]
   },
   "ampFirstPages": []
