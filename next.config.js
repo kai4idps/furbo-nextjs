@@ -31,6 +31,7 @@ module.exports = withBundleAnalyzer({
     if (!isServer && !dev) {
       config.optimization.splitChunks = {
         minSize: 30000,
+        maxSize: 400000,
         chunks: 'all',
         cacheGroups: {
           commons: {
