@@ -20,7 +20,6 @@ module.exports = withBundleAnalyzer({
         'react-dom': 'preact/compat',
         '@material-ui/core': '@material-ui/core/esm',
         '@material-ui/icons': '@material-ui/icons/esm',
-        '@material-ui/icons': '@material-ui/icons/esm',
         '@babel/runtime': path.resolve(
           __dirname,
           'node_modules/@babel/runtime',
@@ -30,14 +29,23 @@ module.exports = withBundleAnalyzer({
     }
 
     if (!isServer && !dev) {
-      config.optimization.splitChunks.cacheGroups = {
-        commons: {
-          name: 'commons',
-
-          minChunks: 2,
+      config.optimization.splitChunks = {
+        minSize: 10000,
+        chunks: 'all',
+        cacheGroups: {
+          commons: {
+            name: 'commons',
+            minChunks: 2,
+          },
         },
       };
-
+      // config.optimization.splitChunks.cacheGroups = {
+      //   commons: {
+      //     name: 'commons',
+      //     minChunks: 2,
+      //   },
+      // };
+      // 2:35
       // config.optimization.splitChunks.cacheGroups = {
       //   vendor: {
       //     test: /node_modules/,
