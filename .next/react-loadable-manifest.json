@@ -1,0 +1,18 @@
+{
+  "ca/index.js -> components/cms/HomeKeyVisual": {
+    "id": 5214,
+    "files": [
+      "static/chunks/214.c665d8b3a7d3a36dbba9.js"
+    ]
+  },
+  "ca/index.js -> components/cms/sections/HomeSection": {
+    "id": 1587,
+    "files": [
+      "static/chunks/82-a43eb7484fb20dedc480.js",
+      "static/chunks/679-b24890ca4d7e2303db56.js",
+      "static/chunks/441-0314b04f6de377938e04.js",
+      "static/chunks/59-ff5a3ec05df70e95e140.js",
+      "static/chunks/587.3cada1d26afc3858a990.js"
+    ]
+  }
+}
