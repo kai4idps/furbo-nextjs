@@ -27,11 +27,13 @@ module.exports = withBundleAnalyzer({
         'react-is': path.resolve(__dirname, 'node_modules/react-is'),
       };
     }
+    // 1 ~ 400k
+    // 10000 ~ 400k
 
     if (!isServer && !dev) {
       config.optimization.splitChunks = {
-        minSize: 30000,
-        maxSize: 400000,
+        minSize: 1,
+        maxSize: 200000,
         chunks: 'all',
         cacheGroups: {
           commons: {
