@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 const path = require('path');
 
-module.exports = withBundleAnalyzer({
+module.exports = {
   reactStrictMode: false,
   async redirects() {
     return Redirect;
@@ -32,7 +32,7 @@ module.exports = withBundleAnalyzer({
 
     if (!isServer && !dev) {
       config.optimization.splitChunks = {
-        minSize: 10000,
+        minSize: 1,
         maxSize: 300000,
         chunks: 'all',
         cacheGroups: {
@@ -42,21 +42,6 @@ module.exports = withBundleAnalyzer({
           },
         },
       };
-      // config.optimization.splitChunks.cacheGroups = {
-      //   commons: {
-      //     name: 'commons',
-      //     minChunks: 2,
-      //   },
-      // };
-      // 2:35
-      // config.optimization.splitChunks.cacheGroups = {
-      //   vendor: {
-      //     test: /node_modules/,
-      //     name: 'vendor',
-      //     chunks: 'all',
-      //     enforce: true,
-      //   },
-      // };
     }
 
     return config;
@@ -64,4 +49,4 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ['images.prismic.io', 'furbo-prismic.cdn.prismic.io'],
   },
-});
+};
