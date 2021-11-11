@@ -6,43 +6,11 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
-import LearnButton from 'components/cms/elements/LearnButton';
-import CustomButton from 'components/cms/elements/CustomButton';
-import ShopButton from 'components/cms/elements/ShopButton';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
+import RenderButtonSlice from 'components/cms/RenderButtonSlice';
 import styles from './twoCardsSliceStyle.js';
 
 const useStyles = makeStyles(styles);
-
-const renderSlice = (slice) => {
-  if (slice.type === 'learn_button') {
-    return (
-      <LearnButton
-        color={slice.data.color}
-        learnButtonText={slice.data.learn_button_text}
-        link={slice.data.link}
-      />
-    );
-  } else if (slice.type === 'shop_button') {
-    return (
-      <ShopButton
-        shopButtonText={slice.data.shop_button_text}
-        center={slice.data.center}
-      />
-    );
-  } else if (slice.type === 'custom_button') {
-    return (
-      <CustomButton
-        color={slice.data.color}
-        text={slice.data.text}
-        link={slice.data.link}
-        center={slice.data.center}
-      />
-    );
-  } else {
-    return null;
-  }
-};
 
 const TwoCardsSlice = (props) => {
   const classes = useStyles();
@@ -97,7 +65,7 @@ const TwoCardsSlice = (props) => {
                       {RichText.render(item.card_text)}
                     </div>
                     <div className={classes.slice}>
-                      {renderSlice(item.card_content)}
+                      {RenderButtonSlice(item.card_content)}
                     </div>
                   </CardContent>
                 </Card>

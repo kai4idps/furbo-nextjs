@@ -1,5 +1,5 @@
 const Redirect = require('./config/redirect');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   reactStrictMode: false,
@@ -7,15 +7,15 @@ module.exports = {
     return Redirect;
   },
   webpack: (config, { dev, isServer }) => {
-    if (dev) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'server',
-          analyzerPort: 8888,
-          openAnalyzer: true,
-        }),
-      );
-    }
+    // if (dev) {
+    //   config.plugins.push(
+    //     new BundleAnalyzerPlugin({
+    //       analyzerMode: 'server',
+    //       analyzerPort: 8888,
+    //       openAnalyzer: true,
+    //     }),
+    //   );
+    // }
     if (!dev && !isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
