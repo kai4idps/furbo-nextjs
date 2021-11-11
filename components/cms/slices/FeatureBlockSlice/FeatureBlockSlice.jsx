@@ -7,11 +7,19 @@ import Image from 'components/Image';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
-import RenderButtonSlice from 'components/cms/RenderButtonSlice';
+import GridElement from 'components/cms/elements/GridElement';
 import styles from './featureBlockSliceStyle';
 import { isEmpty } from 'src/helpers';
 
 const useStyles = makeStyles(styles);
+
+const renderSlice = (slice) => {
+  if (slice.type === 'grid_element') {
+    return <GridElement gridContent={slice.data.content} />;
+  } else {
+    return null;
+  }
+};
 
 const FeatureBlockSlice = (props) => {
   const {
@@ -98,7 +106,7 @@ const FeatureBlockSlice = (props) => {
               {RichText.render(textContent)}
             </div>
             {React.Children.toArray(
-              content.map((slice) => RenderButtonSlice(slice.content)),
+              content.map((slice) => renderSlice(slice.content)),
             )}
           </Grid>
           {gridAlign === 'Right' && (

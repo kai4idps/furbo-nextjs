@@ -5,11 +5,37 @@ import PropTypes from 'prop-types';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
-import RenderButtonSlice from 'components/cms/RenderButtonSlice';
+import VideoButton from 'components/cms/elements/VideoButton';
+import ShopButton from 'components/cms/elements/ShopButton';
 import { isEmpty } from 'src/helpers';
 import styles from './homeKeyVisualStyle.js';
 
 const useStyles = makeStyles(styles);
+
+const renderSlice = (slice) => {
+  if (slice.type === 'video_button') {
+    return (
+      <VideoButton
+        embedVideoLink={`${slice.data.video_link.embed_url.replace(
+          'watch?v=',
+          'embed/',
+        )}?enablejsapi=1`}
+        watchVideoText={slice.data.watch_video_text}
+        center={slice.data.center}
+        textColor={slice.data.text_color}
+      />
+    );
+  } else if (slice.type === 'shop_button') {
+    return (
+      <ShopButton
+        shopButtonText={slice.data.shop_button_text}
+        center={slice.data.center}
+      />
+    );
+  } else {
+    return null;
+  }
+};
 
 const HomeKeyVisual = ({ campaign }) => {
   const classes = useStyles();
@@ -45,9 +71,7 @@ const HomeKeyVisual = ({ campaign }) => {
               {RichText.render(campaign.subtitle)}
             </div>
             {React.Children.toArray(
-              campaign.content.map((slice) =>
-                RenderButtonSlice(slice.content_array),
-              ),
+              campaign.content.map((slice) => renderSlice(slice.content_array)),
             )}
           </div>
         </Grid>

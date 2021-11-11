@@ -4,13 +4,51 @@ import { RichText } from 'prismic-reactjs';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
-import RenderButtonSlice from 'components/cms/RenderButtonSlice';
+import VideoButton from 'components/cms/elements/VideoButton';
+import ShopButton from 'components/cms/elements/ShopButton';
+import LearnButton from 'components/cms/elements/LearnButton';
+import GridElement from 'components/cms/elements/GridElement';
 import Image from 'components/Image';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
 import { isEmpty } from 'src/helpers';
 import styles from './keyVisualSliceStyle.js';
 
 const useStyles = makeStyles(styles);
+
+const renderSlice = (slice) => {
+  if (slice.type === 'video_button') {
+    return (
+      <VideoButton
+        embedVideoLink={`${slice.data.video_link.embed_url.replace(
+          'watch?v=',
+          'embed/',
+        )}?enablejsapi=1`}
+        watchVideoText={slice.data.watch_video_text}
+        center={slice.data.center}
+        textColor={slice.data.text_color}
+      />
+    );
+  } else if (slice.type === 'shop_button') {
+    return (
+      <ShopButton
+        shopButtonText={slice.data.shop_button_text}
+        center={slice.data.center}
+      />
+    );
+  } else if (slice.type === 'learn_button') {
+    return (
+      <LearnButton
+        color={slice.data.color}
+        learnButtonText={slice.data.learn_button_text}
+        link={slice.data.link}
+      />
+    );
+  } else if (slice.type === 'grid_element') {
+    return <GridElement gridContent={slice.data.content} />;
+  } else {
+    return null;
+  }
+};
 
 const getGridSize = (align) => {
   if (align === 'Left') {
@@ -128,7 +166,7 @@ const KeyVisualSlice = (props) => {
                 {RichText.render(subtitle)}
               </div>
               {React.Children.toArray(
-                content.map((slice) => RenderButtonSlice(slice.content)),
+                content.map((slice) => renderSlice(slice.content)),
               )}
             </div>
           </Grid>
