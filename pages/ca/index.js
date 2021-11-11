@@ -1,9 +1,10 @@
 import HomeKeyVisual from 'components/cms/HomeKeyVisual';
-import HomeSection from 'components/cms/sections/HomeSection';
+// import HomeSection from 'components/cms/sections/HomeSection';
 import BaseLayout from 'components/layout/BaseLayout';
 import SeoManager from 'components/SeoManager';
 import { wrapper } from 'redux/configureStore';
 import { updateRegion } from 'redux/features/region/regionSlice';
+import dynamic from 'next/dynamic';
 import {
   fetchCampaignData,
   fetchHomepageData,
@@ -14,6 +15,9 @@ import { REVALIDATE_TIME } from 'config/common';
 import { REGION_INFO } from 'config/navigation';
 
 const Home = ({ campaign, homepage, seo, content }) => {
+  const HomeSection = dynamic(() =>
+    import('components/cms/sections/HomeSection'),
+  );
   return (
     <div style={{ backgroundColor: 'white' }}>
       <SeoManager seo={seo} />

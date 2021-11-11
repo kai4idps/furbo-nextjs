@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true next build"
+    "analyze": "ANALYZE=1 next build"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
