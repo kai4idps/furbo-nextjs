@@ -50,7 +50,7 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>Furbo</title>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Redirect />
       <ThemeProvider theme={theme}>
