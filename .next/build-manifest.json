@@ -1,174 +1,38 @@
 {
   "polyfillFiles": [
-    "static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js"
+    "static/chunks/polyfills.js"
   ],
-  "devFiles": [],
-  "ampDevFiles": [],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [
+    "static/chunks/webpack.js",
+    "static/chunks/amp.js"
+  ],
   "lowPriorityFiles": [
-    "static/17Bo2Pcuj9gCx22Gv_uKJ/_buildManifest.js",
-    "static/17Bo2Pcuj9gCx22Gv_uKJ/_ssgManifest.js"
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
   ],
   "pages": {
     "/": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/pages/index-c7515cc378d19f92bd33.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/290-85dac37cc909180ea1a1.js",
-      "static/css/35b66d25603809c02305.css",
-      "static/chunks/789-c40d92eca87df1ce671c.js",
-      "static/css/cc7a45f53ff4f18bd2cd.css",
-      "static/chunks/pages/_app-a97b98ccc3cc8caf031f.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/pages/_error-52ff006aec9ac5093028.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/_error.js"
     ],
     "/ca": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/pages/ca-221d3d19d782a4acdf46.js"
-    ],
-    "/ca/pages/brand-story": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/pages/ca/pages/brand-story-5f0e275652a03d4bbeaa.js"
-    ],
-    "/ca/pages/cart": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/837-ca0f45e69e4ef475bb68.js",
-      "static/chunks/pages/ca/pages/cart-24491960c3dc5de4ad96.js"
-    ],
-    "/ca/pages/designed-for-dogs": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/pages/ca/pages/designed-for-dogs-b1956a3f82eb678450c3.js"
-    ],
-    "/ca/pages/furbo-for-good": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/pages/ca/pages/furbo-for-good-d63b7411116ad803ac9b.js"
-    ],
-    "/ca/pages/order-status": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/717-928c0a1542f24b87e6e3.js",
-      "static/chunks/pages/ca/pages/order-status-2dd11d9cdfbae2f53714.js"
-    ],
-    "/ca/pages/saving-lives": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/857-984aad1693aa07919d37.js",
-      "static/chunks/pages/ca/pages/saving-lives-abe3f4d1afa940f13a98.js"
-    ],
-    "/ca/products/furbo-dog-camera": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/956-d06cba901761636ed6be.js",
-      "static/chunks/pages/ca/products/furbo-dog-camera-a3e64a3fe923830afa10.js"
-    ],
-    "/ca/products/furbo-dog-nanny": [
-      "static/chunks/webpack-f47d69457824065d04c3.js",
-      "static/chunks/457-9f3b5d3a3869272ff5cb.js",
-      "static/chunks/main-6e4d81b027bbd3054bb1.js",
-      "static/chunks/commons-4d5b3902-e7304161b1f471109e8a.js",
-      "static/chunks/commons-e0a47e20-c5432f9f69a543d0a7c2.js",
-      "static/chunks/commons-d219ec2a-9289b01dd2a8c90321aa.js",
-      "static/chunks/commons-536eaa00-5ac4eebd6b8b4dbf3c83.js",
-      "static/chunks/commons-f82e0cd2-131df6cd907dc7ddbee8.js",
-      "static/chunks/commons-bafb76e9-7ceeee2eaa235913e837.js",
-      "static/chunks/commons-91c40cd8-80550636cb357863728d.js",
-      "static/chunks/commons-561efae2-6b9ef2f9b160ee19b599.js",
-      "static/chunks/commons-bdadbf06-edd8d7392f7bdfc14ff1.js",
-      "static/chunks/pages/ca/products/furbo-dog-nanny-dc66b2d9bd0968547f5a.js"
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/ca.js"
     ]
   },
   "ampFirstPages": []
