@@ -1,7 +1,16 @@
 {
+  "/[region]": "pages/[region].js",
+  "/[region]/pages/brand-story": "pages/[region]/pages/brand-story.js",
+  "/[region]/pages/cart": "pages/[region]/pages/cart.js",
+  "/[region]/pages/designed-for-dogs": "pages/[region]/pages/designed-for-dogs.js",
+  "/[region]/pages/furbo-for-good": "pages/[region]/pages/furbo-for-good.js",
+  "/[region]/pages/order-status": "pages/[region]/pages/order-status.js",
+  "/[region]/pages/saving-lives": "pages/[region]/pages/saving-lives.js",
+  "/[region]/products/furbo-dog-camera": "pages/[region]/products/furbo-dog-camera.js",
+  "/[region]/products/furbo-dog-nanny": "pages/[region]/products/furbo-dog-nanny.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/": "pages/index.html",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js",
-  "/ca": "pages/ca.js"
+  "/404": "pages/404.html"
 }

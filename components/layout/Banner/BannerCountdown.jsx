@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { RichText } from 'prismic-reactjs';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
+import { fetchUnitCount } from 'redux/features/product/productSlice';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
@@ -10,12 +12,14 @@ import styles from './bannerStyle';
 
 const useStyles = makeStyles(styles);
 
-const BannerCountdown = () => {
+const BannerCountdown = ({ campaign }) => {
   const classes = useStyles();
-  const campaign = useSelector((state) => state.prismic.campaign);
+  const dispatch = useDispatch();
+  const unitCount = useSelector((state) => state.productInfo.unitCount);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const [timeLeft, setTimeLeft] = useState();
+  const [unitCountArray, setUnitCountArray] = useState([]);
 
   const calculateTimeLeft = () => {
     const now = new Date().getTime();
@@ -39,7 +43,20 @@ const BannerCountdown = () => {
     };
   }, []);
 
-  if (isEmpty(timeLeft)) {
+  useEffect(() => {
+    dispatch(fetchUnitCount());
+  }, []);
+
+  useEffect(() => {
+    if (!isEmpty(unitCount)) {
+      setUnitCountArray(unitCount.toString().split(''));
+    }
+  }, [unitCount]);
+
+  if (
+    campaign.banner_type.includes('Sales End Countdown') &&
+    isEmpty(timeLeft)
+  ) {
     return <div className={classes.container} />;
   }
 
@@ -168,12 +185,16 @@ const BannerCountdown = () => {
                 </div>
               )}
               {campaign.units_remaining_text.split('{units}')[0]}
-              <span className={classes.units}>
-                <span className={classes.unitsDigit}>9</span>
-              </span>
-              <span className={classes.units} style={{ marginLeft: 0 }}>
-                <span className={classes.unitsDigit}>9</span>
-              </span>
+              {unitCountArray.map((count, index) => (
+                <span
+                  className={classes.units}
+                  style={{
+                    marginLeft: index !== 0 ? 0 : null,
+                  }}
+                >
+                  <span className={classes.unitsDigit}>{count}</span>
+                </span>
+              ))}
               {campaign.units_remaining_text.split('{units}')[1]}
               {smDown && !isEmpty(campaign.banner_image_right) && (
                 <div className={classes.rightImgCountdown}>
@@ -203,6 +224,10 @@ const BannerCountdown = () => {
   }
 
   return null;
+};
+
+BannerCountdown.propTypes = {
+  campaign: PropTypes.object,
 };
 
 export default BannerCountdown;

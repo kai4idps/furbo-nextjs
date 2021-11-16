@@ -3,7 +3,6 @@ import { useTheme, makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import styles from './customButtonStyle';
 
 const useStyles = makeStyles(styles);
@@ -12,9 +11,15 @@ const CustomButton = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const { className, text, color, link, center } = props;
+  const { className, text, color, link = '', center } = props;
   const btnClasses = `${classes.button} ${className || null}`;
-  const router = useRouter();
+
+  const handleGaEvent = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_click',
+    });
+  };
 
   return (
     <div
@@ -26,7 +31,6 @@ const CustomButton = (props) => {
       <Link
         href={{
           pathname: link.url,
-          query: router.query,
         }}
         passHref
       >
@@ -38,6 +42,7 @@ const CustomButton = (props) => {
               backgroundgetColor: color,
             },
           }}
+          onClick={handleGaEvent}
         >
           {text}
         </Button>

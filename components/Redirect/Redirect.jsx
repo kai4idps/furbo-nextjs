@@ -11,7 +11,7 @@ const Redirect = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const path = router.pathname.split('/')[1];
+    const path = router.query.region;
     const matchInfo =
       VALID_ROUTES.find((route) => route.path === `/${path}`) ||
       VALID_ROUTES[0];

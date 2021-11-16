@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import styles from './shopButtonStyle';
 
 const useStyles = makeStyles(styles);
@@ -13,18 +12,25 @@ const ShopButton = ({ className, text }) => {
   const classes = useStyles();
   const btnClasses = `${classes.button} ${className || null}`;
   const region = useSelector((state) => state.region.code);
-  const router = useRouter();
+
+  const handleGaEvent = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_click',
+    });
+  };
 
   return (
     <div className={classes.root}>
       <Link
         href={{
           pathname: `/${region}/products/furbo-dog-camera`,
-          query: router.query,
         }}
         passHref
       >
-        <Button className={btnClasses}>{text}</Button>
+        <Button className={btnClasses} onClick={handleGaEvent}>
+          {text}
+        </Button>
       </Link>
     </div>
   );

@@ -44,7 +44,7 @@ const getTitle = (title, content) => {
   } else if (title === 'Europe') {
     return content.europe;
   } else if (title === 'Asia-Pacific') {
-    return content.["asia-pacific"];
+    return content['asia-pacific'];
   }
 };
 
@@ -81,19 +81,21 @@ const RegionDialog = ({ open, handleClose, content }) => {
               }
             }}
           >
-              <div className={classes.dialogContentHeader}>
-                <div className={classes.headerTitle}>
-                  {content.visit_your_location}
-                </div>
-                <Close className={classes.closeIcon} onClick={handleClose} />
+            <div className={classes.dialogContentHeader}>
+              <div className={classes.headerTitle}>
+                {content.visit_your_location}
               </div>
-              <div className={classes.underLine} />
-              {React.Children.toArray(Object.values(regionInfo).map((info, index) => (
+              <Close className={classes.closeIcon} onClick={handleClose} />
+            </div>
+            <div className={classes.underLine} />
+            {React.Children.toArray(
+              Object.values(regionInfo).map((info, index) => (
                 <ContinentBlock
                   title={getTitle(Object.keys(regionInfo)[index], content)}
                   info={info}
                 />
-              )))}
+              )),
+            )}
           </DialogContent>
         </Dialog>
       </Hidden>

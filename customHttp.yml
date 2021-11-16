@@ -1,0 +1,5 @@
+customHeaders:
+  - pattern: '*.json'
+    headers:
+      - key: 'Cache-Control' 
+        value: 's-maxage=600'

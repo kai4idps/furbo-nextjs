@@ -15,14 +15,12 @@ import RegionDialog from 'components/RegionDialog';
 import { REGION_INFO } from 'config/navigation';
 import { PAGE_KEYS } from 'config/routes/routes';
 import styles from './headerLinksStyle';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const useStyles = makeStyles(styles);
 
 const HeaderButton = ({ item, onClick, showIcon = true }) => {
   const classes = useStyles();
-  const router = useRouter();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -30,7 +28,6 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
     <Link
       href={{
         pathname: item.path,
-        query: router.query,
       }}
       passHref
     >

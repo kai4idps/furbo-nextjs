@@ -1,10 +1,18 @@
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Header from 'components/layout/Header';
-import Footer from 'components/layout/Footer';
+// import Header from 'components/layout/Header';
+// import Footer from 'components/layout/Footer';
 import styles from './baseLayoutStyle';
+
+const DynamicHeader = dynamic(() => import('components/layout/Header'), {
+  loading: () => <p>...</p>,
+});
+const DynamicFooter = dynamic(() => import('components/layout/Footer'), {
+  loading: () => <p>...</p>,
+});
 const useStyles = makeStyles(styles);
 
 const BaseLayout = ({ children, campaign, content }) => {
@@ -13,7 +21,7 @@ const BaseLayout = ({ children, campaign, content }) => {
   const isCountdown = campaign.banner_type.includes('Countdown');
   return (
     <>
-      <Header
+      <DynamicHeader
         campaign={campaign}
         drawerOpen={drawerOpen}
         setDrawerOpen={setDrawerOpen}
@@ -27,7 +35,7 @@ const BaseLayout = ({ children, campaign, content }) => {
       >
         {children}
       </Container>
-      <Footer content={content} />
+      <DynamicFooter content={content} />
     </>
   );
 };

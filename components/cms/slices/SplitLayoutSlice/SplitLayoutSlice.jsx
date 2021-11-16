@@ -1,39 +1,14 @@
-import React from 'react';
+import { Children } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { RichText } from 'prismic-reactjs';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
-import ShopButton from 'components/cms/elements/ShopButton';
-import LearnButton from 'components/cms/elements/LearnButton';
-import GridElement from 'components/cms/elements/GridElement';
+import RenderElement from 'components/cms/RenderElement';
 import styles from './splitLayoutSliceStyle';
 
 const useStyles = makeStyles(styles);
-
-const renderSlice = (slice) => {
-  if (slice.type === 'shop_button') {
-    return (
-      <ShopButton
-        shopButtonText={slice.data.shop_button_text}
-        center={slice.data.center}
-      />
-    );
-  } else if (slice.type === 'learn_button') {
-    return (
-      <LearnButton
-        color={slice.data.color}
-        learnButtonText={slice.data.learn_button_text}
-        link={slice.data.link}
-      />
-    );
-  } else if (slice.type === 'grid_element') {
-    return <GridElement gridContent={slice.data.content} />;
-  } else {
-    return null;
-  }
-};
 
 const SplitLayoutSlice = (props) => {
   const classes = useStyles();
@@ -71,8 +46,13 @@ const SplitLayoutSlice = (props) => {
             <div className={classes.title}>{RichText.render(title)}</div>
             <div className={classes.subtitle}>{RichText.render(subtitle)}</div>
             <div className={classes.content}>
-              {React.Children.toArray(
-                content.map((slice) => renderSlice(slice.content)),
+              {Children.toArray(
+                content.map((slice) => (
+                  <RenderElement
+                    type={slice.content.type}
+                    data={slice.content.data}
+                  />
+                )),
               )}
             </div>
           </Grid>

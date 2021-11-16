@@ -12,6 +12,16 @@ class MyDocument extends Document {
             href="https://furbo-prismic.cdn.prismic.io/api/v2"
           />
           <link rel="icon" href="/favicon.ico" />
+          <meta
+            property="og:image"
+            content="https://images.prismic.io/furbo-prismic/732245b0-8bee-4adf-905e-b7e0064c8874_preview.jpg?auto=compress,format"
+          />
+          <meta
+            property="og:image:secure_url"
+            content="https://images.prismic.io/furbo-prismic/732245b0-8bee-4adf-905e-b7e0064c8874_preview.jpg?auto=compress,format"
+          />
+          <meta property="og:image:width" content="600" />
+          <meta property="og:image:height" content="314" />
         </Head>
         <body>
           <img

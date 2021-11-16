@@ -43,11 +43,11 @@ const bannerStyle = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0px 20px 0px 10px',
+    margin: '0px 10px 0px 10px',
     width: '40px',
     height: '40px',
     '@media (max-width: 350px)': {
-      margin: '0px 10px 0px 10px',
+      margin: '0px 5px 0px 5px',
       width: '35px',
       height: '35px',
     },
@@ -56,11 +56,11 @@ const bannerStyle = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '0px 10px 0px 20px',
+    margin: '0px 10px 0px 10px',
     width: '40px',
     height: '40px',
     '@media (max-width: 350px)': {
-      margin: '0px 10px 0px 10px',
+      margin: '0px 5px 0px 5px',
       width: '35px',
       height: '35px',
     },
@@ -148,6 +148,10 @@ const bannerStyle = (theme) => ({
       width: '28px',
       height: '38px',
     },
+    '@media (max-width: 350px)': {
+      width: '23px',
+      height: '33px',
+    },
   },
   unitsDigit: {
     fontSize: '20px',
@@ -156,6 +160,10 @@ const bannerStyle = (theme) => ({
     height: 'auto',
     fontWeight: 'bold',
     fontFamily: 'Avenir',
+    '@media (max-width: 350px)': {
+      fontSize: '18px',
+      lineHeight: '18px',
+    },
   },
 });
 

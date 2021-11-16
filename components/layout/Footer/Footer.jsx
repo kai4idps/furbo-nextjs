@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -69,7 +68,6 @@ const date = new Date();
 
 const Footer = ({ content }) => {
   const classes = useStyles();
-  const router = useRouter();
   const region = useSelector((state) => state.region.code);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'), { noSsr: true });
@@ -181,7 +179,6 @@ const Footer = ({ content }) => {
                     <Link
                       href={{
                         pathname: info.link,
-                        query: router.query,
                       }}
                       passHref
                     >

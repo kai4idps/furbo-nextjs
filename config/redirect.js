@@ -1,9 +1,9 @@
 const Redirect = [
-  {
-    source: '/us',
-    destination: 'https://shopus.furbo.com',
-    permanent: false,
-  },
+  // {
+  //   source: '/us',
+  //   destination: 'https://shopus.furbo.com',
+  //   permanent: false,
+  // },
   {
     source: '/mx',
     destination: 'https://shopmx.furbo.com',
@@ -14,11 +14,11 @@ const Redirect = [
     destination: 'https://shopuk.furbo.com',
     permanent: false,
   },
-  {
-    source: '/de',
-    destination: 'https://shopde.furbo.com',
-    permanent: false,
-  },
+  // {
+  //   source: '/de',
+  //   destination: 'https://shopde.furbo.com',
+  //   permanent: false,
+  // },
   {
     source: '/fr',
     destination: 'https://shopfr.furbo.com',

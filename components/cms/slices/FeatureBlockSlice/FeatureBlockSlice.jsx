@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { RichText } from 'prismic-reactjs';
@@ -7,19 +7,11 @@ import Image from 'components/Image';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
-import GridElement from 'components/cms/elements/GridElement';
+import RenderElement from 'components/cms/RenderElement';
 import styles from './featureBlockSliceStyle';
 import { isEmpty } from 'src/helpers';
 
 const useStyles = makeStyles(styles);
-
-const renderSlice = (slice) => {
-  if (slice.type === 'grid_element') {
-    return <GridElement gridContent={slice.data.content} />;
-  } else {
-    return null;
-  }
-};
 
 const FeatureBlockSlice = (props) => {
   const {
@@ -36,6 +28,7 @@ const FeatureBlockSlice = (props) => {
     content,
   } = props;
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <VisibleSensorAnimation animation="grow">
@@ -105,8 +98,13 @@ const FeatureBlockSlice = (props) => {
             <div className={classes.textContent}>
               {RichText.render(textContent)}
             </div>
-            {React.Children.toArray(
-              content.map((slice) => renderSlice(slice.content)),
+            {Children.toArray(
+              content.map((slice) => (
+                <RenderElement
+                  type={slice.content.type}
+                  data={slice.content.data}
+                />
+              )),
             )}
           </Grid>
           {gridAlign === 'Right' && (

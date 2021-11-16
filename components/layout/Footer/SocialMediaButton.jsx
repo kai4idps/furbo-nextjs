@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
-import { useRouter } from 'next/router';
 import IconButton from '@material-ui/core/IconButton';
 import Facebook from '@material-ui/icons/Facebook';
 import Instagram from '@material-ui/icons/Instagram';
@@ -29,12 +28,10 @@ SocialMediaIcon.propTypes = {
 
 const SocialMediaButton = ({ info }) => {
   const classes = useStyles();
-  const router = useRouter();
   return (
     <Link
       href={{
         pathname: info.link,
-        query: router.query,
       }}
       passHref
     >

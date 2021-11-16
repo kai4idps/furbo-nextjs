@@ -1,21 +1,19 @@
 const Redirect = require('./config/redirect');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { ANALYZE } = process.env;
 
 module.exports = {
   reactStrictMode: false,
+  swcMinify: true,
   async redirects() {
     return Redirect;
   },
   webpack: (config, { dev, isServer }) => {
-    // if (dev) {
-    // config.plugins.push(
-    //   new BundleAnalyzerPlugin({
-    //     analyzerMode: 'server',
-    //     analyzerPort: 8888,
-    //     openAnalyzer: true,
-    //   }),
-    // );
-    // }
+    if (!isServer) {
+      if (ANALYZE) {
+        config.plugins.push(new BundleAnalyzerPlugin());
+      }
+    }
     if (!dev && !isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
@@ -26,7 +24,6 @@ module.exports = {
         '@material-ui/icons': '@material-ui/icons/esm',
       };
       config.optimization.splitChunks = {
-        minSize: 1,
         maxSize: 300000,
         chunks: 'all',
         cacheGroups: {

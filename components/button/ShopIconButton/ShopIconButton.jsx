@@ -4,7 +4,6 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { SHOP_ICON_SVG } from 'config/images/header';
 import styles from './shopIconButtonStyle';
 
@@ -13,17 +12,22 @@ const useStyles = makeStyles(styles);
 const ShopIconButton = () => {
   const classes = useStyles();
   const region = useSelector((state) => state.region.code);
-  const router = useRouter();
+
+  const handleGaEvent = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_click',
+    });
+  };
 
   return (
     <Link
       href={{
         pathname: `/${region}/products/furbo-dog-camera`,
-        query: router.query,
       }}
       passHref
     >
-      <IconButton className={classes.button}>
+      <IconButton className={classes.button} onClick={handleGaEvent}>
         <Icon className={classes.image}>
           <Image
             alt="furbo-logo"

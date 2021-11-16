@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { LOCALE_API } from 'config/common';
 import { REGION_INFO } from 'config/navigation';
-import { HYDRATE } from 'next-redux-wrapper';
 import axios from 'axios';
 import { FLAG_US } from 'config/images/flags';
+
 const initialState = {
   country: null,
   language: null,
@@ -36,18 +36,12 @@ export const regionSlice = createSlice({
     fallbackRegion: (state) => {
       state.country = 'United State';
       state.code = 'us';
-      state.language = 'en-US';
+      state.language = 'en-us';
       state.group = 'Americas';
       state.image = FLAG_US;
     },
   },
   extraReducers: {
-    [HYDRATE]: (state, action) => {
-      return {
-        ...state,
-        ...action.payload.example,
-      };
-    },
     [fetchRegion.pending]: (state, action) => {
       state.status = 'loading';
     },

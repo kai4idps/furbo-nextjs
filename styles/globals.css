@@ -2,8 +2,8 @@
   font-family: 'FuturaPT';
   font-style: normal;
   font-display: swap;
-  src: url('public/assets/fonts/FuturaPT.woff2') format('woff2'),
-    url('public/assets/fonts/FuturaPT.woff') format('woff');
+  src: url('../public/assets/fonts/FuturaPT.woff2') format('woff2'),
+    url('../public/assets/fonts/FuturaPT.woff') format('woff');
   unicode-range: U+000-5FF;
 }
 
@@ -11,8 +11,8 @@
   font-family: 'Avenir';
   font-style: normal;
   font-display: swap;
-  src: url('public/assets/fonts/Avenir.woff2') format('woff2'),
-    url('public/assets/fonts/Avenir.woff') format('woff');
+  src: url('../public/assets/fonts/Avenir.woff2') format('woff2'),
+    url('../public/assets/fonts/Avenir.woff') format('woff');
   unicode-range: U+000-5FF;
 }
 
@@ -46,7 +46,7 @@ a {
 }
 
 .carousel.control-next.control-arrow {
-  background-image: url('public/assets/images/general/right.svg');
+  background-image: url('../public/assets/images/general/right.svg');
   background-color: transparent;
   background-size: contain;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@ a {
 }
 
 .carousel.control-prev.control-arrow {
-  background-image: url('public/assets/images/general/left.svg');
+  background-image: url('../public/assets/images/general/left.svg');
   background-color: transparent;
   background-size: contain;
   background-repeat: no-repeat;

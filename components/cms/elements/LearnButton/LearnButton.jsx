@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import styles from './learnButtonStyle';
 
 const useStyles = makeStyles(styles);
@@ -40,14 +39,19 @@ const LearnButton = (props) => {
   const { className, learnButtonText, color, link } = props;
   const btnClasses = `${classes.button} ${className || null}`;
   const region = useSelector((state) => state.region.code);
-  const router = useRouter();
+
+  const handleGaEvent = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_click',
+    });
+  };
 
   return (
     <div className={classes.root}>
       <Link
         href={{
           pathname: `/${region}/${getPath(link)}`,
-          query: router.query,
         }}
         passHref
       >
@@ -60,6 +64,7 @@ const LearnButton = (props) => {
               backgroundgetColor: getColor(color),
             },
           }}
+          onClick={handleGaEvent}
         >
           {learnButtonText}
         </Button>

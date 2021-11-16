@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.furbo.com
+
+# Sitemaps
+Sitemap: https://www.furbo.com/sitemap.xml

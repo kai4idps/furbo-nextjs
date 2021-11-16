@@ -13,10 +13,24 @@ const ShopButton = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const { className, shopButtonText, center = false, onClick } = props;
+  const {
+    className,
+    shopButtonText,
+    center = false,
+    onClick = () => {},
+  } = props;
   const btnClasses = `${classes.button} ${className || null}`;
   const region = useSelector((state) => state.region.code);
   const router = useRouter();
+
+  const buttonOnClick = () => {
+    onClick();
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_click',
+    });
+  };
+
   return (
     <div
       className={classes.root}
@@ -30,11 +44,10 @@ const ShopButton = (props) => {
             router.pathname === `/${region}/products/furbo-dog-camera`
               ? `/${region}/pages/cart`
               : `/${region}/products/furbo-dog-camera`,
-          query: router.query,
         }}
         passHref
       >
-        <Button className={btnClasses} onClick={onClick}>
+        <Button className={btnClasses} onClick={buttonOnClick}>
           {shopButtonText}
         </Button>
       </Link>

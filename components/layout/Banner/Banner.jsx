@@ -15,7 +15,6 @@ const BannerContent = ({ campaign }) => {
   const classes = useStyles();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
     <div className={classes.root}>
       <div
@@ -37,11 +36,13 @@ const BannerContent = ({ campaign }) => {
         <span
           className={classes.bannerContent}
           style={{
-            fontSize: smDown ? campaign.mobile_font_size : '16px',
+            fontSize: smDown ? campaign.mobile_font_size : campaign.font_size,
           }}
         >
           <RichText
-            render={campaign.banner_content}
+            render={
+              smDown ? campaign.mobile_banner_content : campaign.banner_content
+            }
             htmlSerializer={customHtml}
           />
         </span>
@@ -73,7 +74,7 @@ const Banner = ({ campaign }) => {
       transitionTime={isCountdown ? 500 : 0}
     >
       {isContent && <BannerContent campaign={campaign} />}
-      {isCountdown && <BannerCountdown />}
+      {isCountdown && <BannerCountdown campaign={campaign} />}
     </Carousel>
   );
 };

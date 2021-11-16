@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { ACCOUNT_ICON_SVG } from 'config/images/header';
 import styles from './accountButtonStyle';
 
@@ -12,17 +11,25 @@ const useStyles = makeStyles(styles);
 
 const AccountButton = ({ text, className }) => {
   const classes = useStyles();
-  const router = useRouter();
+
+  const handleGaEvent = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'cta_click',
+    });
+  };
 
   return (
     <Link
       href={{
         pathname: 'https://furbo.com/account',
-        query: router.query,
       }}
       passHref
     >
-      <Button className={`${classes.button} ${className}`}>
+      <Button
+        className={`${classes.button} ${className}`}
+        onClick={handleGaEvent}
+      >
         <Icon className={classes.image}>
           <Image
             alt="furbo-logo"

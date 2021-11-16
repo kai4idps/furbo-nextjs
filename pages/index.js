@@ -1,24 +1,6 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import { fetchRegion } from 'redux/features/region/regionSlice';
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const region = useSelector((state) => state.region);
-  const router = useRouter();
-
-  useEffect(() => {
-    dispatch(fetchRegion());
-  }, []);
-
-  useEffect(() => {
-    if (region.status === 'succeeded') {
-      router.push(`${region.code}`);
-    }
-  }, [region]);
-
   return (
     <Head>
       <title>
