@@ -46,7 +46,7 @@ const MyApp = ({ Component, pageProps }) => {
       setTimeout(initGtm, GTM_DELAY_TIME);
     });
   }, []);
-  console.log('test-deploy');
+
   return (
     <>
       <Head>
