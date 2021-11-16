@@ -5,10 +5,11 @@
   "scripts": {
     "clear": "rm -rf node_modules; rm -rf .next",
     "dev": "next dev -p 3032",
-    "build": "next build",
+    "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=1 next build"
+    "analyze": "ANALYZE=1 next build",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -47,6 +48,7 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "next-sitemap": "^1.6.203",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   }
