@@ -12,7 +12,7 @@ const CustomButton = (props) => {
   const theme = useTheme();
   // const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const smDown = useMediaQuery(theme.breakpoints.down('sm'), {
-    noSsr: true,
+    // noSsr: true,
   });
   const { className, text, color, link = '', center } = props;
   const btnClasses = `${classes.button} ${className || null}`;
