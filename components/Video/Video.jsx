@@ -1,20 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import useInView from 'react-cool-inview';
-// import {
-//   LazyLoadComponent,
-//   trackWindowScroll,
-// } from 'react-lazy-load-image-component';
+import {
+  LazyLoadComponent,
+  trackWindowScroll,
+} from 'react-lazy-load-image-component';
 
-const Video = ({ title, src, width, height, className, ...props }) => {
-  const { observe, inView } = useInView({
-    unobserveOnEnter: true,
-  });
-
-  return (
-    <>
-      <div className={className} ref={observe}>
-        {inView && (
+const Video = ({
+  title,
+  src,
+  visibleByDefault = false,
+  useIntersectionObserver = true,
+  rwd = false,
+  width,
+  height,
+  className,
+  scrollPosition,
+  ...props
+}) => {
+  if (visibleByDefault) {
+    return <video title={title} src={src} {...props} />;
+  } else if (rwd) {
+    return (
+      <LazyLoadComponent
+        visibleByDefault={visibleByDefault}
+        useIntersectionObserver={useIntersectionObserver}
+        scrollPosition={scrollPosition}
+        style={{ width: '100%' }}
+      >
+        <div className={className}>
           <video
             title={title}
             src={src}
@@ -22,10 +35,28 @@ const Video = ({ title, src, width, height, className, ...props }) => {
             height={height}
             {...props}
           />
-        )}
-      </div>
-    </>
-  );
+        </div>
+      </LazyLoadComponent>
+    );
+  } else {
+    return (
+      <LazyLoadComponent
+        scrollPosition={scrollPosition}
+        useIntersectionObserver={useIntersectionObserver}
+        visibleByDefault={visibleByDefault}
+      >
+        <div className={className}>
+          <video
+            title={title}
+            src={src}
+            width={width}
+            height={height}
+            {...props}
+          />
+        </div>
+      </LazyLoadComponent>
+    );
+  }
 };
 
 Video.propTypes = {
@@ -39,4 +70,4 @@ Video.propTypes = {
   scrollPosition: PropTypes.object,
 };
 
-export default Video;
+export default trackWindowScroll(Video);
