@@ -2,12 +2,14 @@ const customButtonStyle = (theme) => ({
   root: {
     width: '100%',
     height: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '10px 0px',
     [theme.breakpoints.down('sm')]: {
       padding: '5px 0px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    [theme.breakpoints.up('sm')]: {
+      padding: '10px 0px',
     },
   },
   button: {
