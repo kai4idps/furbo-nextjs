@@ -10,7 +10,10 @@ const useStyles = makeStyles(styles);
 const CustomButton = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  // const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'), {
+    noSsr: true,
+  });
   const { className, text, color, link = '', center } = props;
   const btnClasses = `${classes.button} ${className || null}`;
 
@@ -20,7 +23,7 @@ const CustomButton = (props) => {
       event: 'cta_click',
     });
   };
-
+  console.log('smDown', smDown);
   return (
     <div
       className={classes.root}
