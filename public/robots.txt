@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.furbo.com
+Host: https://furbo.com
 
 # Sitemaps
-Sitemap: https://www.furbo.com/sitemap.xml
+Sitemap: https://furbo.com/sitemap.xml

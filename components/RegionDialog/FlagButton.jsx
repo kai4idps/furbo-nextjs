@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Button from '@material-ui/core/Button';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styles from './flagButtonStyle';
 
 const useStyles = makeStyles(styles);
@@ -10,11 +11,17 @@ const useStyles = makeStyles(styles);
 const FlagButton = (props) => {
   const { info } = props;
   const classes = useStyles();
+  const router = useRouter();
+  const {
+    region, // eslint-disable-line no-unused-vars
+    ...query
+  } = router.query;
 
   return (
     <Link
       href={{
         pathname: info.isRedirect ? info.href : `/${info.code}`,
+        query,
       }}
       passHref
     >

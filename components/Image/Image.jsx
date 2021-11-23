@@ -39,6 +39,7 @@ const Image = ({
     </picture>
   );
 };
+
 Image.defaultProps = {
   alt: '',
   justifyContent: 'center',

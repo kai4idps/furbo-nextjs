@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import Paper from '@material-ui/core/Paper';
 import Image from 'components/Image';
 import ShopButton from 'components/cms/elements/ShopButton';
@@ -17,7 +17,8 @@ const ProductButton = ({
   buttonText,
 }) => {
   const classes = useStyles();
-  const region = useSelector((state) => state.region.code?.toUpperCase());
+  const router = useRouter();
+  const { region } = router.query;
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
@@ -28,7 +29,7 @@ const ProductButton = ({
       currency: CURRENCY[region],
       value: productInfo.variants[0].price,
     });
-  }, []);
+  }, [productInfo, region]);
 
   const addToCart = () => {
     window.dataLayer = window.dataLayer || [];

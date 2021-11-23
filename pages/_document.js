@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
@@ -7,10 +7,6 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="preconnect"
-            href="https://furbo-prismic.cdn.prismic.io/api/v2"
-          />
           <link rel="icon" href="/favicon.ico" />
           <meta
             property="og:image"
@@ -62,7 +58,7 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     styles: [
-      ...React.Children.toArray(initialProps.styles),
+      ...Children.toArray(initialProps.styles),
       sheets.getStyleElement(),
     ],
   };

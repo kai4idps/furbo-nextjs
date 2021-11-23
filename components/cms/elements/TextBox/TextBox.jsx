@@ -1,9 +1,8 @@
-import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Image from 'components/Image';
-import { customHtml } from './customHtml';
+import { customHtml } from 'src/customHtml';
 import styles from './textBoxStyle';
 
 const useStyles = makeStyles(styles);

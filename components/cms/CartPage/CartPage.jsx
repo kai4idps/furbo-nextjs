@@ -2,8 +2,8 @@ import { useEffect, useState, Children } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'components/Image';
 import NextImage from 'next/image';
+import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Container from '@material-ui/core/Container';
@@ -21,7 +21,8 @@ const CartPage = ({ cartPage }) => {
   const originalPrice = +cartPage.product_info.variants[0].compare_at_price;
   const quantityLimit = +cartPage.quantity_limit;
   const [quantity, setQuantity] = useState(1);
-  const region = useSelector((state) => state.region.code);
+  const router = useRouter();
+  const { region } = router.query;
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
@@ -38,7 +39,7 @@ const CartPage = ({ cartPage }) => {
       currency: CURRENCY[region.toUpperCase()],
       value: price,
     });
-  }, [quantity]);
+  }, [quantity, price, cartPage, region]);
 
   const handleIncrement = () => {
     if (quantity < quantityLimit) {

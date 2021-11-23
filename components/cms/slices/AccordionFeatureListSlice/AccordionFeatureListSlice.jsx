@@ -146,8 +146,8 @@ const AccordionFeatureListSlice = (props) => {
         >
           {title}
         </AccordionSummaryCenter>
-        <AccordionDetails>
-          <VisibleSensorAnimation animation="grow">
+        <VisibleSensorAnimation animation="grow">
+          <AccordionDetails>
             <Grid container>
               <Grid
                 className={classes.gridLeft}
@@ -177,8 +177,8 @@ const AccordionFeatureListSlice = (props) => {
                 </Grid>
               </Hidden>
             </Grid>
-          </VisibleSensorAnimation>
-        </AccordionDetails>
+          </AccordionDetails>
+        </VisibleSensorAnimation>
       </Accordion>
     </div>
   );

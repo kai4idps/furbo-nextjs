@@ -10,3 +10,7 @@ export const isEmpty = (value) => {
 export const validateExpression = (exp, string) => {
   return exp.test(string);
 };
+
+export const toId = (string) => {
+  return string.replace(/ /g, '-').toLowerCase();
+};

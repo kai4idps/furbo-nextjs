@@ -4,7 +4,7 @@ import { useTheme, makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
-import { customHtml } from './customHtml';
+import { customHtml } from 'src/customHtml';
 import styles from './bannerStyle';
 import BannerCountdown from './BannerCountdown';
 import { Carousel } from 'react-responsive-carousel';

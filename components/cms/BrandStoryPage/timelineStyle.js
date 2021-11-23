@@ -28,7 +28,13 @@ const timelineStyle = (theme) => ({
   slideImage: {
     width: 'auto',
     height: '400px',
+    borderRadius: '0px',
+    borderTopLeftRadius: '5px',
+    borderBottomLeftRadius: '5px',
     [theme.breakpoints.down('sm')]: {
+      borderRadius: '0px',
+      borderTopLeftRadius: '5px',
+      borderTopRightRadius: '5px',
       width: '100%',
       height: 'auto',
     },
@@ -41,7 +47,13 @@ const timelineStyle = (theme) => ({
     fontFamily: 'Avenir',
     fontSize: '16px',
     textAlign: 'left',
+    borderRadius: '0px',
+    borderTopRightRadius: '5px',
+    borderBottomRightRadius: '5px',
     [theme.breakpoints.down('sm')]: {
+      borderRadius: '0px',
+      borderBottomLeftRadius: '5px',
+      borderBottomRightRadius: '5px',
       paddingTop: '50px',
       width: '100%',
       height: '370px',

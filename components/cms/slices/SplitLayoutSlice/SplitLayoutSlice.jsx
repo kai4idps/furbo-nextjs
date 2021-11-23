@@ -48,10 +48,13 @@ const SplitLayoutSlice = (props) => {
             <div className={classes.content}>
               {Children.toArray(
                 content.map((slice) => (
-                  <RenderElement
-                    type={slice.content.type}
-                    data={slice.content.data}
-                  />
+                  <>
+                    <RenderElement
+                      type={slice.content.type}
+                      data={slice.content.data}
+                    />
+                    <br />
+                  </>
                 )),
               )}
             </div>

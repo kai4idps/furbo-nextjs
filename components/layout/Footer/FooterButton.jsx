@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import styles from './footerButtonStyle';
@@ -16,12 +16,17 @@ const FooterButton = ({ info }) => {
     ? info.link.substring(16, info.link.length - 1)
     : '';
   const classes = useStyles();
-  const region = useSelector((state) => state.region.code);
+  const router = useRouter();
+  const { region, ...query } = router.query;
+
   return (
     <div className={classes.linkButtonContainer}>
       {!isFunction && (
         <Link
-          href={isExternalLink ? info.link : `/${region}${info.link}`}
+          href={{
+            pathname: isExternalLink ? info?.link : `/${region}${info?.link}`,
+            query,
+          }}
           passHref
         >
           <Button className={classes.linkButton}>{info.title}</Button>

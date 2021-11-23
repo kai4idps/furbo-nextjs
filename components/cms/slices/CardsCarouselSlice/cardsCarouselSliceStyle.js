@@ -80,6 +80,9 @@ const cardsCarouselSliceStyle = (theme) => ({
     '& .MuiPaper-rounded': {
       borderRadius: 8,
     },
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 10px 20px',
+    },
   },
   card: {
     top: 0,

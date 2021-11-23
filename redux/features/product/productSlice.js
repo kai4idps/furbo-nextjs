@@ -8,12 +8,16 @@ export const fetchUnitCount = createAsyncThunk(
     const data = {
       Action: 'CampaignLeftQuantity',
     };
-    const response = await axios.post(UNIT_COUNT_API, data, {
-      Header: {
-        'Content-Type': 'application/json',
-        Authorization: BASIC_AUTHORIZATION,
+    const response = await axios.post(
+      UNIT_COUNT_API[process.env.BUILD_ENV],
+      data,
+      {
+        Header: {
+          'Content-Type': 'application/json',
+          Authorization: BASIC_AUTHORIZATION,
+        },
       },
-    });
+    );
     return response.data.Left;
   },
 );

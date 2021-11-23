@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
+// import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
 import RenderElement from 'components/cms/RenderElement';
 import { isEmpty } from 'src/helpers';
 import styles from './homeKeyVisualStyle.js';
@@ -21,6 +22,7 @@ const HomeKeyVisual = ({ campaign }) => {
   }
 
   return (
+    // <VisibleSensorAnimation animation="grow">
     <div
       className={classes.root}
       style={{
@@ -65,6 +67,7 @@ const HomeKeyVisual = ({ campaign }) => {
         </div>
       </div>
     </div>
+    // </VisibleSensorAnimation>
   );
 };
 

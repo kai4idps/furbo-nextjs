@@ -73,6 +73,7 @@ const featureBlockSliceStyle = (theme) => ({
   },
   centerImageContainer: {
     position: 'absolute',
+    zIndex: 900,
     height: '100%',
     width: 'auto',
     left: '375px',

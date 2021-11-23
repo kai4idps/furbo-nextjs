@@ -41,7 +41,12 @@ const VideoButton = (props) => {
         justifyContent: smDown ? 'center' : center ? 'center' : 'flex-start',
       }}
     >
-      <Button className={classes.playButton} size="large" onClick={watchVideo}>
+      <Button
+        className={classes.playButton}
+        size="large"
+        onClick={watchVideo}
+        id="video-button"
+      >
         <PlayCircleOutline
           className={classes.playIcon}
           style={{ color: textColor }}

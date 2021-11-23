@@ -24,7 +24,7 @@ export const fetchOrder = createAsyncThunk(
   'order/fetchOrder',
   async (input, { getState }) => {
     const { email, number } = input;
-    const response = await axios.post(ORDER_STATUS_API, {
+    const response = await axios.post(ORDER_STATUS_API[process.env.BUILD_ENV], {
       country: getState().region.code,
       action: 'order_lookup',
       order_name: number,

@@ -30,8 +30,8 @@ const FeatureBlockSlice = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <VisibleSensorAnimation animation="grow">
+    <VisibleSensorAnimation animation="grow">
+      <div className={classes.root}>
         <Grid container className={classes.container}>
           {gridAlign === 'Left' && (
             <Hidden smDown>
@@ -172,8 +172,8 @@ const FeatureBlockSlice = (props) => {
             </Hidden>
           )}
         </Grid>
-      </VisibleSensorAnimation>
-    </div>
+      </div>
+    </VisibleSensorAnimation>
   );
 };
 

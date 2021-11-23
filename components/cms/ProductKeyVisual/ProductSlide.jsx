@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -90,7 +90,7 @@ const ProductSlide = (props) => {
             className={classes.center}
           >
             <div className={classes.indicatorContainerLeft}>
-              {React.Children.toArray(
+              {Children.toArray(
                 slides.map((item, index) => {
                   if (index >= 5) {
                     return null;
@@ -107,7 +107,7 @@ const ProductSlide = (props) => {
               )}
             </div>
             <div className={classes.indicatorContainerRight}>
-              {React.Children.toArray(
+              {Children.toArray(
                 slides.map((item, index) => {
                   if (index < 5) {
                     return null;
@@ -146,7 +146,7 @@ const ProductSlide = (props) => {
               selectedItem={currentSlide}
               onChange={updateCurrentSlide}
             >
-              {React.Children.toArray(
+              {Children.toArray(
                 slides.map((item) => {
                   return (
                     <div className={classes.slide}>

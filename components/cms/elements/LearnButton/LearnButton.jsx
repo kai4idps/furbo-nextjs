@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
+import { useRouter } from 'next/router';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import styles from './learnButtonStyle';
@@ -38,7 +38,8 @@ const LearnButton = (props) => {
   const classes = useStyles();
   const { className, learnButtonText, color, link } = props;
   const btnClasses = `${classes.button} ${className || null}`;
-  const region = useSelector((state) => state.region.code);
+  const router = useRouter();
+  const { region, ...query } = router.query;
 
   const handleGaEvent = () => {
     window.dataLayer = window.dataLayer || [];
@@ -52,6 +53,7 @@ const LearnButton = (props) => {
       <Link
         href={{
           pathname: `/${region}/${getPath(link)}`,
+          query,
         }}
         passHref
       >
@@ -65,6 +67,7 @@ const LearnButton = (props) => {
             },
           }}
           onClick={handleGaEvent}
+          id="learn-button"
         >
           {learnButtonText}
         </Button>

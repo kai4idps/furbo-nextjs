@@ -73,6 +73,7 @@ const RenderSlice = ({ type, primary, items }) => {
           titleUnderline={primary.title_underline}
           titleArrow={primary.title_arrow}
           backgroundColor={primary.background_color}
+          singleSlide={primary.single_slide}
           content={items}
         />
       );
@@ -95,6 +96,7 @@ const RenderSlice = ({ type, primary, items }) => {
     case 'image':
       return (
         <ImageSlice
+          backgroundColor={primary.background_color}
           imageDesktop={primary.image_desktop}
           imageMobile={primary.image_mobile}
         />

@@ -8,10 +8,10 @@ import Container from '@material-ui/core/Container';
 import styles from './baseLayoutStyle';
 
 const DynamicHeader = dynamic(() => import('components/layout/Header'), {
-  loading: () => <p>...</p>,
+  loading: () => <></>,
 });
 const DynamicFooter = dynamic(() => import('components/layout/Footer'), {
-  loading: () => <p>...</p>,
+  loading: () => <></>,
 });
 const useStyles = makeStyles(styles);
 

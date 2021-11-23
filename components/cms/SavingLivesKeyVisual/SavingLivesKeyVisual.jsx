@@ -3,7 +3,7 @@ import { useTheme, makeStyles } from '@material-ui/core/styles';
 import { RichText } from 'prismic-reactjs';
 import { useCountUp } from 'react-countup';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import VisibilitySensor from 'react-visibility-sensor';
+import useInView from 'react-cool-inview';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
 import Grid from '@material-ui/core/Grid';
 import styles from './savingLivesKeyVisualStyle';
@@ -22,11 +22,11 @@ const SavingLivesKeyVisual = ({ savingLivesPage }) => {
     redraw: true,
   });
 
-  const onVisibilityChange = (isVisible) => {
-    if (isVisible) {
+  const { observe } = useInView({
+    onChange: () => {
       start();
-    }
-  };
+    },
+  });
 
   return (
     <VisibleSensorAnimation animation="grow">
@@ -48,25 +48,23 @@ const SavingLivesKeyVisual = ({ savingLivesPage }) => {
                 {RichText.render(savingLivesPage.title)}
               </div>
               <div className={classes.counterContainer}>
-                <VisibilitySensor onChange={onVisibilityChange} delayedCall>
-                  <div className={classes.counter}>
-                    <div className={classes.counterBox}>
-                      {Math.floor(countUp / 1000) % 10}
-                    </div>
-                    <div className={classes.counterBox}>
-                      {Math.floor(countUp / 100) % 10}
-                    </div>
-                    <div className={classes.counterBox}>
-                      {Math.floor(countUp / 10) % 10}
-                    </div>
-                    <div
-                      className={classes.counterBox}
-                      style={{ color: '#cc684a' }}
-                    >
-                      {countUp % 10}
-                    </div>
+                <div ref={observe} className={classes.counter}>
+                  <div className={classes.counterBox}>
+                    {Math.floor(countUp / 1000) % 10}
                   </div>
-                </VisibilitySensor>
+                  <div className={classes.counterBox}>
+                    {Math.floor(countUp / 100) % 10}
+                  </div>
+                  <div className={classes.counterBox}>
+                    {Math.floor(countUp / 10) % 10}
+                  </div>
+                  <div
+                    className={classes.counterBox}
+                    style={{ color: '#cc684a' }}
+                  >
+                    {countUp % 10}
+                  </div>
+                </div>
                 <span className={classes.counterText}>
                   {savingLivesPage.dogs_saved_text}
                 </span>

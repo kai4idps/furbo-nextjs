@@ -33,7 +33,7 @@ const mainStyle = (theme) => ({
     '& h4': {
       fontFamily: 'Avenir',
       fontSize: '24px',
-      fontWeight: 800,
+      fontWeight: 500,
       color: 'inherit',
       margin: 0,
       [theme.breakpoints.down('sm')]: {
@@ -53,7 +53,7 @@ const mainStyle = (theme) => ({
     '& h6': {
       fontFamily: 'Avenir',
       fontSize: '18px',
-      fontWeight: 800,
+      fontWeight: 500,
       color: 'inherit',
       margin: 0,
       [theme.breakpoints.down('sm')]: {

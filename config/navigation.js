@@ -120,7 +120,7 @@ export const REGION_INFO = {
     country: '日本',
     group: 'Asia-Pacific',
     code: 'jp',
-    language: 'ja',
+    language: 'ja-jp',
     image: FLAG_JP,
   },
   SG: {

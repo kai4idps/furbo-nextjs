@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Image from 'next/image';
@@ -11,7 +11,8 @@ const useStyles = makeStyles(styles);
 
 const ShopIconButton = () => {
   const classes = useStyles();
-  const region = useSelector((state) => state.region.code);
+  const router = useRouter();
+  const { region, ...query } = router.query;
 
   const handleGaEvent = () => {
     window.dataLayer = window.dataLayer || [];
@@ -24,10 +25,15 @@ const ShopIconButton = () => {
     <Link
       href={{
         pathname: `/${region}/products/furbo-dog-camera`,
+        query,
       }}
       passHref
     >
-      <IconButton className={classes.button} onClick={handleGaEvent}>
+      <IconButton
+        className={classes.button}
+        onClick={handleGaEvent}
+        id="shop-icon-button"
+      >
         <Icon className={classes.image}>
           <Image
             alt="furbo-logo"

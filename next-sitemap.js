@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://www.furbo.com',
+  siteUrl: 'https://furbo.com',
   generateRobotsTxt: true,
 };

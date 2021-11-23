@@ -1,52 +1,19 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
-import {
-  ThemeProvider,
-  makeStyles,
-  MuiThemeProvider,
-  createTheme,
-} from '@material-ui/core/styles';
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Redirect from 'components/Redirect/Redirect';
 import { Provider } from 'react-redux';
 import { store } from 'redux/configureStore';
 import theme from 'styles/theme';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import 'styles/globals.css';
-import styles from '../styles/mainStyle';
-import parser from 'ua-parser-js';
-import mediaQuery from 'css-mediaquery';
+import 'styles/global.css';
+import styles from 'styles/mainStyle';
 import { GTM_DELAY_TIME } from 'config/common';
 
 const useStyles = makeStyles(styles);
 
 const MyApp = ({ Component, pageProps }) => {
   const classes = useStyles();
-  const mobileSsrMatchMedia = (query) => ({
-    matches: mediaQuery.match(query, {
-      // The estimated CSS width of the browser.
-      width: '0px',
-    }),
-  });
-  const desktopSsrMatchMedia = (query) => ({
-    matches: mediaQuery.match(query, {
-      // The estimated CSS width of the browser.
-      width: '1024px',
-    }),
-  });
-
-  const mobileMuiTheme = createTheme({
-    props: {
-      // Change the default options of useMediaQuery
-      MuiUseMediaQuery: { ssrMatchMedia: mobileSsrMatchMedia },
-    },
-  });
-  const desktopMuiTheme = createTheme({
-    props: {
-      // Change the default options of useMediaQuery
-      MuiUseMediaQuery: { ssrMatchMedia: desktopSsrMatchMedia },
-    },
-  });
   useEffect(() => {
     const initGtmOnEvent = (event) => {
       initGtm();
@@ -85,31 +52,16 @@ const MyApp = ({ Component, pageProps }) => {
         <title>Furbo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <MuiThemeProvider
-        theme={
-          pageProps.deviceType === 'mobile' ? mobileMuiTheme : desktopMuiTheme
-        }
-      >
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Provider store={store}>
-            <Redirect />
-            <div className={classes.root}>
-              <Component {...pageProps} />
-            </div>
-          </Provider>
-        </ThemeProvider>
-      </MuiThemeProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Provider store={store}>
+          <div className={classes.root}>
+            <Component {...pageProps} />
+          </div>
+        </Provider>
+      </ThemeProvider>
     </>
   );
-};
-
-MyApp.getInitialProps = async (ctx) => {
-  // OP's edit: The ctx that we really want is inside the function parameter "ctx"
-  const deviceType =
-    parser(ctx.ctx.req.headers['user-agent']).device.type || 'desktop';
-  // I'm guessing on the pageProps key here based on a couple examples
-  return { pageProps: { deviceType } };
 };
 
 export default MyApp;

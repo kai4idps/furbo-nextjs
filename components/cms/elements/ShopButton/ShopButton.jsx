@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
@@ -20,8 +19,9 @@ const ShopButton = (props) => {
     onClick = () => {},
   } = props;
   const btnClasses = `${classes.button} ${className || null}`;
-  const region = useSelector((state) => state.region.code);
   const router = useRouter();
+  const { region, ...query } = router.query;
+  const pathname = router.asPath.split('?')[0];
 
   const buttonOnClick = () => {
     onClick();
@@ -41,13 +41,14 @@ const ShopButton = (props) => {
       <Link
         href={{
           pathname:
-            router.pathname === `/${region}/products/furbo-dog-camera`
+            pathname === `/${region}/products/furbo-dog-camera`
               ? `/${region}/pages/cart`
               : `/${region}/products/furbo-dog-camera`,
+          query,
         }}
         passHref
       >
-        <Button className={btnClasses} onClick={buttonOnClick}>
+        <Button className={btnClasses} onClick={buttonOnClick} id="shop-button">
           {shopButtonText}
         </Button>
       </Link>

@@ -10,10 +10,13 @@ const useStyles = makeStyles(styles);
 
 const ImageSlice = (props) => {
   const classes = useStyles();
-  const { imageDesktop, imageMobile } = props;
+  const { backgroundColor = 'white', imageDesktop, imageMobile } = props;
   return (
     <VisibleSensorAnimation animation="grow">
-      <div className={classes.root}>
+      <div
+        className={classes.root}
+        style={{ backgroundColor: backgroundColor }}
+      >
         <Hidden smDown>
           <Image
             className={classes.infoImage}
@@ -36,6 +39,7 @@ const ImageSlice = (props) => {
 export default ImageSlice;
 
 ImageSlice.propTypes = {
-  imageDesktop: PropTypes.object,
-  imageMobile: PropTypes.object,
+  backgroundColor: PropTypes.string.isRequired,
+  imageDesktop: PropTypes.object.isRequired,
+  imageMobile: PropTypes.object.isRequired,
 };

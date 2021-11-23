@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
@@ -7,7 +7,7 @@ import { fetchUnitCount } from 'redux/features/product/productSlice';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
-import { customHtml } from './customHtml';
+import { customHtml } from 'src/customHtml';
 import styles from './bannerStyle';
 
 const useStyles = makeStyles(styles);
@@ -21,7 +21,7 @@ const BannerCountdown = ({ campaign }) => {
   const [timeLeft, setTimeLeft] = useState();
   const [unitCountArray, setUnitCountArray] = useState([]);
 
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const now = new Date().getTime();
     const target = new Date(campaign.countdown_date).getTime();
     const difference = target - now;
@@ -32,7 +32,11 @@ const BannerCountdown = ({ campaign }) => {
       seconds: Math.floor((difference / 1000) % 60),
     };
     return result;
-  };
+  }, [campaign.countdown_date]);
+
+  const handleFetchUnitCount = useCallback(() => {
+    dispatch(fetchUnitCount());
+  }, [dispatch]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -41,11 +45,11 @@ const BannerCountdown = ({ campaign }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [calculateTimeLeft]);
 
   useEffect(() => {
-    dispatch(fetchUnitCount());
-  }, []);
+    handleFetchUnitCount();
+  }, [handleFetchUnitCount]);
 
   useEffect(() => {
     if (!isEmpty(unitCount)) {

@@ -1,5 +1,8 @@
 export const CHECKOUT_URL = (region, quantity) => {
-  if (region === 'us') {
+  const env = process.env.BUILD_ENV;
+  if (env === 'staging' || env === 'development') {
+    return `https://route-stg.furbo.com/cart/33333304329:${quantity}`;
+  } else if (region === 'us') {
     return `https://furbo-dog-camera.myshopify.com/cart/21266488961:${quantity},34559072731181:1?channel=buy_button`;
   } else if (region === 'ca') {
     return `https://furbo-ca.myshopify.com/cart/32267984840:${quantity},31909699125331:1`;

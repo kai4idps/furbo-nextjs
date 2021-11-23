@@ -12,7 +12,7 @@ const MenuIconButton = ({ onClick }) => {
   const classes = useStyles();
 
   return (
-    <IconButton className={classes.button} onClick={onClick}>
+    <IconButton className={classes.button} onClick={onClick} id="menu-button">
       <Icon className={classes.image}>
         <Image
           alt="furbo-logo"

@@ -5,12 +5,18 @@ import Icon from '@material-ui/core/Icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ACCOUNT_ICON_SVG } from 'config/images/header';
+import { useRouter } from 'next/router';
 import styles from './accountButtonStyle';
 
 const useStyles = makeStyles(styles);
 
 const AccountButton = ({ text, className }) => {
   const classes = useStyles();
+  const router = useRouter();
+  const {
+    region, // eslint-disable-line no-unused-vars
+    ...query
+  } = router.query;
 
   const handleGaEvent = () => {
     window.dataLayer = window.dataLayer || [];
@@ -23,12 +29,14 @@ const AccountButton = ({ text, className }) => {
     <Link
       href={{
         pathname: 'https://furbo.com/account',
+        query,
       }}
       passHref
     >
       <Button
         className={`${classes.button} ${className}`}
         onClick={handleGaEvent}
+        id="account-button"
       >
         <Icon className={classes.image}>
           <Image

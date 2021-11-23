@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import { BLACK_TRIANGLE_SVG } from 'config/images/general';
-import Image from 'components/Image';
+import Image from 'next/image';
 import styles from './emailInputStyle';
 
 const useStyles = makeStyles(styles);
@@ -35,10 +35,9 @@ const EmailInput = (props) => {
         <div className={classes.submitButtonContainer}>
           <IconButton className={classes.submitButton} type="submit">
             <Image
-              className={classes.blackTriangle}
+              className={classes.triangle}
               src={BLACK_TRIANGLE_SVG}
               alt="email"
-              type="image/svg+xml"
             />
           </IconButton>
         </div>
@@ -49,7 +48,7 @@ const EmailInput = (props) => {
 
 EmailInput.propTypes = {
   placeholder: PropTypes.string,
-  action: PropTypes.bool,
+  action: PropTypes.string,
 };
 
 export default EmailInput;

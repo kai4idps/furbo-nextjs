@@ -8,6 +8,7 @@ const brandStoryPageStyle = (theme) => ({
     backgroundSize: 'auto 100%',
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
+    borderRadius: '5px',
     [theme.breakpoints.down('sm')]: {
       backgroundSize: '100%',
       backgroundPosition: 'bottom',

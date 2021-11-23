@@ -4,18 +4,22 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import styles from './customButtonStyle';
+import { useRouter } from 'next/router';
+import { isEmpty, toId } from 'src/helpers';
 
 const useStyles = makeStyles(styles);
 
 const CustomButton = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-  // const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'), {
-    // noSsr: true,
-  });
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { className, text, color, link = '', center } = props;
   const btnClasses = `${classes.button} ${className || null}`;
+  const router = useRouter();
+  const {
+    region, // eslint-disable-line no-unused-vars
+    ...query
+  } = router.query;
 
   const handleGaEvent = () => {
     window.dataLayer = window.dataLayer || [];
@@ -23,7 +27,7 @@ const CustomButton = (props) => {
       event: 'cta_click',
     });
   };
-  console.log('smDown', smDown);
+
   return (
     <div
       className={classes.root}
@@ -33,9 +37,10 @@ const CustomButton = (props) => {
     >
       <Link
         href={{
-          pathname: link.url,
+          pathname: link?.url,
+          query,
         }}
-        passHref
+        passHref={!isEmpty(link)}
       >
         <Button
           className={btnClasses}
@@ -45,6 +50,7 @@ const CustomButton = (props) => {
               backgroundgetColor: color,
             },
           }}
+          id={toId(text)}
           onClick={handleGaEvent}
         >
           {text}

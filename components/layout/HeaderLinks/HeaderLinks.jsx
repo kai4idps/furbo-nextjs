@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useSelector } from 'react-redux';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountButton from 'components/button/AccountButton';
 import Button from '@material-ui/core/Button';
@@ -23,11 +23,17 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
   const classes = useStyles();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const router = useRouter();
+  const {
+    region, // eslint-disable-line no-unused-vars
+    ...query
+  } = router.query;
 
   return (
     <Link
       href={{
         pathname: item.path,
+        query,
       }}
       passHref
     >
@@ -37,6 +43,7 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
           showIcon ? (smDown ? item.icon.smDown : item.icon.mdUp) : null
         }
         onClick={onClick}
+        id="header-button"
       >
         {item.title}
       </Button>
@@ -60,7 +67,8 @@ const HeaderLinks = ({ routes, onClose, content }) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'), { noSsr: true });
   const [productOpen, setProductOpen] = useState(smDown);
-  const region = useSelector((state) => state.region.code);
+  const router = useRouter();
+  const { region } = router.query;
   const classes = useStyles();
   const isProductDropdown = productDropdown(routes);
   const pageOnClick = () => {

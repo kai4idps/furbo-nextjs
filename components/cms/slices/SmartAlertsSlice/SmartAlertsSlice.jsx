@@ -40,7 +40,7 @@ const SmartAlertsSlice = (props) => {
   };
 
   return (
-    <VisibleSensorAnimation animation="grow">
+    <VisibleSensorAnimation animation="grow" display="block">
       <div className={classes.root}>
         <div className={classes.contentContainer}>
           <Grid container>
