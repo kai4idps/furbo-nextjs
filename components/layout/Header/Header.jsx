@@ -14,7 +14,7 @@ import ShopButton from 'components/button/ShopButton';
 import ShopIconButton from 'components/button/ShopIconButton';
 import MenuIconButton from 'components/button/MenuIconButton';
 import Fade from '@material-ui/core/Fade';
-import { HEADER_ROUTES } from 'config/routes/ca';
+import { HEADER_ROUTES } from 'config/routes';
 import styles from './headerStyle';
 
 const useStyles = makeStyles(styles);
@@ -54,7 +54,7 @@ const Header = ({ campaign, content, drawerOpen, setDrawerOpen }) => {
                 <HomeButton />
                 <div className={classes.rightContainer}>
                   <HeaderLinks
-                    routes={HEADER_ROUTES(content)}
+                    routes={HEADER_ROUTES(region, content)}
                     content={content}
                     onClose={() => setDrawerOpen(false)}
                   />
@@ -84,7 +84,7 @@ const Header = ({ campaign, content, drawerOpen, setDrawerOpen }) => {
                 <div className={classes.drawerContainer}>
                   <div className={classes.pageLinks}>
                     <HeaderLinks
-                      routes={HEADER_ROUTES(content)}
+                      routes={HEADER_ROUTES(region, content)}
                       content={content}
                       onClose={() => setDrawerOpen(false)}
                     />

@@ -35,7 +35,4 @@ module.exports = {
   images: {
     domains: ['images.prismic.io', 'furbo-prismic.cdn.prismic.io'],
   },
-  env: {
-    BUILD_ENV: 'development',
-  },
 };

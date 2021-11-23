@@ -13,6 +13,7 @@ import LogoSliderSlice from 'components/cms/slices/LogoSliderSlice';
 import SmartAlertsSlice from 'components/cms/slices/SmartAlertsSlice';
 import SplitLayoutSlice from 'components/cms/slices/SplitLayoutSlice';
 import TwoCardsSlice from 'components/cms/slices/TwoCardsSlice';
+import ComparisonTableSlice from 'components/cms/slices/ComparisonTableSlice';
 import { isEmpty } from 'src/helpers';
 
 const RenderSlice = ({ type, primary, items }) => {
@@ -161,6 +162,16 @@ const RenderSlice = ({ type, primary, items }) => {
       );
     case 'logo_slider':
       return <LogoSliderSlice content={items} />;
+    case 'comparison_table':
+      return (
+        <ComparisonTableSlice
+          itemAName={primary.item_a_name}
+          itemAImage={primary.item_a_image}
+          itemBName={primary.item_b_name}
+          itemBImage={primary.item_b_image}
+          content={items}
+        />
+      );
     default:
       return null;
   }

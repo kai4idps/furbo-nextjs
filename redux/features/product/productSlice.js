@@ -8,22 +8,19 @@ export const fetchUnitCount = createAsyncThunk(
     const data = {
       Action: 'CampaignLeftQuantity',
     };
-    const response = await axios.post(
-      UNIT_COUNT_API[process.env.BUILD_ENV],
-      data,
-      {
-        Header: {
-          'Content-Type': 'application/json',
-          Authorization: BASIC_AUTHORIZATION,
-        },
+    const env = process.env.BUILD_ENV || 'development';
+    const response = await axios.post(UNIT_COUNT_API[env], data, {
+      Header: {
+        'Content-Type': 'application/json',
+        Authorization: BASIC_AUTHORIZATION,
       },
-    );
+    });
     return response.data.Left;
   },
 );
 
-export const productInfoSlice = createSlice({
-  name: 'productInfo',
+export const productSlice = createSlice({
+  name: 'product',
   initialState: {
     price: null,
     id: null,
@@ -51,4 +48,4 @@ export const productInfoSlice = createSlice({
   },
 });
 
-export default productInfoSlice.reducer;
+export default productSlice.reducer;

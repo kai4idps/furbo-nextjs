@@ -24,9 +24,14 @@ const FurboDogNanny = ({ campaign, fdnPage, seo, content }) => {
 export const getStaticProps = async ({ params }) => {
   const code = params.region.toUpperCase();
   const language = REGION_INFO[code].language;
+  const contentData = await fetchHeaderFooterData(language);
+  if (contentData.enable_furbo_dog_nanny !== true) {
+    return {
+      notFound: true,
+    };
+  }
   const campaignData = await fetchCampaignData(language);
   const fdnPageData = await fetchFdnPageData(language);
-  const contentData = await fetchHeaderFooterData(language);
   const seoData = await fetchSeoData(language);
   const FdnSeo = seoData.list.find(
     (item) => item.component_key === 'FURBO_DOG_NANNY',

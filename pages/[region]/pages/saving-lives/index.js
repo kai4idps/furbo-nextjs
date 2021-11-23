@@ -26,9 +26,14 @@ const SavingLives = ({ campaign, savingLivesPage, seo, content }) => {
 export const getStaticProps = async ({ params }) => {
   const code = params.region.toUpperCase();
   const language = REGION_INFO[code].language;
+  const contentData = await fetchHeaderFooterData(language);
+  if (contentData.enable_saving_lives !== true) {
+    return {
+      notFound: true,
+    };
+  }
   const campaignData = await fetchCampaignData(language);
   const savingLivesPageData = await fetchSavingLivesPageData(language);
-  const contentData = await fetchHeaderFooterData(language);
   const seoData = await fetchSeoData(language);
   const savingLivesSeo = seoData.list.find(
     (item) => item.component_key === 'SAVING_LIVES',

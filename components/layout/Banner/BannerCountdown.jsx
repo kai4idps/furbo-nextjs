@@ -1,3 +1,4 @@
+import { Children } from 'react';
 import PropTypes from 'prop-types';
 import { useState, useEffect, useCallback } from 'react';
 import { RichText } from 'prismic-reactjs';
@@ -15,7 +16,7 @@ const useStyles = makeStyles(styles);
 const BannerCountdown = ({ campaign }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const unitCount = useSelector((state) => state.productInfo.unitCount);
+  const unitCount = useSelector((state) => state.product.unitCount);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const [timeLeft, setTimeLeft] = useState();
@@ -189,16 +190,18 @@ const BannerCountdown = ({ campaign }) => {
                 </div>
               )}
               {campaign.units_remaining_text.split('{units}')[0]}
-              {unitCountArray.map((count, index) => (
-                <span
-                  className={classes.units}
-                  style={{
-                    marginLeft: index !== 0 ? 0 : null,
-                  }}
-                >
-                  <span className={classes.unitsDigit}>{count}</span>
-                </span>
-              ))}
+              {Children.toArray(
+                unitCountArray.map((count, index) => (
+                  <span
+                    className={classes.units}
+                    style={{
+                      marginLeft: index !== 0 ? 0 : null,
+                    }}
+                  >
+                    <span className={classes.unitsDigit}>{count}</span>
+                  </span>
+                )),
+              )}
               {campaign.units_remaining_text.split('{units}')[1]}
               {smDown && !isEmpty(campaign.banner_image_right) && (
                 <div className={classes.rightImgCountdown}>

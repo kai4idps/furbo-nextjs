@@ -8,9 +8,11 @@ import ShopButton from 'components/cms/elements/ShopButton';
 import SignInButton from 'components/cms/elements/SignInButton';
 import TextBox from 'components/cms/elements/TextBox';
 import VideoButton from 'components/cms/elements/VideoButton';
+import { useRouter } from 'next/router';
 import { isEmpty } from 'src/helpers';
 
 const RenderElement = ({ type, data }) => {
+  const region = useRouter().query.region;
   if (isEmpty(type) || isEmpty(data)) {
     return null;
   }
@@ -39,7 +41,7 @@ const RenderElement = ({ type, data }) => {
     case 'product_button':
       return (
         <ProductButton
-          productInfo={data.product_info}
+          productInfo={data[`product_info_${region}`]}
           productName={data.product_name}
           productType={data.product_type}
           buttonText={data.button_text}

@@ -13,22 +13,20 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import Image from 'next/image';
 import RegionDialog from 'components/RegionDialog';
 import { REGION_INFO } from 'config/navigation';
-import { PAGE_KEYS } from 'config/routes/routes';
+import { PAGE_KEYS } from 'config/routes';
 import styles from './headerLinksStyle';
 import Link from 'next/link';
+import { isEmpty } from 'src/helpers';
 
 const useStyles = makeStyles(styles);
 
 const HeaderButton = ({ item, onClick, showIcon = true }) => {
   const classes = useStyles();
-  const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const router = useRouter();
   const {
     region, // eslint-disable-line no-unused-vars
     ...query
   } = router.query;
-
   return (
     <Link
       href={{
@@ -40,7 +38,25 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
       <Button
         className={classes.button}
         startIcon={
-          showIcon ? (smDown ? item.icon.smDown : item.icon.mdUp) : null
+          showIcon && !isEmpty(item.icon) ? (
+            <div
+              style={{
+                position: 'relative',
+                top: '50%',
+                display: 'flex',
+                left: 0,
+                width: '45px',
+                height: '45px',
+              }}
+            >
+              <Image
+                src={item.icon.src}
+                alt="header-icon"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          ) : null
         }
         onClick={onClick}
         id="header-button"
@@ -57,9 +73,9 @@ const productDropdown = (array) => {
   const enableFdn =
     array.find((item) => item.key === PAGE_KEYS.FURBO_DOG_NANNY)?.enabled ===
     true;
-  const enableFass =
-    array.find((item) => item.key === 'NANNY_CAM_BUNDLE')?.enabled === true;
-  return enableProduct ? enableFdn || enableFass : enableFdn && enableFass;
+  const enableFaas =
+    array.find((item) => item.key === PAGE_KEYS.FAAS)?.enabled === true;
+  return enableProduct ? enableFdn || enableFaas : enableFdn && enableFaas;
 };
 
 const HeaderLinks = ({ routes, onClose, content }) => {
@@ -105,13 +121,14 @@ const HeaderLinks = ({ routes, onClose, content }) => {
         )}
         {React.Children.toArray(
           routes.map((item) => {
-            if (!item.enabled) {
+            if (item.enabled !== true) {
               return null;
             }
             if (
               isProductDropdown &&
               (item.key === PAGE_KEYS.PRODUCTS ||
-                item.key === PAGE_KEYS.FURBO_DOG_NANNY)
+                item.key === PAGE_KEYS.FURBO_DOG_NANNY ||
+                item.key === PAGE_KEYS.FAAS)
             ) {
               return null;
             }
@@ -199,10 +216,13 @@ const HeaderLinks = ({ routes, onClose, content }) => {
           <List>
             {React.Children.toArray(
               routes.map((item) => {
+                if (item.enabled !== true) {
+                  return null;
+                }
                 if (
                   item.key !== PAGE_KEYS.PRODUCTS &&
                   item.key !== PAGE_KEYS.FURBO_DOG_NANNY &&
-                  item.key !== 'NANNY_CAM_BUNDLE'
+                  item.key !== PAGE_KEYS.FAAS
                 ) {
                   return null;
                 }

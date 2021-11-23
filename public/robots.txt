@@ -4,6 +4,3 @@ Allow: /
 
 # Host
 Host: https://furbo.com
-
-# Sitemaps
-Sitemap: https://furbo.com/sitemap.xml

@@ -184,12 +184,12 @@ const CardsCarouselSlice = (props) => {
             }}
           >
             <Carousel
-              swipeable={smDown}
+              swipeable={singleSlide || smDown}
               showArrows={true}
               showThumbs={false}
               showIndicators={false}
               showStatus={false}
-              infiniteLoop={smDown}
+              infiniteLoop={singleSlide || smDown}
               centerMode={true}
               centerSlidePercentage={centerSlidePercentage}
               renderArrowPrev={(onClickHandler, hasPrev, label) =>

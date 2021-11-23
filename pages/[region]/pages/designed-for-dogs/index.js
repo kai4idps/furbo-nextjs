@@ -24,9 +24,14 @@ const DesignedForDogs = ({ campaign, dfdPage, seo, content }) => {
 export const getStaticProps = async ({ params }) => {
   const code = params.region.toUpperCase();
   const language = REGION_INFO[code].language;
+  const contentData = await fetchHeaderFooterData(language);
+  if (contentData.enable_designed_for_dogs !== true) {
+    return {
+      notFound: true,
+    };
+  }
   const campaignData = await fetchCampaignData(language);
   const dfdPageData = await fetchDfdPageData(language);
-  const contentData = await fetchHeaderFooterData(language);
   const seoData = await fetchSeoData(language);
   const dfdSeo = seoData.list.find(
     (item) => item.component_key === 'DESIGNED_FOR_DOGS',

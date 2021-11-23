@@ -132,6 +132,6 @@ export const REGION_INFO = {
   },
 };
 
-const regionList = ['us', 'ca'];
+const regionList = ['us', 'ca', 'de', 'uk', 'fr'];
 
 export const PATHS = regionList.map((region) => ({ params: { region } }));

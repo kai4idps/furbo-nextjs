@@ -50,18 +50,23 @@ const productButtonStyle = (theme) => ({
   },
   buttonContainer: {
     display: 'flex',
-    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingRight: '20px',
     [theme.breakpoints.down('sm')]: {
       paddingRight: '10px',
     },
+    [theme.breakpoints.down('xs')]: {
+      paddingRight: '5px',
+    },
   },
   shopButton: {
     color: '#434343',
-    width: '115px',
+    width: '120px',
     height: '40px',
     backgroundColor: '#f7cd3d',
     borderRadius: '100px',
+    textAlign: 'center',
     '&,&:hover,&:focus': {
       backgroundColor: '#f7cd3d',
       height: '40px',

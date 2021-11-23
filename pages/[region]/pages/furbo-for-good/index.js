@@ -24,9 +24,14 @@ const FurboForGood = ({ campaign, ffgPage, seo, content }) => {
 export const getStaticProps = async ({ params }) => {
   const code = params.region.toUpperCase();
   const language = REGION_INFO[code].language;
+  const contentData = await fetchHeaderFooterData(language);
+  if (contentData.enable_furbo_for_good !== true) {
+    return {
+      notFound: true,
+    };
+  }
   const campaignData = await fetchCampaignData(language);
   const ffgPageData = await fetchFfgPageData(language);
-  const contentData = await fetchHeaderFooterData(language);
   const seoData = await fetchSeoData(language);
   const ffgSeo = seoData.list.find(
     (item) => item.component_key === 'FURBO_FOR_GOOD',

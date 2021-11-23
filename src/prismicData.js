@@ -48,7 +48,9 @@ export const fetchProductPageData = async (language) => {
     fetchLinks: [
       'product_button.product_name',
       'product_button.button_text',
-      'product_button.product_info',
+      'product_button.product_info_ca',
+      'product_button.product_info_de',
+      'product_button.product_info_us',
       'product_button.product_type',
       'grid_element.content',
       'text_box.icon',
@@ -80,6 +82,14 @@ export const fetchFdnPageData = async (language) => {
       'sign_in_button.sign_in_button_text',
       'sign_in_button.center',
     ],
+  });
+  return data.data;
+};
+
+export const fetchFaasPageData = async (language) => {
+  const data = await client.getSingle('faas_page_section', {
+    lang: language,
+    fetchLinks: [],
   });
   return data.data;
 };
