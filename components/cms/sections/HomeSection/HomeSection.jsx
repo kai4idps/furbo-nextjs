@@ -1,8 +1,11 @@
 import { Children } from 'react';
 import dynamic from 'next/dynamic';
-const DynamicRenderSlice = dynamic(() => import('components/cms/RenderSlice'), {
-  loading: () => <></>,
-});
+const DynamicRenderSlice = dynamic(
+  () => import('components/cms/RenderSlice').then((mod) => mod.RenderSlice),
+  {
+    loading: () => <></>,
+  },
+);
 
 const HomeSection = ({ homepage }) => {
   return (
