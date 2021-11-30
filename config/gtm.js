@@ -1,4 +1,4 @@
-export const GTM_ID = 'GTM-K6QJBWZ';
+export const GTM_ID = 'GTM-N37W29C';
 
 export const event = ({ action, category, label, value }) => {
   window.gtag('event', action, {
