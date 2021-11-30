@@ -18,9 +18,9 @@ const MyApp = ({ Component, pageProps }) => {
   const tagManagerArgs = {
     id: 'GTM-XXXX',
   };
-  // useEffect(() => {
-  //   TagManager.initialize(tagManagerArgs);
-  // }, []);
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+  }, []);
   // useEffect(() => {
   //   const initGtmOnEvent = (event) => {
   //     initGtm();
