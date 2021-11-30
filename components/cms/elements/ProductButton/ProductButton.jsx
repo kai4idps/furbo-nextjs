@@ -28,10 +28,10 @@ const ProductButton = ({
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'view_product',
-        product_id: productInfo.variants[0].id,
+        product_id: productInfo?.variants[0].id,
         product_name: productInfo.title,
         currency: CURRENCY[region],
-        value: productInfo.variants[0].price,
+        value: productInfo?.variants[0].price,
       });
     }
   }, [productInfo, region]);
@@ -46,14 +46,14 @@ const ProductButton = ({
       event: 'add_to_cart',
       items: [
         {
-          item_id: productInfo.variants[0].id,
+          item_id: productInfo?.variants[0].id,
           item_name: productInfo.title,
-          price: productInfo.variants[0].price,
+          price: productInfo?.variants[0].price,
           quantity: 1,
         },
       ],
       currency: CURRENCY[region],
-      value: productInfo.variants[0].price,
+      value: productInfo?.variants[0].price,
     });
   };
 
@@ -69,11 +69,11 @@ const ProductButton = ({
         {isEmpty(productText) && (
           <div>
             <span className={classes.price}>
-              ${productInfo.variants[0].price}
+              ${productInfo?.variants[0].price}
             </span>
             {'   '}
             <span className={classes.originalPrice}>
-              ${productInfo.variants[0].compare_at_price}
+              ${productInfo?.variants[0].compare_at_price}
             </span>
           </div>
         )}

@@ -17,8 +17,8 @@ const useStyles = makeStyles(styles);
 
 const CartPage = ({ cartPage }) => {
   const classes = useStyles();
-  const price = +cartPage.product_info.variants[0].price;
-  const originalPrice = +cartPage.product_info.variants[0].compare_at_price;
+  const price = +cartPage.product_info?.variants[0]?.price;
+  const originalPrice = +cartPage.product_info?.variants[0]?.compare_at_price;
   const quantityLimit = +cartPage.quantity_limit;
   const [quantity, setQuantity] = useState(1);
   const router = useRouter();
@@ -30,7 +30,7 @@ const CartPage = ({ cartPage }) => {
       event: 'view_cart',
       items: [
         {
-          item_id: cartPage.product_info.variants[0].id,
+          item_id: cartPage.product_info?.variants[0].id,
           item_name: cartPage.product_info.title,
           price: price,
           quantity: quantity,
