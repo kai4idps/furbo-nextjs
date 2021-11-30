@@ -3507,6 +3507,11 @@ react-easy-swipe@^0.0.21:
   dependencies:
     prop-types "^15.5.8"
 
+react-gtm-module-defer@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-gtm-module-defer/-/react-gtm-module-defer-2.0.11.tgz#d9474fcfb230723b3e11b64985fe86f58b5cbe6e"
+  integrity sha512-KqQJvX9oMh3f0/8T36/q7DyGLMj4v3ZhJAkt7oPMn6jKv4MpJLaQ3dfa2qEA9dLhmFAOt9QpzGGDLNLZQ/JgPA==
+
 react-gtm-module@^2.0.11:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.11.tgz#14484dac8257acd93614e347c32da9c5ac524206"
