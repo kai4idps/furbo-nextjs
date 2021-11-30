@@ -8,43 +8,20 @@ import theme from 'styles/theme';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'styles/global.css';
 import styles from 'styles/mainStyle';
-// import { GTM_DELAY_TIME } from 'config/common';
-// import { GTM_ID } from 'config/gtm';
-// import TagManager from 'react-gtm-module';
+import { GTM_DELAY_TIME } from 'config/common';
+import { GTM_ID } from 'config/gtm';
+import TagManager from 'react-gtm-module';
 
 const useStyles = makeStyles(styles);
 
 const MyApp = ({ Component, pageProps }) => {
   const classes = useStyles();
-  // const tagManagerArgs = {
-  //   id: GTM_ID,
-  // };
-  // useEffect(() => {
-  //   TagManager.initialize(tagManagerArgs);
-  // }, []);
+  const tagManagerArgs = {
+    gtmId: GTM_ID,
+  };
   useEffect(() => {
-    const initGtmOnEvent = (event) => {
-      initGtm();
-      event.currentTarget.removeEventListener(event.type, initGtmOnEvent);
-    };
     const initGtm = () => {
-      if (window.gtmDidInit) {
-        return;
-      }
-      window.gtmDidInit = true;
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.onload = () => {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'gtm.js',
-          'gtm.start': new Date().getTime(),
-          'gtm.uniqueEventId': 0,
-        });
-      };
-      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N37W29C';
-      document.head.appendChild(script);
+      TagManager.initialize(tagManagerArgs);
     };
     document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('scroll', initGtmOnEvent);
@@ -53,6 +30,37 @@ const MyApp = ({ Component, pageProps }) => {
       setTimeout(initGtm, GTM_DELAY_TIME);
     });
   }, []);
+  // useEffect(() => {
+  //   const initGtmOnEvent = (event) => {
+  //     initGtm();
+  //     event.currentTarget.removeEventListener(event.type, initGtmOnEvent);
+  //   };
+  //   const initGtm = () => {
+  //     if (window.gtmDidInit) {
+  //       return;
+  //     }
+  //     window.gtmDidInit = true;
+  //     const script = document.createElement('script');
+  //     script.type = 'text/javascript';
+  //     script.async = true;
+  //     script.onload = () => {
+  //       window.dataLayer = window.dataLayer || [];
+  //       window.dataLayer.push({
+  //         event: 'gtm.js',
+  //         'gtm.start': new Date().getTime(),
+  //         'gtm.uniqueEventId': 0,
+  //       });
+  //     };
+  //     script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N37W29C';
+  //     document.head.appendChild(script);
+  //   };
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   document.addEventListener('scroll', initGtmOnEvent);
+  //   document.addEventListener('mousemove', initGtmOnEvent);
+  //   document.addEventListener('touchstart', initGtmOnEvent);
+  //   setTimeout(initGtm, GTM_DELAY_TIME);
+  // });
+  // }, []);
 
   return (
     <>
