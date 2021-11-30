@@ -23,12 +23,8 @@ const MyApp = ({ Component, pageProps }) => {
     const initGtm = () => {
       TagManager.initialize(tagManagerArgs);
     };
-    document.addEventListener('DOMContentLoaded', () => {
-      document.addEventListener('scroll', initGtmOnEvent);
-      document.addEventListener('mousemove', initGtmOnEvent);
-      document.addEventListener('touchstart', initGtmOnEvent);
-      setTimeout(initGtm, GTM_DELAY_TIME);
-    });
+
+    setTimeout(initGtm, GTM_DELAY_TIME);
   }, []);
   // useEffect(() => {
   //   const initGtmOnEvent = (event) => {
