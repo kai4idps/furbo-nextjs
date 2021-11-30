@@ -3,16 +3,16 @@ import CustomButton from 'components/cms/elements/CustomButton';
 import EmailInput from 'components/cms/elements/EmailInput';
 import GridElement from 'components/cms/elements/GridElement';
 import LearnButton from 'components/cms/elements/LearnButton';
-import ProductButton from 'components/cms/elements/ProductButton';
+// import ProductButton from 'components/cms/elements/ProductButton';
 import ShopButton from 'components/cms/elements/ShopButton';
 import SignInButton from 'components/cms/elements/SignInButton';
 import TextBox from 'components/cms/elements/TextBox';
 import VideoButton from 'components/cms/elements/VideoButton';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { isEmpty } from 'src/helpers';
 
 const RenderElement = ({ type, data }) => {
-  const region = useRouter().query.region;
+  // const region = useRouter().query.region;
   if (isEmpty(type) || isEmpty(data)) {
     return null;
   }
@@ -41,7 +41,16 @@ const RenderElement = ({ type, data }) => {
         />
       );
     case 'product_button':
-      return <></>;
+      return (
+        <></>
+        // <ProductButton
+        //   productInfo={data[`product_info_${region}`]}
+        //   productName={data.product_name}
+        //   productType={data.product_type}
+        //   productText={data.product_text}
+        //   buttonText={data.button_text}
+        // />
+      );
     case 'shop_button':
       return (
         <ShopButton
