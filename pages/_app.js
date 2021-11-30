@@ -8,6 +8,7 @@ import theme from 'styles/theme';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'styles/global.css';
 import styles from 'styles/mainStyle';
+import { GTM_DELAY_TIME } from 'config/common';
 
 const useStyles = makeStyles(styles);
 
