@@ -36,7 +36,7 @@ const MyApp = ({ Component, pageProps }) => {
           'gtm.uniqueEventId': 0,
         });
       };
-      script.src = `https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`;
+      script.src = `https://www.googletagmanager.com/gtm.js?id=GTM-N37W29C`;
       document.head.appendChild(script);
     };
     document.addEventListener('DOMContentLoaded', () => {
