@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -7,6 +8,7 @@ import AccountButton from 'components/button/AccountButton';
 import Button from '@material-ui/core/Button';
 import Grow from '@material-ui/core/Grow';
 import Divider from '@material-ui/core/Divider';
+import Hidden from '@material-ui/core/Hidden';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -24,6 +26,7 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
   const classes = useStyles();
   const router = useRouter();
   const {
+    path, // eslint-disable-line no-unused-vars
     region, // eslint-disable-line no-unused-vars
     ...query
   } = router.query;
@@ -67,7 +70,7 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
   );
 };
 
-const productDropdown = (array) => {
+const getProductListCount = (array) => {
   const enableProduct =
     array.find((item) => item.key === PAGE_KEYS.PRODUCTS)?.enabled === true;
   const enableFdn =
@@ -75,7 +78,7 @@ const productDropdown = (array) => {
     true;
   const enableFaas =
     array.find((item) => item.key === PAGE_KEYS.FAAS)?.enabled === true;
-  return enableProduct ? enableFdn || enableFaas : enableFdn && enableFaas;
+  return [enableProduct, enableFdn, enableFaas].filter(Boolean).length;
 };
 
 const HeaderLinks = ({ routes, onClose, content }) => {
@@ -86,7 +89,17 @@ const HeaderLinks = ({ routes, onClose, content }) => {
   const router = useRouter();
   const { region } = router.query;
   const classes = useStyles();
-  const isProductDropdown = productDropdown(routes);
+  const productListCount = getProductListCount(routes);
+  const moveClass = `${
+    smDown
+      ? productOpen
+        ? productListCount > 2
+          ? classes.moveDownMore
+          : classes.moveDown
+        : classes.moveUp
+      : null
+  }`;
+  const isProductDropdown = productListCount >= 2;
   const pageOnClick = () => {
     onClose();
     setProductOpen(false);
@@ -133,15 +146,7 @@ const HeaderLinks = ({ routes, onClose, content }) => {
               return null;
             }
             return (
-              <ListItem
-                className={`${classes.listItem} ${
-                  smDown
-                    ? productOpen
-                      ? classes.moveDown
-                      : classes.moveUp
-                    : null
-                }`}
-              >
+              <ListItem className={`${classes.listItem} ${moveClass}`}>
                 <HeaderButton
                   item={item}
                   onClick={pageOnClick}
@@ -153,26 +158,10 @@ const HeaderLinks = ({ routes, onClose, content }) => {
         )}
         {smDown && (
           <>
-            <ListItem
-              className={
-                smDown
-                  ? productOpen
-                    ? classes.moveDown
-                    : classes.moveUp
-                  : null
-              }
-            >
+            <ListItem className={moveClass}>
               <Divider variant="middle" className={classes.drawerDivider} />
             </ListItem>
-            <ListItem
-              className={`${classes.listItem} ${
-                smDown
-                  ? productOpen
-                    ? classes.moveDown
-                    : classes.moveUp
-                  : null
-              }`}
-            >
+            <ListItem className={`${classes.listItem} ${moveClass}`}>
               <AccountButton
                 className={classes.accountButton}
                 text={
@@ -180,15 +169,7 @@ const HeaderLinks = ({ routes, onClose, content }) => {
                 }
               />
             </ListItem>
-            <ListItem
-              className={`${classes.listItem} ${
-                smDown
-                  ? productOpen
-                    ? classes.moveDown
-                    : classes.moveUp
-                  : null
-              }`}
-            >
+            <ListItem className={`${classes.listItem} ${moveClass}`}>
               <Button className={classes.button} onClick={handleRegionEdit}>
                 <div className={classes.flag}>
                   <Image
@@ -213,7 +194,7 @@ const HeaderLinks = ({ routes, onClose, content }) => {
       </List>
       {isProductDropdown && (
         <Grow in={productOpen} className={classes.productList}>
-          <List>
+          <List disablePadding={true}>
             {React.Children.toArray(
               routes.map((item) => {
                 if (item.enabled !== true) {
@@ -228,11 +209,13 @@ const HeaderLinks = ({ routes, onClose, content }) => {
                 }
                 return (
                   <>
-                    {item.key !== PAGE_KEYS.PRODUCTS && (
-                      <ListItem className={classes.listItem}>
-                        <div className={classes.divider} />
-                      </ListItem>
-                    )}
+                    <Hidden smDown>
+                      {item.key !== PAGE_KEYS.PRODUCTS && (
+                        <ListItem className={classes.listItem}>
+                          <div className={classes.divider} />
+                        </ListItem>
+                      )}
+                    </Hidden>
                     <ListItem className={classes.listItem}>
                       <HeaderButton item={item} onClick={pageOnClick} />
                     </ListItem>

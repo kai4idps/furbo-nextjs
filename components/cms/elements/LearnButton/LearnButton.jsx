@@ -10,6 +10,8 @@ const useStyles = makeStyles(styles);
 const getPath = (type) => {
   if (type === 'Furbo Dog Nanny') {
     return 'products/furbo-dog-nanny';
+  } else if (type === 'Furbo Nanny Cam Bundle') {
+    return 'products/furbo-nanny-cam-bundle';
   } else if (type === 'Saving Lives') {
     return 'pages/saving-lives';
   }
@@ -19,8 +21,18 @@ const getPath = (type) => {
 const getColor = (type) => {
   if (type === 'Blue') {
     return '#1e7bac';
+  } else if (type === 'Grey') {
+    return '#d8d8d8';
   } else {
     return 'transparent';
+  }
+};
+
+const getTextColor = (type) => {
+  if (type === 'Blue') {
+    return '#ffffff';
+  } else {
+    return '#434343';
   }
 };
 
@@ -62,6 +74,7 @@ const LearnButton = (props) => {
           style={{
             backgroundColor: getColor(color),
             border: getBorder(color),
+            color: getTextColor(color),
             '&,&:hover,&:focus': {
               backgroundgetColor: getColor(color),
             },
@@ -77,7 +90,7 @@ const LearnButton = (props) => {
 };
 
 LearnButton.propTypes = {
-  className: PropTypes.object,
+  className: PropTypes.string,
   learnButtonText: PropTypes.string.isRequired,
   color: PropTypes.string,
   link: PropTypes.string,

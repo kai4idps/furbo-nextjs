@@ -87,14 +87,15 @@ const bannerStyle = (theme) => ({
     fontFamily: 'Avenir',
     fontColor: '#434343',
     fontWeight: '500',
+    paddingBottom: '3px',
     [theme.breakpoints.down('sm')]: {
       borderRadius: '5px',
       height: '60px',
     },
   },
   time: {
-    width: '50px',
-    height: '45px',
+    width: '46px',
+    height: '42px',
     fontFamily: 'Avenir',
     lineHeight: 'normal',
     backgroundColor: 'white',
@@ -104,6 +105,14 @@ const bannerStyle = (theme) => ({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      width: '44px',
+      height: '40px',
+    },
+    '@media (max-width: 350px)': {
+      width: '44px',
+      height: '36px',
+    },
   },
   timeDigit: {
     width: '100%',
@@ -117,12 +126,19 @@ const bannerStyle = (theme) => ({
     paddingTop: '5px',
     fontWeight: 'bold',
     fontFamily: 'Avenir',
+    '@media (max-width: 350px)': {
+      fontSize: '16px',
+    },
   },
   timeWord: {
     width: '40px',
     height: 'auto',
     fontSize: '10px',
     color: '#d0021b',
+    [theme.breakpoints.down('sm')]: {},
+    '@media (max-width: 350px)': {
+      fontSize: '9px',
+    },
   },
   colon: {
     padding: '0px 5px',
@@ -135,8 +151,8 @@ const bannerStyle = (theme) => ({
     fontWeight: 'bold',
   },
   units: {
-    width: '32px',
-    height: '40px',
+    width: '26px',
+    height: '36px',
     margin: '0px 5px 1px',
     backgroundColor: 'white',
     borderRadius: '3px',
@@ -145,8 +161,8 @@ const bannerStyle = (theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     [theme.breakpoints.down('xs')]: {
-      width: '28px',
-      height: '38px',
+      width: '26px',
+      height: '36px',
     },
     '@media (max-width: 350px)': {
       width: '23px',

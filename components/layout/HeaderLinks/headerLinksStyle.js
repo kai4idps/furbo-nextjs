@@ -42,7 +42,7 @@ const headerLinksStyle = (theme) => ({
       margin: '0px',
       height: '70px',
       fontSize: '20px',
-      textAlign: 'center',
+      textAlign: 'left',
       alignItems: 'center',
       justifyContent: 'flex-start',
     },
@@ -63,12 +63,13 @@ const headerLinksStyle = (theme) => ({
     [theme.breakpoints.down('sm')]: {
       top: '70px',
       flexDirection: 'column',
-      height: '140px',
+      height: 'auto',
     },
   },
   divider: {
     width: '1px',
     height: '30px',
+    marginRight: '5px',
     backgroundColor: '#434343',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
@@ -85,6 +86,10 @@ const headerLinksStyle = (theme) => ({
   moveDown: {
     transition: 'transform .5s',
     transform: 'translate(0px, 140px)',
+  },
+  moveDownMore: {
+    transition: 'transform .5s',
+    transform: 'translate(0px, 210px)',
   },
   moveUp: {
     transition: 'transform .5s',

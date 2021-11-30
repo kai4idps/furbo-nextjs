@@ -50,7 +50,7 @@ const ComparisonTable = ({
           <div className={classes.itemName}>{RichText.render(itemAName)}</div>
         </div>
         <Hidden xsDown>
-          <div style={{ width: '200px' }} />
+          <div style={{ width: '180px' }} />
         </Hidden>
         <div className={classes.headerBoxItem}>
           <div className={classes.itemName}>{RichText.render(itemBName)}</div>

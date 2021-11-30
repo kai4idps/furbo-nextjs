@@ -114,7 +114,7 @@ const footerStyle = (theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     padding: '10px',
-    width: '150px',
+    width: 'auto',
   },
   flag: {
     display: 'flex',

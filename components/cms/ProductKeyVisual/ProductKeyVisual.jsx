@@ -54,11 +54,14 @@ const ProductKeyVisual = ({ productPage }) => {
               </div>
             </Hidden>
             {Children.toArray(
-              productPage.product_button.map((item) => (
-                <RenderElement
-                  type={item.button.type}
-                  data={item.button.data}
-                />
+              productPage.product_button.map((item, index) => (
+                <>
+                  {index !== 0 && <br />}
+                  <RenderElement
+                    type={item.button.type}
+                    data={item.button.data}
+                  />
+                </>
               )),
             )}
           </Grid>

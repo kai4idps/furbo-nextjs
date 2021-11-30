@@ -20,8 +20,10 @@ const comparisonTableStyle = (theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexGrow: 1,
+    maxWidth: 'calc(50% - 90px)',
     [theme.breakpoints.down('sm')]: {
-      width: '200px',
+      width: 'auto',
+      maxWidth: '50%',
     },
   },
   itemName: {
@@ -30,7 +32,7 @@ const comparisonTableStyle = (theme) => ({
   vs: {
     width: '180px',
     [theme.breakpoints.down('xs')]: {
-      flexGrow: 1,
+      width: 'auto',
     },
   },
   table: {

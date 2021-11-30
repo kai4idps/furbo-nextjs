@@ -75,7 +75,7 @@ const headerStyle = (theme) => ({
     backgroundColor: '#f7f7f7',
     border: 'none',
     height: 'calc(100vh - 145px)',
-    width: '300px',
+    width: '350px',
     right: 'auto',
     top: '145px',
     left: '0',
@@ -84,6 +84,12 @@ const headerStyle = (theme) => ({
     textAlign: 'left',
     paddingRight: '0px',
     paddingLeft: '0px',
+    '@media (max-width: 350px)': {
+      width: '330px',
+    },
+    '@media (max-width: 320px)': {
+      width: '300px',
+    },
   },
   extraPadding: {
     top: '165px',

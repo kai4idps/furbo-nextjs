@@ -7,6 +7,7 @@ export const fetchUnitCount = createAsyncThunk(
   async () => {
     const data = {
       Action: 'CampaignLeftQuantity',
+      CampaignName: 'CA2021BF',
     };
     const env = process.env.BUILD_ENV || 'development';
     const response = await axios.post(UNIT_COUNT_API[env], data, {

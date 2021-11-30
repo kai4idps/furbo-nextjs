@@ -1,6 +1,7 @@
 const splitLayoutSliceStyle = (theme) => ({
   root: {
     padding: '10px 0px 20px',
+    width: '100%',
   },
   image: {
     width: '400px',

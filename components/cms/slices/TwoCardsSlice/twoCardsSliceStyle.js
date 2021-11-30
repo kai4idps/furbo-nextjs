@@ -2,7 +2,6 @@ const twoCardsSliceStyle = (theme) => ({
   root: {
     height: 'auto',
     width: '100%',
-    padding: '20px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -19,7 +18,7 @@ const twoCardsSliceStyle = (theme) => ({
   },
   container: {
     [theme.breakpoints.down('xs')]: {
-      paddingTop: '20px',
+      paddingTop: '10px',
     },
   },
   cardContainer: {
@@ -39,6 +38,12 @@ const twoCardsSliceStyle = (theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
   },
+  extraPadding: {
+    padding: '30px 40px',
+    [theme.breakpoints.down('xs')]: {
+      padding: '20px 30px',
+    },
+  },
   cardContent: {
     position: 'relative',
     textAlign: 'center',
@@ -49,6 +54,9 @@ const twoCardsSliceStyle = (theme) => ({
     padding: '15px',
     '&:last-child': {
       paddingBottom: '15px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: '0px',
     },
   },
   cardMedia: {
@@ -64,8 +72,16 @@ const twoCardsSliceStyle = (theme) => ({
     color: '#434343',
   },
   slice: {
-    padding: '10px 0px 0px',
-    marginTop: 'auto',
+    padding: '20px 0px 0px',
+  },
+  backgroundImageCard: {
+    height: '600px',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'bottom',
+    [theme.breakpoints.down('xs')]: {
+      height: '500px',
+    },
   },
 });
 

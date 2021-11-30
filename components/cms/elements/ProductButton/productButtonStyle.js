@@ -18,7 +18,8 @@ const productButtonStyle = (theme) => ({
     fontFamily: 'FuturaPT',
     flexGrow: 1,
     paddingLeft: '10px',
-    fontSize: '22px',
+    lineHeight: 'normal',
+    fontSize: '21px',
     [theme.breakpoints.down('sm')]: {
       fontSize: '18px',
       width: 'calc(100% - 100px - 125px)',
@@ -28,8 +29,8 @@ const productButtonStyle = (theme) => ({
     },
   },
   price: {
-    fontFamily: 'FuturaPT',
-    fontSize: '20px',
+    fontFamily: 'Avenir',
+    fontSize: '18px',
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
     },
@@ -39,7 +40,7 @@ const productButtonStyle = (theme) => ({
   },
   originalPrice: {
     fontFamily: 'Avenir',
-    fontSize: '20px',
+    fontSize: '18px',
     textDecoration: 'line-through',
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
@@ -69,6 +70,26 @@ const productButtonStyle = (theme) => ({
     textAlign: 'center',
     '&,&:hover,&:focus': {
       backgroundColor: '#f7cd3d',
+      height: '40px',
+    },
+    '@media (max-width: 350px)': {
+      fontSize: '16px',
+      width: '85px',
+      height: '30px',
+      '&,&:hover,&:focus': {
+        height: '30px',
+      },
+    },
+  },
+  learnButton: {
+    color: '#434343',
+    width: '120px',
+    height: '40px',
+    backgroundColor: '#d8d8d8',
+    borderRadius: '100px',
+    textAlign: 'center',
+    '&,&:hover,&:focus': {
+      backgroundColor: '#d8d8d8',
       height: '40px',
     },
     '@media (max-width: 350px)': {
