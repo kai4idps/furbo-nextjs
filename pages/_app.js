@@ -23,7 +23,7 @@ const MyApp = ({ Component, pageProps }) => {
     const initGtm = () => {
       TagManager.initialize(tagManagerArgs);
     };
-
+    // test
     setTimeout(initGtm, GTM_DELAY_TIME);
   }, []);
   // useEffect(() => {
