@@ -10,7 +10,7 @@ import 'styles/global.css';
 import styles from 'styles/mainStyle';
 // import { GTM_DELAY_TIME } from 'config/common';
 // import { GTM_ID } from 'config/gtm';
-import TagManager from 'react-gtm-module';
+// import TagManager from 'react-gtm-module';
 
 const useStyles = makeStyles(styles);
 
