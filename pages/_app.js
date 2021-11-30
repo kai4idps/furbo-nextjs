@@ -9,6 +9,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'styles/global.css';
 import styles from 'styles/mainStyle';
 // import { GTM_DELAY_TIME } from 'config/common';
+import { GTM_ID } from 'config/gtm';
 import TagManager from 'react-gtm-module';
 
 const useStyles = makeStyles(styles);
@@ -16,7 +17,7 @@ const useStyles = makeStyles(styles);
 const MyApp = ({ Component, pageProps }) => {
   const classes = useStyles();
   const tagManagerArgs = {
-    id: 'GTM-XXXX',
+    id: GTM_ID,
   };
   useEffect(() => {
     TagManager.initialize(tagManagerArgs);

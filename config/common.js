@@ -14,7 +14,7 @@ export const UNIT_COUNT_API = {
 
 export const BASIC_AUTHORIZATION = 'Basic dG9tb2Z1bnJkOmhhcHB5UGV0MTIz';
 
-export const REVALIDATE_TIME = 120;
+export const REVALIDATE_TIME = 180;
 export const GTM_DELAY_TIME = 4500;
 export const VISIBLE_OFFSET = 0.3;
 
