@@ -42,13 +42,14 @@ const RenderElement = ({ type, data }) => {
       );
     case 'product_button':
       return (
-        <ProductButton
-          productInfo={data[`product_info_${region}`]}
-          productName={data.product_name}
-          productType={data.product_type}
-          productText={data.product_text}
-          buttonText={data.button_text}
-        />
+        <></>
+        // <ProductButton
+        //   productInfo={data[`product_info_${region}`]}
+        //   productName={data.product_name}
+        //   productType={data.product_type}
+        //   productText={data.product_text}
+        //   buttonText={data.button_text}
+        // />
       );
     case 'shop_button':
       return (
