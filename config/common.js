@@ -16,7 +16,7 @@ export const BASIC_AUTHORIZATION = 'Basic dG9tb2Z1bnJkOmhhcHB5UGV0MTIz';
 
 export const REVALIDATE_TIME = 120;
 export const GTM_DELAY_TIME = 4500;
-export const GTM_ID = 'GTM-N37W29C';
+export const GTM_ID = 'GTM-K6QJBWZ';
 export const VISIBLE_OFFSET = 0.3;
 
 export const CURRENCY = {
