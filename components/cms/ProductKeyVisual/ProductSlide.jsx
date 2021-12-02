@@ -153,9 +153,6 @@ const ProductSlide = (props) => {
                       {item.slide.kind === 'image' && (
                         <Image
                           className={classes.slideImage}
-                          style={{
-                            width: +item.slide.width,
-                          }}
                           alt={item.slide.name}
                           src={item.slide.url}
                         />

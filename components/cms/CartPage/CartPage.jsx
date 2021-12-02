@@ -1,4 +1,4 @@
-import { useEffect, useState, Children, useMemo } from 'react';
+import { useEffect, useState, Children } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'components/Image';
 import NextImage from 'next/image';
