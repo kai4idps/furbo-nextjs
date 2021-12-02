@@ -148,6 +148,6 @@ export const REGION_INFO = {
   },
 };
 
-export const REGION_LIST = ['us', 'ca', 'de', 'uk', 'fr', 'au'];
+export const REGION_LIST = ['us', 'ca', 'de', 'uk', 'fr'];
 
 export const PATHS = REGION_LIST.map((region) => ({ params: { region } }));
