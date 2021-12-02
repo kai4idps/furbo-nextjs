@@ -60,6 +60,10 @@ const keyVisualSliceStyle = (theme) => ({
     position: 'absolute',
     left: '-55px',
     top: '-25px',
+    [theme.breakpoints.down('sm')]: {
+      left: '-45px',
+      top: '-10px',
+    },
   },
   icon: {
     width: '50px',

@@ -51,7 +51,7 @@ const twoCardsSliceStyle = (theme) => ({
     flexDirection: 'column',
     color: '#434343',
     flexGrow: 1,
-    padding: '15px',
+    padding: '0px 15px',
     '&:last-child': {
       paddingBottom: '15px',
     },
@@ -64,7 +64,7 @@ const twoCardsSliceStyle = (theme) => ({
     width: '100%',
   },
   cardMediaSmall: {
-    padding: '15px 0px 0px',
+    padding: '15px 0px 15px',
     height: 'auto',
     width: '120px',
   },

@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
 import RenderElement from 'components/cms/RenderElement';
+import { isEmpty } from 'src/helpers';
 import styles from './splitLayoutSliceStyle';
 
 const useStyles = makeStyles(styles);
@@ -49,8 +50,14 @@ const SplitLayoutSlice = ({
             sm={12}
             xs={12}
           >
-            <div className={classes.title}>{RichText.render(title)}</div>
-            <div className={classes.subtitle}>{RichText.render(subtitle)}</div>
+            {!isEmpty(title) && (
+              <div className={classes.title}>{RichText.render(title)}</div>
+            )}
+            {!isEmpty(subtitle) && (
+              <div className={classes.subtitle}>
+                {RichText.render(subtitle)}
+              </div>
+            )}
             <div className={classes.content}>
               {Children.toArray(
                 content.map((slice) => (

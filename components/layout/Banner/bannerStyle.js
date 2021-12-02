@@ -87,7 +87,7 @@ const bannerStyle = (theme) => ({
     fontFamily: 'Avenir',
     fontColor: '#434343',
     fontWeight: '500',
-    paddingBottom: '3px',
+    padding: '3px 0px 2px',
     [theme.breakpoints.down('sm')]: {
       borderRadius: '5px',
       height: '60px',
