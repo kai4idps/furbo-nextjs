@@ -36,7 +36,7 @@ module.exports = {
     domains: [
       'images.prismic.io',
       'furbo-prismic.cdn.prismic.io',
-      'cdn.shopify.com',
+      // 'cdn.shopify.com',
     ],
   },
 };
