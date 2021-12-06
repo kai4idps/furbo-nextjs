@@ -78,7 +78,6 @@ const logoSliderSliceStyle = (theme) => ({
   },
   arrow,
   indicatorContainer: {
-    backgroundColor: 'transparent',
     height: 'auto',
     width: '100%',
     zIndex: 2,
@@ -90,7 +89,6 @@ const logoSliderSliceStyle = (theme) => ({
     },
   },
   button: {
-    backgroundColor: 'transparent',
     margin: '5px',
     [theme.breakpoints.down('sm')]: {
       backgroundColor: '#f7cd3d',

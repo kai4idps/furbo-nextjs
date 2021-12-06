@@ -4,11 +4,8 @@ const productKeyVisualStyle = (theme) => ({
     width: '100%',
     marginBottom: '10px',
   },
-  leftGrid: {
-    backgroundColor: 'transparent',
-  },
+  leftGrid: {},
   rightGrid: {
-    backgroundColor: 'transparent',
     padding: '10px',
     display: 'flex',
     justifyContent: 'center',

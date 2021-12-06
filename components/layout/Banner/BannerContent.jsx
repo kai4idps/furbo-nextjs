@@ -4,7 +4,7 @@ import { useTheme, makeStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
-import { customHtml } from 'src/customHtml';
+import { colorFontTime } from 'src/customHtml';
 import styles from './bannerStyle';
 
 const useStyles = makeStyles(styles);
@@ -41,7 +41,7 @@ const BannerContent = ({ campaign }) => {
             render={
               smDown ? campaign.mobile_banner_content : campaign.banner_content
             }
-            htmlSerializer={customHtml}
+            htmlSerializer={colorFontTime}
           />
         </span>
         {!isEmpty(campaign.banner_image_right) && (

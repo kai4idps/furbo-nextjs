@@ -30,6 +30,7 @@ const AccordionSummary = withStyles({
   },
   content: {
     margin: 0,
+    alignItems: 'center',
     '&$expanded': {
       margin: 0,
     },

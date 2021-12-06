@@ -9,7 +9,7 @@ import { fetchUnitCount } from 'redux/features/product/productSlice';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
-import { customHtml } from 'src/customHtml';
+import { colorFontTime } from 'src/customHtml';
 import { REGION_INFO } from 'config/navigation';
 import styles from './bannerStyle';
 
@@ -105,7 +105,7 @@ const BannerCountdown = ({ campaign }) => {
             >
               <RichText
                 render={campaign.sales_end_countdown_text_content}
-                htmlSerializer={customHtml}
+                htmlSerializer={colorFontTime}
               />
             </span>
             <span
@@ -177,7 +177,7 @@ const BannerCountdown = ({ campaign }) => {
             >
               <RichText
                 render={campaign.unit_countdown_text_content}
-                htmlSerializer={customHtml}
+                htmlSerializer={colorFontTime}
               />
             </span>
             <span

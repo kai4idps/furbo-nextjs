@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import useInView from 'react-cool-inview';
 import { VISIBLE_OFFSET } from 'config/common';
-const DynamicVideoComponent = dynamic(() => import('./VideoComponent'));
+const DynamicVideoComponent = dynamic(
+  () => import('./VideoComponent').then((mod) => mod),
+  {
+    loading: () => <></>,
+  },
+);
 
 const Video = ({ title, src, width, height, className, ...props }) => {
   const [active, setActive] = useState(false);

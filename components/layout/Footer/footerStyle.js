@@ -36,6 +36,7 @@ const footerStyle = (theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'column',
+    whiteSpace: 'nowrap',
   },
   socialLinkContainer: {
     width: '100%',

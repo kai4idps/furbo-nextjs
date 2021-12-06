@@ -7,12 +7,19 @@ import Container from '@material-ui/core/Container';
 // import Footer from 'components/layout/Footer';
 import styles from './baseLayoutStyle';
 
-const DynamicHeader = dynamic(() => import('components/layout/Header'), {
-  loading: () => <></>,
-});
-const DynamicFooter = dynamic(() => import('components/layout/Footer'), {
-  loading: () => <></>,
-});
+const DynamicHeader = dynamic(
+  () => import('components/layout/Header').then((mod) => mod),
+  {
+    loading: () => <></>,
+  },
+);
+const DynamicFooter = dynamic(
+  () => import('components/layout/Footer').then((mod) => mod),
+  {
+    loading: () => <></>,
+  },
+);
+
 const useStyles = makeStyles(styles);
 
 const BaseLayout = ({ children, campaign, content }) => {

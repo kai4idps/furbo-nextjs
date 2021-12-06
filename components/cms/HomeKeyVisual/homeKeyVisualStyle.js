@@ -21,7 +21,6 @@ const keyVisualStyle = (theme) => ({
     },
   },
   text: {
-    backgroundColor: 'transparent',
     padding: '0px 20% 0px',
     display: 'flex',
     flexDirection: 'column',
