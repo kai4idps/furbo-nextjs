@@ -1,15 +1,15 @@
 import { Children } from 'react';
-import dynamic from 'next/dynamic';
-const DynamicRenderSlice = dynamic(() => import('components/cms/RenderSlice'), {
-  loading: () => <></>,
-});
+// const DynamicRenderSlice = dynamic(() => import('components/cms/RenderSlice'), {
+//   loading: () => <></>,
+// });
+import RenderSlice from 'components/cms/RenderSlice';
 
 const FaasSection = ({ faasPage }) => {
   return (
     <>
       {Children.toArray(
         faasPage.body.map((slice) => (
-          <DynamicRenderSlice
+          <RenderSlice
             type={slice.slice_type}
             primary={slice.primary}
             items={slice.items}
