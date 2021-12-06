@@ -1,18 +1,12 @@
 import { Children } from 'react';
-import dynamic from 'next/dynamic';
-const DynamicRenderSlice = dynamic(
-  () => import('components/cms/RenderSlice').then((mod) => mod.RenderSlice),
-  {
-    loading: () => <></>,
-  },
-);
+import RenderSlice from 'components/cms/RenderSlice';
 
 const HomeSection = ({ homepage }) => {
   return (
     <>
       {Children.toArray(
         homepage.map((slice) => (
-          <DynamicRenderSlice
+          <RenderSlice
             type={slice.slice_type}
             primary={slice.primary}
             items={slice.items}
