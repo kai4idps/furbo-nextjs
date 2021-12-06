@@ -1,4 +1,4 @@
-import { useEffect, useState, Children } from 'react';
+import { useEffect, useState, Children, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'components/Image';
 import NextImage from 'next/image';
@@ -9,20 +9,31 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Container from '@material-ui/core/Container';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { CHECKOUT_URL } from 'config/checkout';
+import { CHECKOUT_URL, CUSTOM_CHECKOUT_URL } from 'config/checkout';
 import { CURRENCY } from 'config/common';
+import { isEmpty } from 'src/helpers';
 import styles from './cartPageStyle';
 
 const useStyles = makeStyles(styles);
 
 const CartPage = ({ cartPage }) => {
   const classes = useStyles();
-  const price = +cartPage.product_info.variants[0].price;
-  const originalPrice = +cartPage.product_info.variants[0].compare_at_price;
+  const router = useRouter();
+  const { region, productId } = router.query;
+
+  const productInfo = useMemo(() => {
+    return isEmpty(productId)
+      ? cartPage.product_list[0][`product_info_${region}`]
+      : cartPage.product_list.find(
+          (item) => +item[`product_info_${region}`].product_id === +productId,
+        )?.[`product_info_${region}`] ||
+          cartPage.product_list[0][`product_info_${region}`];
+  }, [productId, region, cartPage.product_list]);
+
+  const price = +productInfo.price;
+  const originalPrice = +productInfo.compare_at_price;
   const quantityLimit = +cartPage.quantity_limit;
   const [quantity, setQuantity] = useState(1);
-  const router = useRouter();
-  const { region } = router.query;
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
@@ -30,8 +41,8 @@ const CartPage = ({ cartPage }) => {
       event: 'view_cart',
       items: [
         {
-          item_id: cartPage.product_info.variants[0].id,
-          item_name: cartPage.product_info.title,
+          item_id: productInfo.product_id,
+          item_name: productInfo.title,
           price: price,
           quantity: quantity,
         },
@@ -39,7 +50,7 @@ const CartPage = ({ cartPage }) => {
       currency: CURRENCY[region.toUpperCase()],
       value: price,
     });
-  }, [quantity, price, cartPage, region]);
+  }, [productInfo, quantity, price, cartPage, region]);
 
   const handleIncrement = () => {
     if (quantity < quantityLimit) {
@@ -61,7 +72,11 @@ const CartPage = ({ cartPage }) => {
       <Container className={classes.container} maxWidth="md">
         <div className={classes.imageContainer}>
           <NextImage
-            src={cartPage.product_image.url}
+            src={
+              isEmpty(productId)
+                ? cartPage.product_image.url
+                : productInfo.image.src
+            }
             layout="fill"
             alt="shopping-cart-kv"
           />
@@ -69,7 +84,9 @@ const CartPage = ({ cartPage }) => {
         <div className={classes.content}>
           <div className={classes.contentTitle}>
             <div className={classes.borderTop} />
-            <div className={classes.contentTitleText}>{cartPage.title}</div>
+            <div className={classes.contentTitleText}>
+              {isEmpty(productId) ? cartPage.title : productInfo.title}
+            </div>
             <div className={classes.borderBottom} />
           </div>
           <div className={classes.serviceContainer}>
@@ -103,8 +120,7 @@ const CartPage = ({ cartPage }) => {
               </span>
               <div className={classes.save}>
                 {`${cartPage.save} $${(originalPrice - price).toFixed(0)}(${(
-                  (1 - price / originalPrice) *
-                  100
+                  (1 - price / originalPrice || 0) * 100
                 ).toFixed(0)}%)`}
               </div>
               <div className={classes.tax}>{cartPage.excluding_tax}</div>
@@ -122,7 +138,16 @@ const CartPage = ({ cartPage }) => {
               </Button>
             </ButtonGroup>
             <Button
-              href={CHECKOUT_URL(region, quantity)}
+              href={
+                isEmpty(productId)
+                  ? CHECKOUT_URL(region, quantity)
+                  : CUSTOM_CHECKOUT_URL(
+                      region,
+                      productInfo.variant_id,
+                      quantity,
+                    )
+              }
+              id="checkout-button"
               className={classes.checkoutButton}
             >
               {cartPage.checkout}
