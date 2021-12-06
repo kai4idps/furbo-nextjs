@@ -1,6 +1,7 @@
 const productButtonStyle = (theme) => ({
   buttonPaper: {
     width: '100%',
+    maxWidth: '550px',
     display: 'flex',
     borderRadius: '10px',
     justifyContent: 'space-between',
