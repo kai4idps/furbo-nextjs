@@ -1,10 +1,12 @@
 const smartAlertsSliceStyle = (theme) => ({
   root: {
+    backgroundColor: 'transparent',
     position: 'relative',
     height: 'auto',
     width: 'auto',
   },
   indicatorContainer: {
+    backgroundColor: 'transparent',
     position: 'relative',
     padding: '10px 0px',
     height: 'auto',
@@ -18,6 +20,7 @@ const smartAlertsSliceStyle = (theme) => ({
     },
   },
   button: {
+    backgroundColor: 'transparent',
     margin: '5px',
     [theme.breakpoints.down('xs')]: {
       margin: '0px',
@@ -113,6 +116,7 @@ const smartAlertsSliceStyle = (theme) => ({
     },
   },
   subtitle: {
+    backgroundColor: 'transparent',
     fontSize: '24px',
     fontWeight: 'lighter',
     color: '#434343',

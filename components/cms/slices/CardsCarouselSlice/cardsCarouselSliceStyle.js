@@ -74,6 +74,7 @@ const cardsCarouselSliceStyle = (theme) => ({
     },
   },
   slide: {
+    backgroundColor: 'transparent',
     height: '100%',
     padding: '0px 10px 30px',
     '& .MuiPaper-rounded': {

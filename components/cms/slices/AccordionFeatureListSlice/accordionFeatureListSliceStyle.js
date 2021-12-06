@@ -11,7 +11,6 @@ const accordionFeatureListSliceStyle = (theme) => ({
     fontSize: '32px',
     borderTop: '1px solid white',
     borderBottom: '1px solid white',
-    paddingTop: '5px', // centering workaround
     [theme.breakpoints.down('sm')]: {
       fontSize: '24px',
     },
@@ -43,7 +42,7 @@ const accordionFeatureListSliceStyle = (theme) => ({
   },
   accordionItem: {
     width: '340px',
-
+    backgroundColor: 'transparent',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
     },
@@ -52,15 +51,17 @@ const accordionFeatureListSliceStyle = (theme) => ({
     },
   },
   itemHeader: {
+    backgroundColor: 'transparent',
     height: '40px',
-    lineHeight: '22px',
+    lineHeight: '40px',
     fontFamily: 'Avenir',
     color: '#434343',
     fontSize: '18px',
-    fontWeight: 500,
+    fontWeight: 800,
     borderBottom: '1px solid #c3c3c3',
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
+      fontWeight: 500,
     },
   },
   itemImage: {
@@ -73,9 +74,8 @@ const accordionFeatureListSliceStyle = (theme) => ({
   },
   itemTitle: {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
   },
   itemContent: {
     fontSize: '15px',

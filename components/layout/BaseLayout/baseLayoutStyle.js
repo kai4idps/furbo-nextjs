@@ -7,7 +7,7 @@ const baseLayoutStyle = (theme) => ({
     },
   },
   extraPadding: {
-    padding: '165px 15px 0px 15px',
+    padding: '155px 15px 0px 15px',
   },
 });
 

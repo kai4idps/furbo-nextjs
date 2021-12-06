@@ -35,6 +35,7 @@ const productSlideStyle = (theme) => ({
     flexDirection: 'column',
   },
   indicatorContainer: {
+    backgroundColor: 'transparent',
     width: '100%',
     // height: '100%',
   },
@@ -65,15 +66,15 @@ const productSlideStyle = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    maxHeight: '100%',
-    maxWidth: '100%',
+    [theme.breakpoints.down('sm')]: {
+      height: '100%',
+      width: '100%',
+    },
   },
   slideImage: {
     backgroundColor: 'white',
     width: '100%',
     height: '100%',
-    maxHeight: '100%',
-    maxWidth: '100%',
   },
   slideVideo: {
     backgroundColor: 'white',

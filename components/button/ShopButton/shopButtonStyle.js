@@ -1,8 +1,11 @@
-const shopButtonStyle = () => ({
+const shopButtonStyle = (theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: '24px',
+    },
   },
   button: {
     zIndex: 1000,
