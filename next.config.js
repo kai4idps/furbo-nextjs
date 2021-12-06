@@ -33,10 +33,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: [
-      'images.prismic.io',
-      'furbo-prismic.cdn.prismic.io',
-      'cdn.shopify.com',
-    ],
+    domains: ['images.prismic.io', 'furbo-prismic.cdn.prismic.io'],
   },
 };

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Link from 'next/link';
 import styles from './customButtonStyle';
 import { useRouter } from 'next/router';
-import { isEmpty, toId, defineFontColor } from 'src/helpers';
+import { isEmpty, toId } from 'src/helpers';
 
 const useStyles = makeStyles(styles);
 
@@ -45,7 +45,6 @@ const CustomButton = (props) => {
         <Button
           className={btnClasses}
           style={{
-            color: defineFontColor(color),
             backgroundColor: color,
             '&,&:hover,&:focus': {
               backgroundgetColor: color,

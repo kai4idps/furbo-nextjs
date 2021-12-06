@@ -24,35 +24,31 @@ const ProductButton = ({
   const { region } = router.query;
 
   useEffect(() => {
-    if (!isEmpty(productInfo)) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'view_product',
-        product_id: productInfo.product_id,
-        product_name: productInfo.title,
-        currency: CURRENCY[region],
-        value: productInfo.price,
-      });
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'view_product',
+      product_id: productInfo.variants[0].id,
+      product_name: productInfo.title,
+      currency: CURRENCY[region],
+      value: productInfo.variants[0].price,
+    });
   }, [productInfo, region]);
 
   const addToCart = () => {
-    if (!isEmpty(productInfo)) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'add_to_cart',
-        items: [
-          {
-            item_id: productInfo.product_id,
-            item_name: productInfo.title,
-            price: productInfo.price,
-            quantity: 1,
-          },
-        ],
-        currency: CURRENCY[region],
-        value: productInfo.price,
-      });
-    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'add_to_cart',
+      items: [
+        {
+          item_id: productInfo.variants[0].id,
+          item_name: productInfo.title,
+          price: productInfo.variants[0].price,
+          quantity: 1,
+        },
+      ],
+      currency: CURRENCY[region],
+      value: productInfo.variants[0].price,
+    });
   };
 
   return (
@@ -64,16 +60,18 @@ const ProductButton = ({
       />
       <div className={classes.buttonText}>
         {productName}
-        {productType === 'Furbo Dog Camera' && (
+        {isEmpty(productText) && (
           <div>
-            <span className={classes.price}>${productInfo.price}</span>
+            <span className={classes.price}>
+              ${productInfo.variants[0].price}
+            </span>
             {'   '}
             <span className={classes.originalPrice}>
-              ${productInfo.compare_at_price}
+              ${productInfo.variants[0].compare_at_price}
             </span>
           </div>
         )}
-        {productType !== 'Furbo Dog Camera' && (
+        {!isEmpty(productText) && (
           <div className={classes.price}>{productText}</div>
         )}
       </div>
@@ -102,7 +100,7 @@ const ProductButton = ({
 export default ProductButton;
 
 ProductButton.propTypes = {
-  productInfo: PropTypes.object,
+  productInfo: PropTypes.object.isRequired,
   productName: PropTypes.string.isRequired,
   productType: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,

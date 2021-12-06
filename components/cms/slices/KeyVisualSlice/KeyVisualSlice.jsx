@@ -42,7 +42,6 @@ const KeyVisualSlice = (props) => {
   const {
     title,
     titleUnderline = false,
-    iconImage,
     gridAlign,
     textAlign,
     subtitle,
@@ -118,18 +117,7 @@ const KeyVisualSlice = (props) => {
                   textAlign: smDown ? 'center' : `${textAlign.toLowerCase()}`,
                 }}
               >
-                <div className={classes.relative}>
-                  <div className={classes.iconContainer}>
-                    {!isEmpty(iconImage) && (
-                      <Image
-                        className={classes.icon}
-                        src={iconImage.url}
-                        alt={iconImage.alt}
-                      />
-                    )}
-                  </div>
-                  {RichText.render(title)}
-                </div>
+                {RichText.render(title)}
               </div>
               <div
                 className={classes.subtitle}
@@ -142,7 +130,7 @@ const KeyVisualSlice = (props) => {
               {Children.toArray(
                 content.map((slice, index) => (
                   <>
-                    {index !== <br />}
+                    {index !== 0 && <br />}
                     <RenderElement
                       type={slice.content.type}
                       data={slice.content.data}
@@ -163,7 +151,6 @@ export default KeyVisualSlice;
 KeyVisualSlice.propTypes = {
   title: PropTypes.array,
   titleUnderline: PropTypes.bool,
-  iconImage: PropTypes.object,
   gridAlign: PropTypes.string,
   textAlign: PropTypes.string,
   subtitle: PropTypes.array,

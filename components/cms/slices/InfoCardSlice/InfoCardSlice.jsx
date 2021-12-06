@@ -6,6 +6,7 @@ import RenderElement from 'components/cms/RenderElement';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
+
 import styles from './infoCardSliceStyle';
 
 const useStyles = makeStyles(styles);
