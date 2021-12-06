@@ -1,6 +1,7 @@
 import { Children } from 'react';
 import PropTypes from 'prop-types';
 import { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
 import { RichText } from 'prismic-reactjs';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTheme, makeStyles } from '@material-ui/core/styles';
@@ -9,6 +10,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
 import { customHtml } from 'src/customHtml';
+import { REGION_INFO } from 'config/navigation';
 import styles from './bannerStyle';
 
 const useStyles = makeStyles(styles);
@@ -19,21 +21,27 @@ const BannerCountdown = ({ campaign }) => {
   const unitCount = useSelector((state) => state.product.unitCount);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const router = useRouter();
+  const { region } = router.query;
   const [timeLeft, setTimeLeft] = useState();
   const [unitCountArray, setUnitCountArray] = useState([]);
 
   const calculateTimeLeft = useCallback(() => {
-    const now = new Date().getTime();
-    const target = new Date(campaign.countdown_date).getTime();
-    const difference = target - now;
-    const result = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-    return result;
-  }, [campaign.countdown_date]);
+    if (!isEmpty(region)) {
+      const now = new Date().getTime();
+      const target =
+        new Date(campaign.countdown_date).getTime() -
+        REGION_INFO[region.toUpperCase()].timezone * 3600000;
+      const difference = target - now;
+      const result = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+      return result;
+    }
+  }, [campaign.countdown_date, region]);
 
   const handleFetchUnitCount = useCallback(() => {
     dispatch(fetchUnitCount());

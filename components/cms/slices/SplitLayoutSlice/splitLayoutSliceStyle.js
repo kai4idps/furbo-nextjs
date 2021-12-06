@@ -30,10 +30,12 @@ const splitLayoutSliceStyle = (theme) => ({
   content: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '5px 10px 5px',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '5px 10px',
     [theme.breakpoints.down('sm')]: {
-      justifyContent: 'center',
       textAlign: 'center',
+      padding: '5px 0px',
     },
   },
   gridItem: {

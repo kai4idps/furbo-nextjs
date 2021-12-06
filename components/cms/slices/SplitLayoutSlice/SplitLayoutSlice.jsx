@@ -6,13 +6,20 @@ import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
 import RenderElement from 'components/cms/RenderElement';
+import { isEmpty } from 'src/helpers';
 import styles from './splitLayoutSliceStyle';
 
 const useStyles = makeStyles(styles);
 
-const SplitLayoutSlice = (props) => {
+const SplitLayoutSlice = ({
+  title,
+  subtitle,
+  image,
+  gridAlign,
+  fullWidth,
+  content,
+}) => {
   const classes = useStyles();
-  const { title, subtitle, image, gridAlign, content } = props;
   return (
     <VisibleSensorAnimation animation="grow">
       <div className={classes.root}>
@@ -37,14 +44,20 @@ const SplitLayoutSlice = (props) => {
           <Grid
             className={classes.griditem}
             item
-            xl={4}
-            lg={4}
-            md={5}
+            xl={fullWidth ? 6 : 4}
+            lg={fullWidth ? 6 : 4}
+            md={fullWidth ? 6 : 5}
             sm={12}
             xs={12}
           >
-            <div className={classes.title}>{RichText.render(title)}</div>
-            <div className={classes.subtitle}>{RichText.render(subtitle)}</div>
+            {!isEmpty(title) && (
+              <div className={classes.title}>{RichText.render(title)}</div>
+            )}
+            {!isEmpty(subtitle) && (
+              <div className={classes.subtitle}>
+                {RichText.render(subtitle)}
+              </div>
+            )}
             <div className={classes.content}>
               {Children.toArray(
                 content.map((slice) => (
@@ -90,4 +103,5 @@ SplitLayoutSlice.propTypes = {
   content: PropTypes.array,
   image: PropTypes.object,
   gridAlign: PropTypes.string.isRequired,
+  fullWidth: PropTypes.bool.isRequired,
 };

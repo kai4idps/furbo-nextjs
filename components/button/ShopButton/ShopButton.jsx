@@ -13,6 +13,7 @@ const ShopButton = ({ className, text }) => {
   const btnClasses = `${classes.button} ${className || null}`;
   const router = useRouter();
   const { region, ...query } = router.query;
+  const pathname = router.asPath.split('?')[0];
 
   const handleGaEvent = () => {
     window.dataLayer = window.dataLayer || [];
@@ -25,7 +26,10 @@ const ShopButton = ({ className, text }) => {
     <div className={classes.root}>
       <Link
         href={{
-          pathname: `/${region}/products/furbo-dog-camera`,
+          pathname:
+            pathname === `/${region}/products/furbo-dog-camera`
+              ? `/${region}/pages/cart`
+              : `/${region}/products/furbo-dog-camera`,
           query,
         }}
         passHref
@@ -39,7 +43,7 @@ const ShopButton = ({ className, text }) => {
 };
 
 ShopButton.propTypes = {
-  className: PropTypes.object,
+  className: PropTypes.string,
   text: PropTypes.string.isRequired,
 };
 

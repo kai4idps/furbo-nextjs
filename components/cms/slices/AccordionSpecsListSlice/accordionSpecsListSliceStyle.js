@@ -10,6 +10,7 @@ const specStyle = (theme) => ({
     fontSize: '32px',
     borderTop: '1px solid white',
     borderBottom: '1px solid white',
+    paddingTop: '5px', // centering workaround
     [theme.breakpoints.down('sm')]: {
       fontSize: '24px',
     },

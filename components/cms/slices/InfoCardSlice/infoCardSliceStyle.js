@@ -10,7 +10,15 @@ const infoCardSliceStyle = (theme) => ({
     textAlign: 'center',
     width: '100%',
     [theme.breakpoints.down('sm')]: {
-      padding: '25px',
+      padding: '10px',
+    },
+  },
+  image: {
+    width: 60,
+    height: 60,
+    padding: '0px 10px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0px 0px 10px',
     },
   },
 });

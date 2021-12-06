@@ -66,15 +66,15 @@ const productSlideStyle = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      height: '100%',
-      width: '100%',
-    },
+    maxHeight: '100%',
+    maxWidth: '100%',
   },
   slideImage: {
     backgroundColor: 'white',
     width: '100%',
     height: '100%',
+    maxHeight: '100%',
+    maxWidth: '100%',
   },
   slideVideo: {
     backgroundColor: 'white',

@@ -15,7 +15,9 @@ const customButtonStyle = (theme) => ({
     width: '200px',
     height: '40px',
     color: '#ffffff',
+    lineHeight: 'normal',
     fontSize: '18px',
+    paddingTop: '8px', // centering font workaround
     fontWeight: '500',
     textTransform: 'none',
     borderRadius: '100px',

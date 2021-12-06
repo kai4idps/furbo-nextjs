@@ -109,6 +109,10 @@ export const fetchFaasPageData = async (language) => {
       'product_button.product_info_au',
       'grid_element.content',
       'grid_element.image_size',
+      'custom_button.text',
+      'custom_button.color',
+      'custom_button.link',
+      'custom_button.center',
     ],
   });
   return data.data;
