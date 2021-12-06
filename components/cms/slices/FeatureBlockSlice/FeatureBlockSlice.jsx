@@ -100,13 +100,10 @@ const FeatureBlockSlice = (props) => {
             </div>
             {Children.toArray(
               content.map((slice) => (
-                <>
-                  <br />
-                  <RenderElement
-                    type={slice.content.type}
-                    data={slice.content.data}
-                  />
-                </>
+                <RenderElement
+                  type={slice.content.type}
+                  data={slice.content.data}
+                />
               )),
             )}
           </Grid>

@@ -7,23 +7,17 @@ import {
   fetchSeoData,
   fetchHeaderFooterData,
 } from 'src/prismicData';
-import Error from 'pages/404';
 import { REVALIDATE_TIME } from 'config/common';
 import { REGION_INFO, PATHS } from 'config/navigation';
 
 const Faas = ({ campaign, faasPage, seo, content }) => {
   return (
-    <>
-      {content.enable_faas && (
-        <div style={{ backgroundColor: 'white' }}>
-          <SeoManager seo={seo} />
-          <BaseLayout campaign={campaign} content={content}>
-            <FaasSection faasPage={faasPage} />
-          </BaseLayout>
-        </div>
-      )}
-      {!content.enable_faas && <Error campaign={campaign} content={content} />}
-    </>
+    <div style={{ backgroundColor: 'white' }}>
+      <SeoManager seo={seo} />
+      <BaseLayout campaign={campaign} content={content}>
+        <FaasSection faasPage={faasPage} />
+      </BaseLayout>
+    </div>
   );
 };
 
@@ -31,16 +25,12 @@ export const getStaticProps = async ({ params }) => {
   const code = params.region.toUpperCase();
   const language = REGION_INFO[code].language;
   const contentData = await fetchHeaderFooterData(language);
-  const campaignData = await fetchCampaignData(language);
   if (contentData.enable_faas !== true) {
     return {
-      props: {
-        campaign: campaignData,
-        content: contentData,
-      },
-      revalidate: REVALIDATE_TIME,
+      notFound: true,
     };
   }
+  const campaignData = await fetchCampaignData(language);
   const faasPageData = await fetchFaasPageData(language);
   const seoData = await fetchSeoData(language);
   const FdnSeo = seoData.list.find((item) => item.component_key === 'FAAS');

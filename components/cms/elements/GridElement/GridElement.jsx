@@ -10,28 +10,17 @@ const useStyles = makeStyles(styles);
 
 const GridElement = (props) => {
   const classes = useStyles();
-  const { gridContent, imageSize = 'Normal' } = props;
+  const { gridContent } = props;
   const gridSize = gridContent.length === 4 ? 3 : 4;
   return (
     <div className={classes.root}>
       <Grid container>
         {React.Children.toArray(
           gridContent.map((item) => (
-            <Grid
-              item
-              sm={gridSize}
-              xs={imageSize === 'Large' ? 12 : gridSize}
-              className={classes.gridItem}
-            >
-              <div
-                className={
-                  imageSize === 'Large' ? classes.imageLarge : classes.image
-                }
-              >
+            <Grid item xs={gridSize} className={classes.gridItem}>
+              <div className={classes.image}>
                 <Image
-                  className={
-                    imageSize === 'Large' ? classes.imageLarge : classes.image
-                  }
+                  className={classes.image}
                   alt={item.item_icon.alt}
                   src={item.item_icon.url}
                 />
@@ -51,5 +40,4 @@ export default GridElement;
 
 GridElement.propTypes = {
   gridContent: PropTypes.array.isRequired,
-  imageSize: PropTypes.string,
 };

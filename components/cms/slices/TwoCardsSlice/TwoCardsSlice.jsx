@@ -8,37 +8,29 @@ import Grid from '@material-ui/core/Grid';
 import Image from 'components/Image';
 import RenderElement from 'components/cms/RenderElement';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
-import { isEmpty } from 'src/helpers';
 import styles from './twoCardsSliceStyle.js';
 
 const useStyles = makeStyles(styles);
 
-const TwoCardsSlice = ({
-  title,
-  titleUnderline,
-  imageFullWidth,
-  enableElevation,
-  enablePadding,
-  content,
-}) => {
+const TwoCardsSlice = (props) => {
   const classes = useStyles();
+  const { title, titleUnderline, imageFullWidth, enableElevation, content } =
+    props;
   return (
     <VisibleSensorAnimation animation="grow">
       <div className={classes.root}>
-        {!isEmpty(title) && (
-          <div
-            className={classes.title}
-            style={{
-              textDecorationLine: titleUnderline ? 'underline' : 'none',
-              textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
-              textDecorationThickness: titleUnderline ? '4px' : 'none',
-              textUnderlineOffset: titleUnderline ? '5px' : 'none',
-              textDecorationSkip: false,
-            }}
-          >
-            {RichText.render(title)}
-          </div>
-        )}
+        <div
+          className={classes.title}
+          style={{
+            textDecorationLine: titleUnderline ? 'underline' : 'none',
+            textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
+            textDecorationThickness: titleUnderline ? '4px' : 'none',
+            textUnderlineOffset: titleUnderline ? '5px' : 'none',
+            textDecorationSkip: false,
+          }}
+        >
+          {RichText.render(title)}
+        </div>
         <Grid
           container
           className={classes.container}
@@ -56,31 +48,18 @@ const TwoCardsSlice = ({
                 className={classes.cardContainer}
               >
                 <Card
-                  className={`${classes.card} ${
-                    enablePadding ? classes.extraPadding : null
-                  } ${
-                    !isEmpty(item.card_background_image)
-                      ? classes.backgroundImageCard
-                      : null
-                  }`}
+                  className={classes.card}
                   elevation={enableElevation ? 5 : 0}
-                  style={{
-                    backgroundImage: !isEmpty(item.card_background_image)
-                      ? `url(${item.card_background_image.url})`
-                      : null,
-                  }}
                 >
-                  {!isEmpty(item.card_image) && (
-                    <Image
-                      className={
-                        imageFullWidth
-                          ? classes.cardMedia
-                          : classes.cardMediaSmall
-                      }
-                      alt={item.card_image.alt}
-                      src={item.card_image.url}
-                    />
-                  )}
+                  <Image
+                    className={
+                      imageFullWidth
+                        ? classes.cardMedia
+                        : classes.cardMediaSmall
+                    }
+                    alt={item.card_image.alt}
+                    src={item.card_image.url}
+                  />
                   <CardContent className={classes.cardContent}>
                     <div className={classes.text}>
                       {RichText.render(item.card_text)}
@@ -107,7 +86,6 @@ TwoCardsSlice.propTypes = {
   titleUnderline: PropTypes.bool,
   imageFullWidth: PropTypes.bool,
   enableElevation: PropTypes.bool,
-  enablePadding: PropTypes.bool,
   content: PropTypes.array,
 };
 

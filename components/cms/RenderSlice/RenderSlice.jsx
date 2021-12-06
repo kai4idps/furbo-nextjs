@@ -117,7 +117,6 @@ const RenderSlice = ({ type, primary, items }) => {
         <KeyVisualSlice
           title={primary.title}
           subtitle={primary.subtitle}
-          iconImage={primary.icon_image}
           titleUnderline={primary.title_underline}
           gridAlign={primary.grid_align}
           textAlign={primary.text_align}
@@ -135,7 +134,6 @@ const RenderSlice = ({ type, primary, items }) => {
           subtitle={primary.subtitle}
           image={primary.image}
           gridAlign={primary.grid_align}
-          fullWidth={primary.full_width}
           content={items}
         />
       );
@@ -159,7 +157,6 @@ const RenderSlice = ({ type, primary, items }) => {
           titleUnderline={primary.title_underline}
           imageFullWidth={primary.image_full_width}
           enableElevation={primary.enable_elevation}
-          enablePadding={primary.enable_padding}
           content={items}
         />
       );

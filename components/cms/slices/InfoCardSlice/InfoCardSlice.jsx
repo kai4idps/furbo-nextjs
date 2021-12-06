@@ -6,19 +6,15 @@ import RenderElement from 'components/cms/RenderElement';
 import Image from 'components/Image';
 import { isEmpty } from 'src/helpers';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
+
 import styles from './infoCardSliceStyle';
 
 const useStyles = makeStyles(styles);
 
-const InfoCardSlice = ({
-  title,
-  logo,
-  titleUnderline,
-  subtitle,
-  content,
-  backgroundColor,
-}) => {
+const InfoCard = (props) => {
   const classes = useStyles();
+  const { title, logo, titleUnderline, subtitle, content, backgroundColor } =
+    props;
   return (
     <VisibleSensorAnimation animation="grow">
       <div
@@ -46,13 +42,10 @@ const InfoCardSlice = ({
           <div className={classes.subtitle}>{RichText.render(subtitle)}</div>
           {Children.toArray(
             content.map((slice) => (
-              <>
-                <br />
-                <RenderElement
-                  type={slice.content.type}
-                  data={slice.content.data}
-                />
-              </>
+              <RenderElement
+                type={slice.content.type}
+                data={slice.content.data}
+              />
             )),
           )}
         </div>
@@ -61,9 +54,9 @@ const InfoCardSlice = ({
   );
 };
 
-export default InfoCardSlice;
+export default InfoCard;
 
-InfoCardSlice.propTypes = {
+InfoCard.propTypes = {
   title: PropTypes.array,
   logo: PropTypes.node,
   titleUnderline: PropTypes.bool,

@@ -1,7 +1,6 @@
 const splitLayoutSliceStyle = (theme) => ({
   root: {
     padding: '10px 0px 20px',
-    width: '100%',
   },
   image: {
     width: '400px',
@@ -30,12 +29,10 @@ const splitLayoutSliceStyle = (theme) => ({
   content: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '5px 10px',
+    padding: '5px 10px 5px',
     [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
       textAlign: 'center',
-      padding: '5px 0px',
     },
   },
   gridItem: {

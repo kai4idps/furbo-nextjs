@@ -29,9 +29,7 @@ const RenderElement = ({ type, data }) => {
     case 'email_input':
       return <EmailInput placeholder={data.placeholder} action={data.action} />;
     case 'grid_element':
-      return (
-        <GridElement gridContent={data.content} imageSize={data.image_size} />
-      );
+      return <GridElement gridContent={data.content} />;
     case 'learn_button':
       return (
         <LearnButton
@@ -46,7 +44,6 @@ const RenderElement = ({ type, data }) => {
           productInfo={data[`product_info_${region}`]}
           productName={data.product_name}
           productType={data.product_type}
-          productText={data.product_text}
           buttonText={data.button_text}
         />
       );

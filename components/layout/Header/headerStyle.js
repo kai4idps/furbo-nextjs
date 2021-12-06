@@ -100,11 +100,6 @@ const headerStyle = (theme) => ({
     height: 'calc(100% + 150px)',
   },
   shopIconButton: {},
-  shopButton: {
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: '24px',
-    },
-  },
   pageLinks: {
     position: 'relative',
     display: 'flex',

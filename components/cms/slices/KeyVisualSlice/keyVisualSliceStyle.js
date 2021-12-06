@@ -12,7 +12,6 @@ const keyVisualSliceStyle = (theme) => ({
     borderRadius: '5px',
     margin: '10px 0px',
     [theme.breakpoints.down('sm')]: {
-      padding: '10px',
       backgroundPosition: 'bottom',
       backgroundSize: '100% auto',
       minHeight: '800px',
@@ -49,29 +48,9 @@ const keyVisualSliceStyle = (theme) => ({
     width: '100%',
     textAlign: 'center',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  relative: {
-    position: 'relative',
-  },
-  iconContainer: {
-    position: 'absolute',
-    left: '-55px',
-    top: '-25px',
-    [theme.breakpoints.down('sm')]: {
-      left: '-45px',
-      top: '-10px',
-    },
-  },
-  icon: {
-    width: '50px',
-    height: '50px',
-    [theme.breakpoints.down('sm')]: {
-      width: '35px',
-      height: '35px',
-    },
   },
   subtitle: {
     color: '#434343',

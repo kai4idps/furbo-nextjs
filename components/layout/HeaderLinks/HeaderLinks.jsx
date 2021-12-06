@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
@@ -25,7 +26,6 @@ const HeaderButton = ({ item, onClick, showIcon = true }) => {
   const classes = useStyles();
   const router = useRouter();
   const {
-    path, // eslint-disable-line no-unused-vars
     region, // eslint-disable-line no-unused-vars
     ...query
   } = router.query;

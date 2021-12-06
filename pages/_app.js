@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
-import TagManager from 'react-gtm-module-defer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Provider } from 'react-redux';
 import { store } from 'redux/configureStore';
@@ -9,24 +8,42 @@ import theme from 'styles/theme';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'styles/global.css';
 import styles from 'styles/mainStyle';
-import { GTM_DELAY_TIME, GTM_ID } from 'config/common';
+import { GTM_DELAY_TIME } from 'config/common';
 
 const useStyles = makeStyles(styles);
 
 const MyApp = ({ Component, pageProps }) => {
   const classes = useStyles();
   useEffect(() => {
-    const initGtm = () => {
-      TagManager.initialize({ gtmId: GTM_ID });
-    };
     const initGtmOnEvent = (event) => {
       initGtm();
       event.currentTarget.removeEventListener(event.type, initGtmOnEvent);
     };
-    document.addEventListener('scroll', initGtmOnEvent);
-    document.addEventListener('mousemove', initGtmOnEvent);
-    document.addEventListener('touchstart', initGtmOnEvent);
-    setTimeout(initGtm, GTM_DELAY_TIME);
+    const initGtm = () => {
+      if (window.gtmDidInit) {
+        return;
+      }
+      window.gtmDidInit = true;
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'gtm.js',
+          'gtm.start': new Date().getTime(),
+          'gtm.uniqueEventId': 0,
+        });
+      };
+      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N37W29C';
+      document.head.appendChild(script);
+    };
+    document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('scroll', initGtmOnEvent);
+      document.addEventListener('mousemove', initGtmOnEvent);
+      document.addEventListener('touchstart', initGtmOnEvent);
+      setTimeout(initGtm, GTM_DELAY_TIME);
+    });
   }, []);
 
   return (

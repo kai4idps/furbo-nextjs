@@ -62,10 +62,7 @@ const Header = ({ campaign, content, drawerOpen, setDrawerOpen }) => {
                   <AccountIconButton />
                   {pathname !== `/${region}/products/furbo-dog-camera` &&
                     pathname !== `/${region}/pages/cart` && (
-                      <ShopButton
-                        className={classes.shopButton}
-                        text={content.shop_now}
-                      />
+                      <ShopButton text={content.shop_now} />
                     )}
                 </div>
               </Hidden>

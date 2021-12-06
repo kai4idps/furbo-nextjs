@@ -65,9 +65,6 @@ const mainStyle = (theme) => ({
       color: 'inherit',
       margin: 0,
     },
-    '& strong': {
-      fontWeight: 900,
-    },
   },
 });
 

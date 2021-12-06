@@ -27,19 +27,12 @@ const gridElementStyle = (theme) => ({
     },
   },
   image: {
+    position: 'relative',
     width: '60px',
     height: '60px',
     [theme.breakpoints.down('sm')]: {
       width: '50px',
       height: '50px',
-    },
-  },
-  imageLarge: {
-    width: '100px',
-    height: '100px',
-    [theme.breakpoints.down('sm')]: {
-      width: '75px',
-      height: '75px',
     },
   },
 });
