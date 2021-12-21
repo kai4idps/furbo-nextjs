@@ -3,6 +3,9 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ANALYZE } = process.env;
 
 module.exports = {
+  env: {
+    BUILD_ENV: process.env.BUILD_ENV,
+  },
   reactStrictMode: false,
   swcMinify: true,
   experimental: {
