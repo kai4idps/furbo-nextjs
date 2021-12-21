@@ -1,6 +1,6 @@
 import { useState, Children } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
@@ -53,6 +53,7 @@ const Accordion = withStyles({
 
 const FooterAccordion = ({ title, list }) => {
   const classes = useStyles();
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
   const handleChange = () => {
     setOpen((prev) => !prev);
@@ -63,9 +64,9 @@ const FooterAccordion = ({ title, list }) => {
         className={classes.accordionHeader}
         expandIcon={
           open === true ? (
-            <Remove style={{ color: '#ffffff' }} />
+            <Remove style={{ color: theme.palette.white }} />
           ) : (
-            <Add style={{ color: '#ffffff' }} />
+            <Add style={{ color: theme.palette.white }} />
           )
         }
       >

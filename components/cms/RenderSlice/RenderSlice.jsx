@@ -17,7 +17,7 @@ import ComparisonTableSlice from 'components/cms/slices/ComparisonTableSlice';
 import { isEmpty } from 'src/helpers';
 
 const RenderSlice = ({ type, primary, items }) => {
-  if (isEmpty(type) || isEmpty(primary)) {
+  if (isEmpty(type)) {
     return null;
   }
   switch (type) {

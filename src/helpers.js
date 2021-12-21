@@ -33,3 +33,47 @@ export const defineFontColor = (backgroundColor) => {
   }
   return '#ffffff';
 };
+
+export const parseTime = (timeString) => {
+  const currentDate = new Date().valueOf();
+  let result = timeString;
+  const curlyBracesRegex = /{([^}]+)}/;
+  const bracketContent = timeString.match(curlyBracesRegex, timeString)[0];
+  const content = timeString.match(curlyBracesRegex, timeString)[1];
+  if (isEmpty(content)) {
+    return result;
+  }
+  const alphabetRegex = /[^a-z]/gi;
+  const operatorRegex = /[+-]/;
+  const numberRegex = /[0-9]+/;
+  const intervalType = content.replace(alphabetRegex, '');
+  const operatorType = content.match(operatorRegex, content)?.[0];
+  const biasCount =
+    +content.match(numberRegex, content)?.[0] * (operatorType === '-' ? -1 : 1);
+  if (intervalType === 'date') {
+    const newDate = isEmpty(biasCount)
+      ? new Date(currentDate)
+      : new Date(currentDate + 1000 * 60 * 60 * 24 * biasCount);
+    result = timeString.replace(
+      bracketContent,
+      `${newDate.getMonth() + 1}/${newDate.getDate()}`,
+    );
+  } else if (intervalType === 'hour') {
+    const newDate = isEmpty(biasCount)
+      ? new Date(currentDate)
+      : new Date(currentDate + 1000 * 60 * 60 * biasCount);
+    result = timeString.replace(bracketContent, newDate.getHours());
+  } else if (intervalType === 'minute') {
+    const newDate = isEmpty(biasCount)
+      ? new Date(currentDate)
+      : new Date(currentDate + 1000 * 60 * biasCount);
+    result = timeString.replace(bracketContent, newDate.getMinutes());
+  }
+  return result;
+};
+
+export const getCookie = (name) => {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+};

@@ -29,11 +29,17 @@ const FooterButton = ({ info }) => {
           }}
           passHref
         >
-          <Button className={classes.linkButton}>{info.title}</Button>
+          <Button id="footer-button" className={classes.linkButton}>
+            {info.title}
+          </Button>
         </Link>
       )}
       {isFunction && (
-        <Button className={classes.linkButton} onClick={() => eval(jsFunction)}>
+        <Button
+          id="footer-button"
+          className={classes.linkButton}
+          onClick={() => eval(jsFunction)}
+        >
           {info.title}
         </Button>
       )}

@@ -172,14 +172,14 @@ const HeaderLinks = ({ routes, onClose, content }) => {
               <Button className={classes.button} onClick={handleRegionEdit}>
                 <div className={classes.flag}>
                   <Image
-                    src={REGION_INFO[region.toUpperCase()]?.image}
-                    alt={REGION_INFO[region.toUpperCase()]?.code}
+                    src={REGION_INFO[region]?.image}
+                    alt={REGION_INFO[region]?.code}
                     layout="fill"
                     objectFit="contain"
                   />
                 </div>
                 <div className={classes.flagText}>
-                  {REGION_INFO[region.toUpperCase()]?.country}
+                  {REGION_INFO[region]?.country}
                 </div>
               </Button>
             </ListItem>

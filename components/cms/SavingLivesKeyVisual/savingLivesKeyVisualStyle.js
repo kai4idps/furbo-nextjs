@@ -36,7 +36,7 @@ const savingLivesKeyVisualStyle = (theme) => ({
     },
   },
   title: {
-    color: '#434343',
+    color: theme.palette.black,
     height: 'auto',
     padding: '5px',
     width: '100%',
@@ -51,7 +51,7 @@ const savingLivesKeyVisualStyle = (theme) => ({
     },
   },
   subtitle: {
-    color: '#434343',
+    color: theme.palette.black,
     width: 'auto',
     height: 'auto',
     padding: '5px',
@@ -84,8 +84,8 @@ const savingLivesKeyVisualStyle = (theme) => ({
     fontFamily: 'FuturaPT',
     textAlign: 'center',
     border: '1px solid #d0d0d0',
-    color: '#434343',
-    backgroundColor: 'white',
+    color: theme.palette.black,
+    backgroundColor: theme.palette.white,
     height: '55px',
     width: '50px',
     borderRadius: '3px',

@@ -23,7 +23,7 @@ export const CURRENCY = {
   US: 'USD',
   CA: 'CAD',
   DE: 'EUR',
-  JP: 'YEN',
+  JP: 'JPY',
   UK: 'GBP',
   AU: 'AUD',
   FR: 'CHF',

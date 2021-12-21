@@ -4,6 +4,7 @@ const featureBlockSliceStyle = (theme) => ({
     height: '540px',
     width: '100%',
     padding: '10px 0px',
+    marginBottom: '10px',
     [theme.breakpoints.down('sm')]: {
       height: 'auto',
     },
@@ -37,7 +38,7 @@ const featureBlockSliceStyle = (theme) => ({
     },
   },
   title: {
-    color: '#434343',
+    color: theme.palette.black,
     width: '100%',
     height: 'auto',
     padding: '0px',
@@ -51,7 +52,7 @@ const featureBlockSliceStyle = (theme) => ({
   },
   subtitle: {
     fontFamily: 'FuturaPT',
-    color: '#434343',
+    color: theme.palette.black,
     width: '100%',
     height: 'auto',
     padding: '10px 0px',
@@ -61,7 +62,7 @@ const featureBlockSliceStyle = (theme) => ({
   },
   textContent: {
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
     width: '100%',
     height: 'auto',
     padding: '0px',
@@ -77,6 +78,9 @@ const featureBlockSliceStyle = (theme) => ({
     height: '100%',
     width: 'auto',
     left: '375px',
+    '@media (max-width: 1200px)': {
+      left: '50%',
+    },
   },
   icon: {
     width: '50px',

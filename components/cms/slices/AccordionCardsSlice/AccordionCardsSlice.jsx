@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from 'prismic-reactjs';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { useTheme, withStyles, makeStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -26,6 +26,7 @@ const Accordion = withStyles({
 })(MuiAccordion);
 
 const AccordionCardsSlice = (props) => {
+  const theme = useTheme();
   const classes = useStyles();
   const { expand, title, tableTitle, content } = props;
   const [open, setOpen] = useState(expand);
@@ -34,7 +35,7 @@ const AccordionCardsSlice = (props) => {
       <Accordion elevation={0} expanded={open} onChange={() => setOpen(!open)}>
         <AccordionSummaryCenter
           className={classes.header}
-          expandIcon={<ExpandMore style={{ color: 'white' }} />}
+          expandIcon={<ExpandMore style={{ color: theme.palette.white }} />}
         >
           {title}
         </AccordionSummaryCenter>

@@ -4,15 +4,17 @@ const accordionKeyVisualSliceStyle = (theme) => ({
     width: '100%',
   },
   header: {
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     height: '70px',
     fontFamily: 'FuturaPT',
     fontSize: '32px',
-    borderTop: '1px solid white',
-    borderBottom: '1px solid white',
+    lineHeight: '32px',
+    borderTop: `1px solid ${theme.palette.white}`,
+    borderBottom: `1px solid ${theme.palette.white}`,
     paddingTop: '5px', // centering workaround
     [theme.breakpoints.down('sm')]: {
       fontSize: '24px',
+      lineHeight: '24px',
     },
   },
   content: {
@@ -52,13 +54,13 @@ const accordionKeyVisualSliceStyle = (theme) => ({
   subtitle: {
     width: '100%',
     padding: '10px 0px',
-    color: '#434343',
+    color: theme.palette.black,
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
     },
   },
   textContent: {
-    color: '#434343',
+    color: theme.palette.black,
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
     },

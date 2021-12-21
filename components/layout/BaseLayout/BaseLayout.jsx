@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { RichText } from 'prismic-reactjs';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-// import Header from 'components/layout/Header';
-// import Footer from 'components/layout/Footer';
 import styles from './baseLayoutStyle';
 
 const DynamicHeader = dynamic(() => import('components/layout/Header'), {
@@ -13,14 +12,29 @@ const DynamicHeader = dynamic(() => import('components/layout/Header'), {
 const DynamicFooter = dynamic(() => import('components/layout/Footer'), {
   loading: () => <></>,
 });
+const DynamicScrollToTopButton = dynamic(
+  () => import('components/button/ScrollToTopButton'),
+  {
+    loading: () => <></>,
+  },
+);
+const DynamicCookieConsentSnackbar = dynamic(
+  () => import('components/CookieConsentSnackbar'),
+  {
+    loading: () => <></>,
+  },
+);
+
 const useStyles = makeStyles(styles);
 
 const BaseLayout = ({ children, campaign, content }) => {
   const classes = useStyles();
+  const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const isCountdown = campaign.banner_type.includes('Countdown');
+
   return (
-    <>
+    <div style={{ backgroundColor: theme.palette.white }}>
       <DynamicHeader
         campaign={campaign}
         drawerOpen={drawerOpen}
@@ -36,7 +50,14 @@ const BaseLayout = ({ children, campaign, content }) => {
         {children}
       </Container>
       <DynamicFooter content={content} />
-    </>
+      {content.enable_cookie_consent && (
+        <DynamicCookieConsentSnackbar
+          message={RichText.render(content.message)}
+          buttonText={content.accept}
+        />
+      )}
+      <DynamicScrollToTopButton />
+    </div>
   );
 };
 

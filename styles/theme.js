@@ -1,5 +1,14 @@
 import { createTheme } from '@material-ui/core/styles';
 
+export const palette = {
+  red: '#ff0000',
+  orange: '#f16849',
+  yellow: '#f7cd3d',
+  blue: '#1e7baC',
+  black: '#434343',
+  white: '#ffffff',
+};
+
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -13,9 +22,7 @@ const theme = createTheme({
       desktop: 1280,
     },
   },
-  palette: {
-    yellow: '#f7cd3d',
-  },
+  palette,
 });
 
 export default theme;

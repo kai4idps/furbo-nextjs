@@ -49,7 +49,9 @@ const SmartAlertsSlice = (props) => {
                 className={classes.title}
                 style={{
                   textDecorationLine: titleUnderline ? 'underline' : 'none',
-                  textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
+                  textDecorationColor: titleUnderline
+                    ? theme.palette.yellow
+                    : 'none',
                   textDecorationThickness: titleUnderline ? '4px' : 'none',
                   textUnderlineOffset: titleUnderline ? '5px' : 'none',
                   textDecorationSkip: false,

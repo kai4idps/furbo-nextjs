@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import Hidden from '@material-ui/core/Hidden';
 import Image from 'components/Image';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
@@ -10,7 +9,12 @@ const useStyles = makeStyles(styles);
 
 const ImageSlice = (props) => {
   const classes = useStyles();
-  const { backgroundColor = 'white', imageDesktop, imageMobile } = props;
+  const theme = useTheme();
+  const {
+    backgroundColor = theme.palette.white,
+    imageDesktop,
+    imageMobile,
+  } = props;
   return (
     <VisibleSensorAnimation animation="grow">
       <div

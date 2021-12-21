@@ -26,12 +26,17 @@ const EmailInput = ({ action }) => {
               fontFamily: 'Avenir',
             },
           }}
+          id="footer-button"
           name="EMAIL"
           type="email"
           placeholder="Email"
         />
         <div className={classes.submitButtonContainer}>
-          <IconButton className={classes.submitButton} type="submit">
+          <IconButton
+            id="footer-button"
+            className={classes.submitButton}
+            type="submit"
+          >
             <Image
               className={classes.blackTriangle}
               src={BLACK_TRIANGLE_SVG}

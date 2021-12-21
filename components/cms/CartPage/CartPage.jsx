@@ -1,5 +1,4 @@
-/* eslint-disable */
-import { useEffect, useState, Children } from 'react';
+import { useEffect, useState, Children, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'components/Image';
 import NextImage from 'next/image';
@@ -10,7 +9,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Container from '@material-ui/core/Container';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
-import { CHECKOUT_URL } from 'config/checkout';
+import { CHECKOUT_URL, CUSTOM_CHECKOUT_URL } from 'config/checkout';
 import { CURRENCY } from 'config/common';
 import { isEmpty } from 'src/helpers';
 import styles from './cartPageStyle';
@@ -21,11 +20,16 @@ const CartPage = ({ cartPage }) => {
   const classes = useStyles();
   const router = useRouter();
   const { region, productId } = router.query;
-  const productInfo = isEmpty(productId)
-    ? cartPage.product_list[0][`product_info_${region}`]
-    : cartPage.product_list.find(
-        (item) => +item[`product_info_${region}`].product_id === +productId,
-      )[`product_info_${region}`];
+
+  const productInfo = useMemo(() => {
+    return isEmpty(productId)
+      ? cartPage.product_list[0][`product_info_${region}`]
+      : cartPage.product_list.find(
+          (item) => +item[`product_info_${region}`].product_id === +productId,
+        )?.[`product_info_${region}`] ||
+          cartPage.product_list[0][`product_info_${region}`];
+  }, [productId, region, cartPage.product_list]);
+
   const price = +productInfo.price;
   const originalPrice = +productInfo.compare_at_price;
   const quantityLimit = +cartPage.quantity_limit;
@@ -43,10 +47,10 @@ const CartPage = ({ cartPage }) => {
           quantity: quantity,
         },
       ],
-      currency: CURRENCY[region.toUpperCase()],
+      currency: CURRENCY[region],
       value: price,
     });
-  }, [quantity, price, cartPage, region]);
+  }, [productInfo, quantity, price, cartPage, region]);
 
   const handleIncrement = () => {
     if (quantity < quantityLimit) {
@@ -134,7 +138,15 @@ const CartPage = ({ cartPage }) => {
               </Button>
             </ButtonGroup>
             <Button
-              href={CHECKOUT_URL(region, quantity)}
+              href={
+                isEmpty(productId)
+                  ? CHECKOUT_URL(region, quantity)
+                  : CUSTOM_CHECKOUT_URL(
+                      region,
+                      productInfo.variant_id,
+                      quantity,
+                    )
+              }
               id="checkout-button"
               className={classes.checkoutButton}
             >

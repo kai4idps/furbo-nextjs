@@ -11,7 +11,6 @@ const videoButtonStyle = (theme) => ({
     },
   },
   playButton: {
-    backgroundColor: 'transparent',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

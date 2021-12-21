@@ -18,7 +18,7 @@ import {
 } from 'config/images/flags';
 
 export const REGION_INFO = {
-  US: {
+  us: {
     country: 'United States',
     group: 'Americas',
     code: 'us',
@@ -26,7 +26,7 @@ export const REGION_INFO = {
     language: 'en-us',
     image: FLAG_US,
   },
-  CA: {
+  ca: {
     country: 'Canada',
     group: 'Americas',
     code: 'ca',
@@ -34,7 +34,7 @@ export const REGION_INFO = {
     language: 'en-ca',
     image: FLAG_CA,
   },
-  CN: {
+  cn: {
     country: '中国',
     group: 'Americas',
     code: 'cn',
@@ -42,7 +42,7 @@ export const REGION_INFO = {
     language: 'zh-cn',
     image: FLAG_CN,
   },
-  MX: {
+  mx: {
     country: 'México',
     group: 'Americas',
     code: 'mx',
@@ -50,7 +50,7 @@ export const REGION_INFO = {
     language: 'es-mx',
     image: FLAG_MX,
   },
-  UK: {
+  uk: {
     country: 'United Kingdom',
     group: 'Europe',
     code: 'uk',
@@ -58,7 +58,7 @@ export const REGION_INFO = {
     language: 'en-gb',
     image: FLAG_UK,
   },
-  DE: {
+  de: {
     country: 'Deutschland',
     group: 'Europe',
     code: 'de',
@@ -66,7 +66,7 @@ export const REGION_INFO = {
     language: 'de-de',
     image: FLAG_DE,
   },
-  FR: {
+  fr: {
     country: 'France',
     group: 'Europe',
     code: 'fr',
@@ -74,7 +74,7 @@ export const REGION_INFO = {
     language: 'fr-fr',
     image: FLAG_FR,
   },
-  IT: {
+  it: {
     country: 'Italia',
     group: 'Europe',
     code: 'it',
@@ -82,7 +82,7 @@ export const REGION_INFO = {
     language: 'it-it',
     image: FLAG_IT,
   },
-  ES: {
+  es: {
     country: 'Espana',
     group: 'Europe',
     code: 'es',
@@ -90,7 +90,7 @@ export const REGION_INFO = {
     language: 'es-es',
     image: FLAG_ES,
   },
-  SE: {
+  se: {
     country: 'Sverige',
     group: 'Europe',
     code: 'se',
@@ -98,7 +98,7 @@ export const REGION_INFO = {
     language: 'sv-se',
     image: FLAG_SE,
   },
-  NL: {
+  nl: {
     country: 'Nederland',
     group: 'Europe',
     code: 'nl',
@@ -106,7 +106,7 @@ export const REGION_INFO = {
     language: 'nl-nl',
     image: FLAG_NL,
   },
-  AU: {
+  au: {
     country: 'Australia',
     group: 'Asia-Pacific',
     code: 'au',
@@ -114,7 +114,7 @@ export const REGION_INFO = {
     language: 'en-au',
     image: FLAG_AU,
   },
-  HK: {
+  hk: {
     country: '香港',
     group: 'Asia-Pacific',
     code: 'hk',
@@ -122,7 +122,7 @@ export const REGION_INFO = {
     language: 'zh-hk',
     image: FLAG_HK,
   },
-  TW: {
+  tw: {
     country: '臺灣',
     group: 'Asia-Pacific',
     code: 'tw',
@@ -130,7 +130,7 @@ export const REGION_INFO = {
     language: 'zh-tw',
     image: FLAG_TW,
   },
-  JP: {
+  jp: {
     country: '日本',
     group: 'Asia-Pacific',
     code: 'jp',
@@ -138,7 +138,7 @@ export const REGION_INFO = {
     language: 'ja-jp',
     image: FLAG_JP,
   },
-  SG: {
+  sg: {
     country: 'Singapore',
     group: 'Asia-Pacific',
     code: 'sg',
@@ -148,6 +148,6 @@ export const REGION_INFO = {
   },
 };
 
-export const REGION_LIST = ['us', 'ca', 'de', 'uk', 'fr', 'au'];
+export const REGION_LIST = ['us', 'ca', 'de', 'uk', 'fr', 'au', 'jp'];
 
 export const PATHS = REGION_LIST.map((region) => ({ params: { region } }));

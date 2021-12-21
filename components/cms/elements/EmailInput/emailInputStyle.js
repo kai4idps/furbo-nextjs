@@ -13,7 +13,7 @@ const emailInputStyle = (theme) => ({
     flexDirection: 'row',
   },
   input: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     width: 'calc(100% - 40px)',
     height: '30px',
     borderTopLeftRadius: '5px',
@@ -33,7 +33,7 @@ const emailInputStyle = (theme) => ({
     borderBottomRightRadius: '5px',
     width: '32px',
     height: '30px',
-    backgroundColor: '#434343',
+    backgroundColor: theme.palette.black,
     display: 'flex',
   },
   triangle: {

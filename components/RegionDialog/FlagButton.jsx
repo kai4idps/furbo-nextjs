@@ -20,7 +20,7 @@ const FlagButton = (props) => {
   return (
     <Link
       href={{
-        pathname: info.isRedirect ? info.href : `/${info.code}`,
+        pathname: `/${info.code}`,
         query,
       }}
       passHref

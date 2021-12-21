@@ -16,13 +16,13 @@ const Product = ({ campaign, productPage, seo, content }) => {
   return (
     <>
       {content.enable_product && (
-        <div style={{ backgroundColor: 'white' }}>
+        <>
           <SeoManager seo={seo} />
           <BaseLayout campaign={campaign} content={content}>
             <ProductKeyVisual productPage={productPage} />
             <ProductSection productPage={productPage} />
           </BaseLayout>
-        </div>
+        </>
       )}
       {!content.enable_product && (
         <Error campaign={campaign} content={content} />
@@ -32,8 +32,7 @@ const Product = ({ campaign, productPage, seo, content }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const code = params.region.toUpperCase();
-  const language = REGION_INFO[code].language;
+  const language = REGION_INFO[params.region].language;
   const contentData = await fetchHeaderFooterData(language);
   const campaignData = await fetchCampaignData(language);
   if (contentData.enable_product !== true) {

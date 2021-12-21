@@ -1,6 +1,6 @@
 import { Children } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import { RichText } from 'prismic-reactjs';
 import Video from 'components/Video';
 import Image from 'components/Image';
@@ -28,6 +28,7 @@ const FeatureBlockSlice = (props) => {
     content,
   } = props;
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <VisibleSensorAnimation animation="grow">
@@ -68,7 +69,9 @@ const FeatureBlockSlice = (props) => {
               className={classes.title}
               style={{
                 textDecorationLine: titleUnderline ? 'underline' : 'none',
-                textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
+                textDecorationColor: titleUnderline
+                  ? theme.palette.yellow
+                  : 'none',
                 textDecorationThickness: titleUnderline ? '4px' : 'none',
                 textUnderlineOffset: titleUnderline ? '5px' : 'none',
                 textDecorationSkip: false,
@@ -87,7 +90,9 @@ const FeatureBlockSlice = (props) => {
               className={classes.subtitle}
               style={{
                 textDecorationLine: subtitleUnderline ? 'underline' : 'none',
-                textDecorationColor: subtitleUnderline ? '#f7cd3d' : 'none',
+                textDecorationColor: subtitleUnderline
+                  ? theme.palette.yellow
+                  : 'none',
                 textDecorationThickness: subtitleUnderline ? '4px' : 'none',
                 textUnderlineOffset: subtitleUnderline ? '5px' : 'none',
                 textDecorationSkip: false,

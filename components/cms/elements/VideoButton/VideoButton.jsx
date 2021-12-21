@@ -11,14 +11,14 @@ const useStyles = makeStyles(styles);
 
 const VideoButton = (props) => {
   const classes = useStyles();
+  const theme = useTheme();
   const {
     embedVideoLink,
     watchVideoText,
     center = false,
-    textColor = '#434343',
+    textColor = theme.palette.black,
   } = props;
   const [open, setOpen] = useState(false);
-  const theme = useTheme();
   const xsDown = useMediaQuery(theme.breakpoints.down('xs'));
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 

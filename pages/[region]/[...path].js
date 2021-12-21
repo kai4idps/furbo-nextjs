@@ -8,7 +8,7 @@ const CatchAllPage = ({ campaign, content }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const { region } = params;
-  const language = REGION_INFO[region.toUpperCase()].language;
+  const language = REGION_INFO[region].language;
   const campaignData = await fetchCampaignData(language);
   const contentData = await fetchHeaderFooterData(language);
   return {

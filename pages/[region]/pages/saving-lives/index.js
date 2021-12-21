@@ -16,13 +16,13 @@ const SavingLives = ({ campaign, savingLivesPage, seo, content }) => {
   return (
     <>
       {content.enable_saving_lives && (
-        <div style={{ backgroundColor: 'white' }}>
+        <>
           <SeoManager seo={seo} />
           <BaseLayout campaign={campaign} content={content}>
             <SavingLivesKeyVisual savingLivesPage={savingLivesPage} />
             <SavingLivesSection savingLivesPage={savingLivesPage} />
           </BaseLayout>
-        </div>
+        </>
       )}
       {!content.enable_saving_lives && (
         <Error campaign={campaign} content={content} />
@@ -32,8 +32,7 @@ const SavingLives = ({ campaign, savingLivesPage, seo, content }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const code = params.region.toUpperCase();
-  const language = REGION_INFO[code].language;
+  const language = REGION_INFO[params.region].language;
   const contentData = await fetchHeaderFooterData(language);
   const campaignData = await fetchCampaignData(language);
   if (contentData.enable_saving_lives !== true) {

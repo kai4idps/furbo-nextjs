@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
 import BannerContent from './BannerContent';
 import BannerCountdown from './BannerCountdown';
+import { useRouter } from 'next/router';
 import { Carousel } from 'react-responsive-carousel';
+import { isEmpty } from 'src/helpers';
 
 const Banner = ({ campaign }) => {
   const isContent = campaign.banner_type.includes('Content');
   const isCountdown = campaign.banner_type.includes('Countdown');
+  const router = useRouter();
+  const { region } = router.query;
 
-  if (isContent && isCountdown) {
+  if (isContent && isCountdown && !isEmpty(region)) {
     return (
       <Carousel
         swipeable={true}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from 'prismic-reactjs';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { useTheme, withStyles, makeStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
@@ -34,6 +34,7 @@ const Accordion = withStyles({
 
 const AccordionSpecsListSlice = (props) => {
   const classes = useStyles();
+  const theme = useTheme();
   const { expand, title, mainImage, content } = props;
   const [open, setOpen] = useState(expand);
 
@@ -44,7 +45,7 @@ const AccordionSpecsListSlice = (props) => {
           className={classes.header}
           aria-controls="specs-header"
           id="specs-header"
-          expandIcon={<ExpandMore style={{ color: 'white' }} />}
+          expandIcon={<ExpandMore style={{ color: theme.palette.white }} />}
         >
           {title}
         </AccordionSummaryCenter>

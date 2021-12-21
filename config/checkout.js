@@ -1,5 +1,14 @@
 export const CHECKOUT_URL = (region, quantity) => {
   const env = process.env.BUILD_ENV || 'development';
+
+  console.log(
+    'env',
+    env,
+    process.env.BUILD_ENV,
+    process.env.NEXT_PUBLIC_BUILD_ENV,
+    process.env.NEXT_PUBLIC_BUILD_ENV || 'development',
+    'development',
+  );
   if (env !== 'production') {
     return `https://route-stg.furbo.com/cart/33333304329:${quantity}`;
   } else if (region === 'us') {
@@ -14,6 +23,8 @@ export const CHECKOUT_URL = (region, quantity) => {
     return `https://furbo-fr.myshopify.com/cart/32293606195281:${quantity},39360347111505:1`;
   } else if (region === 'au') {
     return `https://furbo-global.myshopify.com/cart/4686733606944:${quantity},32935146881127:1`;
+  } else if (region === 'jp') {
+    return `https://furbo-jp.myshopify.com/cart/21734579269:${quantity}`;
   }
   return `https://furbo-dog-camera.myshopify.com/cart/21266488961:${quantity},34559072731181:1`;
 };
@@ -34,6 +45,11 @@ export const CUSTOM_CHECKOUT_URL = (region, variantId, quantity) => {
     return `https://furbo-fr.myshopify.com/cart/${variantId}:${quantity}`;
   } else if (region === 'au') {
     return `https://furbo-global.myshopify.com/cart/${variantId}:${quantity}`;
+<<<<<<< HEAD
+=======
+  } else if (region === 'jp') {
+    return `https://furbo-jp.myshopify.com/cart/${variantId}:${quantity}`;
+>>>>>>> 2f73c8ab0694b354ac52785294d69cd213ad3229
   }
   return `https://furbo-dog-camera.myshopify.com/cart/${variantId}:${quantity}`;
 };

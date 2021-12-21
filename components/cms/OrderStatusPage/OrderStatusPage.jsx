@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchOrder, initOrderStatus } from 'redux/features/order/orderSlice';
 import Button from '@material-ui/core/Button';
@@ -17,6 +17,7 @@ const useStyles = makeStyles(styles);
 
 const OrderStatusPage = ({ orderStatusPage }) => {
   const classes = useStyles();
+  const theme = useTheme();
   const dispatch = useDispatch();
   const order = useSelector((state) => state.order);
   const [email, setEmail] = useState('');
@@ -76,7 +77,7 @@ const OrderStatusPage = ({ orderStatusPage }) => {
             />
           </FormControl>
           {error && (
-            <div className={classes.text} style={{ color: 'red' }}>
+            <div className={classes.text} style={{ color: theme.palette.red }}>
               {orderStatusPage.error_prompt}
             </div>
           )}

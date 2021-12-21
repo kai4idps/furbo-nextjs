@@ -9,11 +9,18 @@ const productButtonStyle = (theme) => ({
     [theme.breakpoints.down('sm')]: {
       height: '100px',
     },
+    '@media (max-width: 360px)': {
+      height: '80px',
+    },
   },
   productImage: {
     width: '100px',
     height: '100px',
     borderRadius: '10px',
+    '@media (max-width: 360px)': {
+      width: '80px',
+      height: '80px',
+    },
   },
   buttonText: {
     fontFamily: 'FuturaPT',
@@ -25,7 +32,7 @@ const productButtonStyle = (theme) => ({
       fontSize: '18px',
       width: 'calc(100% - 100px - 125px)',
     },
-    '@media (max-width: 350px)': {
+    '@media (max-width: 380px)': {
       fontSize: '16px',
     },
   },
@@ -35,7 +42,7 @@ const productButtonStyle = (theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '16px',
     },
-    '@media (max-width: 350px)': {
+    '@media (max-width: 380px)': {
       fontSize: '12px',
     },
   },
@@ -63,19 +70,19 @@ const productButtonStyle = (theme) => ({
     },
   },
   shopButton: {
-    color: '#434343',
+    color: theme.palette.black,
     width: '120px',
     height: '40px',
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     borderRadius: '100px',
     textAlign: 'center',
     '&,&:hover,&:focus': {
-      backgroundColor: '#f7cd3d',
+      backgroundColor: theme.palette.yellow,
       height: '40px',
     },
-    '@media (max-width: 350px)': {
+    '@media (max-width: 380px)': {
       fontSize: '16px',
-      width: '85px',
+      width: '100px',
       height: '30px',
       '&,&:hover,&:focus': {
         height: '30px',
@@ -83,7 +90,7 @@ const productButtonStyle = (theme) => ({
     },
   },
   learnButton: {
-    color: '#434343',
+    color: theme.palette.black,
     width: '120px',
     height: '40px',
     backgroundColor: '#d8d8d8',
@@ -93,9 +100,9 @@ const productButtonStyle = (theme) => ({
       backgroundColor: '#d8d8d8',
       height: '40px',
     },
-    '@media (max-width: 350px)': {
+    '@media (max-width: 380px)': {
       fontSize: '16px',
-      width: '85px',
+      width: '100px',
       height: '30px',
       '&,&:hover,&:focus': {
         height: '30px',

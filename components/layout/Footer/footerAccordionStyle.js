@@ -1,12 +1,12 @@
-const footerAccordionStyle = () => ({
+const footerAccordionStyle = (theme) => ({
   accordionHeader: {
-    backgroundColor: '#434343',
-    color: '#ffffff',
+    backgroundColor: theme.palette.black,
+    color: theme.palette.white,
     fontWeight: '800',
     fontSize: '18px',
   },
   accordionList: {
-    backgroundColor: '#434343',
+    backgroundColor: theme.palette.black,
     display: 'flex',
     flexDirection: 'column',
   },

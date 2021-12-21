@@ -1,6 +1,6 @@
 import { Children } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import { RichText } from 'prismic-reactjs';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
@@ -24,6 +24,7 @@ const ComparisonTable = ({
   content,
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <TableContainer className={classes.tableContainer} elevation={0}>
       <div className={classes.header}>
@@ -65,14 +66,20 @@ const ComparisonTable = ({
                   {row.check_item_a && (
                     <Check
                       className={classes.icon}
-                      style={{ color: row.red_font ? 'red' : '#434343' }}
+                      style={{
+                        color: row.red_font
+                          ? theme.palette.red
+                          : theme.palette.black,
+                      }}
                     />
                   )}
                 </TableCell>
                 <TableCell
                   className={classes.tableCellCenter}
                   style={{
-                    color: row.red_font ? 'red' : '#434343',
+                    color: row.red_font
+                      ? theme.palette.red
+                      : theme.palette.black,
                   }}
                 >
                   {row.new_icon && (
@@ -91,7 +98,11 @@ const ComparisonTable = ({
                   {row.check_item_b && (
                     <Check
                       className={classes.icon}
-                      style={{ color: row.red_font ? 'red' : '#434343' }}
+                      style={{
+                        color: row.red_font
+                          ? theme.palette.red
+                          : theme.palette.black,
+                      }}
                     />
                   )}
                 </TableCell>

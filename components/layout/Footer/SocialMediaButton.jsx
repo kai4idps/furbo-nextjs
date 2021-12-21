@@ -35,7 +35,11 @@ const SocialMediaButton = ({ info }) => {
       }}
       passHref
     >
-      <IconButton key={info.type} className={classes.iconButton}>
+      <IconButton
+        id="footer-button"
+        key={info.type}
+        className={classes.iconButton}
+      >
         <SocialMediaIcon type={info.type} />
       </IconButton>
     </Link>

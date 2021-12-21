@@ -28,18 +28,18 @@ const gridElementStyle = (theme) => ({
   },
   image: {
     width: '60px',
-    height: '60px',
+    height: 'auto',
     [theme.breakpoints.down('sm')]: {
       width: '50px',
-      height: '50px',
+      height: 'auto',
     },
   },
   imageLarge: {
     width: '100px',
-    height: '100px',
+    height: 'auto',
     [theme.breakpoints.down('sm')]: {
       width: '75px',
-      height: '75px',
+      height: 'auto',
     },
   },
 });

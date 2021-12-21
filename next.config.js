@@ -1,9 +1,19 @@
+const { Redirect } = require('./config/redirect');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ANALYZE } = process.env;
 
 module.exports = {
+  // env: {
+  //   BUILD_ENV: process.env.BUILD_ENV,
+  // },
   reactStrictMode: false,
   swcMinify: true,
+  experimental: {
+    scrollRestoration: true,
+  },
+  async redirects() {
+    return Redirect;
+  },
   webpack: (config, { dev, isServer }) => {
     if (!isServer) {
       if (ANALYZE) {

@@ -64,7 +64,7 @@ const CardsCarouselSlice = (props) => {
         <span
           style={{
             textDecorationLine: 'underline',
-            textDecorationColor: '#f7cd3d',
+            textDecorationColor: theme.palette.yellow,
             textDecorationThickness: '4px',
             textUnderlineOffset: '1px',
             textDecorationSkip: false,
@@ -78,7 +78,7 @@ const CardsCarouselSlice = (props) => {
       return (
         <span
           style={{
-            color: '#d0021b',
+            color: theme.palette.orange,
           }}
           key={key}
         >
@@ -89,7 +89,7 @@ const CardsCarouselSlice = (props) => {
       return (
         <span
           style={{
-            background: '#f7cd3d',
+            background: theme.palette.yellow,
           }}
           key={key}
         >
@@ -138,7 +138,9 @@ const CardsCarouselSlice = (props) => {
               className={classes.title}
               style={{
                 textDecorationLine: titleUnderline ? 'underline' : 'none',
-                textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
+                textDecorationColor: titleUnderline
+                  ? theme.palette.yellow
+                  : 'none',
                 textDecorationThickness: titleUnderline ? '4px' : 'none',
                 textUnderlineOffset: titleUnderline ? '5px' : 'none',
                 textDecorationSkip: false,
