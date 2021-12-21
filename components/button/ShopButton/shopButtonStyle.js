@@ -1,4 +1,4 @@
-const shopButtonStyle = () => ({
+const shopButtonStyle = (theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
