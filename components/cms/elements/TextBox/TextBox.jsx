@@ -1,6 +1,6 @@
 import { RichText } from 'prismic-reactjs';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import Image from 'components/Image';
 import { colorFont } from 'src/customHtml';
 import styles from './textBoxStyle';
@@ -9,7 +9,8 @@ const useStyles = makeStyles(styles);
 
 const TextBox = (props) => {
   const classes = useStyles();
-  const { icon, text, backgroundColor = 'white' } = props;
+  const theme = useTheme();
+  const { icon, text, backgroundColor = theme.palette.white } = props;
   return (
     <div className={classes.root} style={{ backgroundColor: backgroundColor }}>
       <div className={classes.imageContainer}>

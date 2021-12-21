@@ -4,9 +4,9 @@ const socialMediaButtonStyle = (theme) => ({
     height: '30px',
     marginLeft: '30px',
     padding: '5px',
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     '&,&:hover,&:focus': {
-      backgroundColor: 'white',
+      backgroundColor: theme.palette.white,
     },
     [theme.breakpoints.down('sm')]: {
       marginLeft: '0px',
@@ -16,7 +16,7 @@ const socialMediaButtonStyle = (theme) => ({
   icon: {
     width: '20px',
     height: '20px',
-    color: '#434343',
+    color: theme.palette.black,
   },
 });
 

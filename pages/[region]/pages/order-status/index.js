@@ -12,18 +12,17 @@ import { REGION_INFO, PATHS } from 'config/navigation';
 
 const OrderStatus = ({ campaign, seo, content, orderStatusPage }) => {
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <>
       <SeoManager seo={seo} />
       <BaseLayout campaign={campaign} content={content}>
         <OrderStatusPage orderStatusPage={orderStatusPage} />
       </BaseLayout>
-    </div>
+    </>
   );
 };
 
 export const getStaticProps = async ({ params }) => {
-  const code = params.region.toUpperCase();
-  const language = REGION_INFO[code].language;
+  const language = REGION_INFO[params.region].language;
   const campaignData = await fetchCampaignData(language);
   const orderStatusPageData = await fetchOrderStatusPageData(language);
   const contentData = await fetchHeaderFooterData(language);

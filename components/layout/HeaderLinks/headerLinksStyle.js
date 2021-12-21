@@ -20,7 +20,7 @@ const headerLinksStyle = (theme) => ({
   },
   button: {
     position: 'relative',
-    color: '#434343',
+    color: theme.palette.black,
     height: 'calc(100% - 20px)',
     fontFamily: 'FuturaPT',
     padding: '10px 16px 10px',
@@ -70,7 +70,7 @@ const headerLinksStyle = (theme) => ({
     width: '1px',
     height: '30px',
     marginRight: '5px',
-    backgroundColor: '#434343',
+    backgroundColor: theme.palette.black,
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -98,7 +98,7 @@ const headerLinksStyle = (theme) => ({
   drawerDivider: {
     margin: '5px auto',
     width: 'calc(100% - 40px)',
-    backgroundColor: '#434343',
+    backgroundColor: theme.palette.black,
     height: '1px',
   },
   image: {
@@ -120,7 +120,7 @@ const headerLinksStyle = (theme) => ({
     paddingLeft: '10px',
     fontFamily: 'Avenir',
     fontSize: '20px',
-    color: '#434343',
+    color: theme.palette.black,
   },
   flag: {
     position: 'relative',
@@ -129,7 +129,7 @@ const headerLinksStyle = (theme) => ({
     height: '26px',
   },
   flagText: {
-    color: '#434343',
+    color: theme.palette.black,
     fontFamily: 'FuturaPT',
     textTransform: 'none',
     paddingLeft: '10px',

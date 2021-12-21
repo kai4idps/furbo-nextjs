@@ -10,10 +10,11 @@ const footerButtonStyle = (theme) => ({
     fontFamily: 'Avenir',
     width: 'auto',
     padding: '0px 3px',
-    color: '#ffffff',
+    color: theme.palette.white,
     justifyContent: 'flex-start',
     fontWeight: '500',
     fontSize: '16px',
+    textAlign: 'left',
     [theme.breakpoints.down('sm')]: {
       lineHeight: '35px',
     },

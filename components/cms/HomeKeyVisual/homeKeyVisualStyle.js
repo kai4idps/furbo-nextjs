@@ -38,7 +38,7 @@ const keyVisualStyle = (theme) => ({
   title: {
     fontFamily: 'FuturaPT',
     fontSize: '24px',
-    color: '#434343',
+    color: theme.palette.black,
     height: 'auto',
     marginTop: '5%',
     padding: '5px',
@@ -52,7 +52,7 @@ const keyVisualStyle = (theme) => ({
     fontFamily: 'FuturaPT',
     fontSize: '30px',
     fontWeight: '400',
-    color: '#434343',
+    color: theme.palette.black,
     width: 'auto',
     height: 'auto',
     padding: '5px',

@@ -11,9 +11,9 @@ const twoCardsSliceStyle = (theme) => ({
     },
   },
   title: {
-    padding: '10px 0px 0px',
+    padding: '10px 0px',
     width: '100%',
-    color: '#434343',
+    color: theme.palette.black,
     textAlign: 'center',
   },
   container: {
@@ -49,7 +49,7 @@ const twoCardsSliceStyle = (theme) => ({
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
-    color: '#434343',
+    color: theme.palette.black,
     flexGrow: 1,
     padding: '0px 15px',
     '&:last-child': {
@@ -62,6 +62,7 @@ const twoCardsSliceStyle = (theme) => ({
   cardMedia: {
     height: 'auto',
     width: '100%',
+    marginBottom: '15px',
   },
   cardMediaSmall: {
     padding: '15px 0px 15px',
@@ -69,7 +70,7 @@ const twoCardsSliceStyle = (theme) => ({
     width: '120px',
   },
   text: {
-    color: '#434343',
+    color: theme.palette.black,
   },
   slice: {
     padding: '20px 0px 0px',

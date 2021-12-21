@@ -1,7 +1,7 @@
 import { Children } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from 'prismic-reactjs';
-import { makeStyles } from '@material-ui/core/styles';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
@@ -22,6 +22,7 @@ const TwoCardsSlice = ({
   content,
 }) => {
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <VisibleSensorAnimation animation="grow">
       <div className={classes.root}>
@@ -30,7 +31,9 @@ const TwoCardsSlice = ({
             className={classes.title}
             style={{
               textDecorationLine: titleUnderline ? 'underline' : 'none',
-              textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
+              textDecorationColor: titleUnderline
+                ? theme.palette.yellow
+                : 'none',
               textDecorationThickness: titleUnderline ? '4px' : 'none',
               textUnderlineOffset: titleUnderline ? '5px' : 'none',
               textDecorationSkip: false,
@@ -71,15 +74,17 @@ const TwoCardsSlice = ({
                   }}
                 >
                   {!isEmpty(item.card_image) && (
-                    <Image
-                      className={
-                        imageFullWidth
-                          ? classes.cardMedia
-                          : classes.cardMediaSmall
-                      }
-                      alt={item.card_image.alt}
-                      src={item.card_image.url}
-                    />
+                    <div style={{ width: '100%' }}>
+                      <Image
+                        className={
+                          imageFullWidth
+                            ? classes.cardMedia
+                            : classes.cardMediaSmall
+                        }
+                        alt={item.card_image.alt}
+                        src={item.card_image.url}
+                      />
+                    </div>
                   )}
                   <CardContent className={classes.cardContent}>
                     <div className={classes.text}>

@@ -5,7 +5,7 @@ const infoCardSliceStyle = (theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     borderRadius: '5px',
-    color: '#434343',
+    color: theme.palette.black,
     padding: '20px 150px',
     textAlign: 'center',
     width: '100%',

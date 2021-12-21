@@ -1,3 +1,5 @@
+import theme from 'styles/theme';
+
 export const arrow = {
   position: 'absolute',
   zIndex: 2,
@@ -5,10 +7,10 @@ export const arrow = {
   width: 30,
   height: 30,
   cursor: 'pointer',
-  backgroundColor: '#f7cd3d',
+  backgroundColor: theme.palette.yellow,
   padding: '0px',
   color: '#fff',
   '&,&:hover,&:focus': {
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
   },
 };

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { RichText } from 'prismic-reactjs';
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 import VisibleSensorAnimation from 'components/VisibleSensorAnimation';
 import RenderElement from 'components/cms/RenderElement';
 import ProductSlide from './ProductSlide';
@@ -66,14 +65,24 @@ const ProductKeyVisual = ({ productPage }) => {
             sm={12}
             xs={12}
           >
-            <Hidden smDown>
-              <div className={classes.title}>
-                {isEmpty(productId) ? (
-                  RichText.render(productPage.title)
-                ) : (
-                  <h1>{productInfo.title}</h1>
-                )}
+            <div className={classes.title}>
+              {isEmpty(productId) ? (
+                RichText.render(productPage.title)
+              ) : (
+                <h1>{productInfo.title}</h1>
+              )}
+            </div>
+            {isEmpty(productId) && true && (
+              <div
+                className={classes.colorText}
+                style={{
+                  color: `${productPage.text_color}`,
+                }}
+              >
+                {RichText.render(productPage.color_text)}
               </div>
+            )}
+            {!isEmpty(productPage.subtitle) && (
               <div className={classes.subtitle}>
                 {isEmpty(productId) ? (
                   RichText.render(productPage.subtitle)
@@ -81,17 +90,8 @@ const ProductKeyVisual = ({ productPage }) => {
                   <p>{productInfo.description}</p>
                 )}
               </div>
-              {isEmpty(productId) && (
-                <div
-                  className={classes.colorText}
-                  style={{
-                    color: `${productPage.text_color}`,
-                  }}
-                >
-                  {RichText.render(productPage.color_text)}
-                </div>
-              )}
-            </Hidden>
+            )}
+
             {isEmpty(productId) &&
               Children.toArray(
                 productPage.product_button.map((item, index) => (

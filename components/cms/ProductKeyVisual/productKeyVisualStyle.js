@@ -11,19 +11,25 @@ const productKeyVisualStyle = (theme) => ({
     justifyContent: 'center',
     alignItems: 'flex-start',
     flexDirection: 'column',
+  },
+  title: {
+    color: theme.palette.black,
     [theme.breakpoints.down('sm')]: {
       padding: '0px',
     },
   },
-  title: {
-    color: '#434343',
-  },
   subtitle: {
-    paddingTop: '20px',
-    color: '#434343',
+    paddingBottom: '20px',
+    color: theme.palette.black,
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px 0px',
+    },
   },
   colorText: {
-    paddingBottom: '20px',
+    paddingTop: '20px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px 0px',
+    },
   },
   shopButton: {
     margin: '10px 0px',

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -7,7 +6,7 @@ import { useRouter } from 'next/router';
 import styles from './shopButtonStyle';
 
 const useStyles = makeStyles(styles);
-//
+
 const ShopButton = ({ className, text }) => {
   const classes = useStyles();
   const btnClasses = `${classes.button} ${className || null}`;

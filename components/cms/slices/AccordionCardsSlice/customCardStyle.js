@@ -1,4 +1,4 @@
-const customCardStyle = () => ({
+const customCardStyle = (theme) => ({
   card: {},
   cardHeader: {
     padding: '8px 8px 0px',
@@ -17,7 +17,7 @@ const customCardStyle = () => ({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    color: 'red',
+    color: theme.palette.red,
     fontSize: '16px',
   },
   cardImage: {

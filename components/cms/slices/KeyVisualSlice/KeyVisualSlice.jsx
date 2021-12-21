@@ -111,7 +111,9 @@ const KeyVisualSlice = (props) => {
                 className={classes.title}
                 style={{
                   textDecorationLine: titleUnderline ? 'underline' : 'none',
-                  textDecorationColor: titleUnderline ? '#f7cd3d' : 'none',
+                  textDecorationColor: titleUnderline
+                    ? theme.palette.yellow
+                    : 'none',
                   textDecorationThickness: titleUnderline ? '4px' : 'none',
                   textUnderlineOffset: titleUnderline ? '5px' : 'none',
                   textDecorationSkip: false,
@@ -142,7 +144,7 @@ const KeyVisualSlice = (props) => {
               {Children.toArray(
                 content.map((slice, index) => (
                   <>
-                    {index !== <br />}
+                    {index !== 0 && <br />}
                     <RenderElement
                       type={slice.content.type}
                       data={slice.content.data}

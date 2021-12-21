@@ -15,12 +15,12 @@ const FurboDogNanny = ({ campaign, fdnPage, seo, content }) => {
   return (
     <>
       {content.enable_furbo_dog_nanny && (
-        <div style={{ backgroundColor: 'white' }}>
+        <>
           <SeoManager seo={seo} />
           <BaseLayout campaign={campaign} content={content}>
             <FurboDogNannySection fdnPage={fdnPage} />
           </BaseLayout>
-        </div>
+        </>
       )}
       {!content.enable_furbo_dog_nanny && (
         <Error campaign={campaign} content={content} />
@@ -30,8 +30,7 @@ const FurboDogNanny = ({ campaign, fdnPage, seo, content }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const code = params.region.toUpperCase();
-  const language = REGION_INFO[code].language;
+  const language = REGION_INFO[params.region].language;
   const contentData = await fetchHeaderFooterData(language);
   const campaignData = await fetchCampaignData(language);
   if (contentData.enable_furbo_dog_nanny !== true) {

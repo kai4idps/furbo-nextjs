@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import PropTypes from 'prop-types';
 import Image from 'components/Image';
 import { RichText } from 'prismic-reactjs';
@@ -8,14 +8,28 @@ import styles from './gridElementStyle';
 
 const useStyles = makeStyles(styles);
 
+const getGridSize = (length) => {
+  if (length === 4) {
+    return 3;
+  } else if (length > 6) {
+    return 'auto';
+  } else {
+    return 4;
+  }
+};
+
 const GridElement = (props) => {
   const classes = useStyles();
   const { gridContent, imageSize = 'Normal' } = props;
-  const gridSize = gridContent.length === 4 ? 3 : 4;
+  const gridSize = getGridSize(gridContent.length);
   return (
     <div className={classes.root}>
-      <Grid container>
-        {React.Children.toArray(
+      <Grid
+        container
+        spacing={gridSize === 'auto' ? 1 : 0}
+        justifyContent="center"
+      >
+        {Children.toArray(
           gridContent.map((item) => (
             <Grid
               item

@@ -53,7 +53,7 @@ const AccordionKeyVisualSlice = (props) => {
           className={classes.header}
           aria-controls={title}
           id={title}
-          expandIcon={<ExpandMore style={{ color: 'white' }} />}
+          expandIcon={<ExpandMore style={{ color: theme.palette.white }} />}
         >
           {title}
         </AccordionSummaryCenter>

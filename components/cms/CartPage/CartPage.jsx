@@ -47,7 +47,7 @@ const CartPage = ({ cartPage }) => {
           quantity: quantity,
         },
       ],
-      currency: CURRENCY[region.toUpperCase()],
+      currency: CURRENCY[region],
       value: price,
     });
   }, [productInfo, quantity, price, cartPage, region]);

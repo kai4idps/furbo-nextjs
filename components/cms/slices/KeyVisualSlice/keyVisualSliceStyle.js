@@ -43,7 +43,7 @@ const keyVisualSliceStyle = (theme) => ({
     },
   },
   title: {
-    color: '#434343',
+    color: theme.palette.black,
     height: 'auto',
     padding: '5px',
     width: '100%',
@@ -74,7 +74,7 @@ const keyVisualSliceStyle = (theme) => ({
     },
   },
   subtitle: {
-    color: '#434343',
+    color: theme.palette.black,
     width: 'auto',
     height: 'auto',
     padding: '5px',

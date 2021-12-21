@@ -4,15 +4,17 @@ const accordionListSliceStyle = (theme) => ({
     width: '100%',
   },
   header: {
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     height: '70px',
     fontFamily: 'FuturaPT',
     fontSize: '32px',
-    borderTop: '1px solid white',
-    borderBottom: '1px solid white',
+    lineHeight: '32px',
+    borderTop: `1px solid ${theme.palette.white}`,
+    borderBottom: `1px solid ${theme.palette.white}`,
     paddingTop: '5px', // centering workaround
     [theme.breakpoints.down('sm')]: {
       fontSize: '24px',
+      lineHeight: '24px',
     },
   },
   content: {
@@ -39,7 +41,7 @@ const accordionListSliceStyle = (theme) => ({
     height: '40px',
     lineHeight: '40px',
     borderBottom: '1px solid #e2e2e2',
-    color: '#434343',
+    color: theme.palette.black,
     [theme.breakpoints.down('xs')]: {
       lineHeight: '20px',
     },
@@ -47,7 +49,7 @@ const accordionListSliceStyle = (theme) => ({
   itemContent: {
     fontSize: '15px',
     lineHeight: 'auto',
-    color: '#434343',
+    color: theme.palette.black,
     padding: '5px 30px 10px 20px',
     fontFamily: 'Avenir',
   },

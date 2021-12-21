@@ -5,11 +5,9 @@ import FallbackPage from 'components/cms/FallbackPage';
 
 const Fallback = ({ campaign, content }) => {
   return (
-    <div style={{ backgroundColor: 'white' }}>
-      <BaseLayout campaign={campaign} content={content}>
-        <FallbackPage content={content.image_404} />
-      </BaseLayout>
-    </div>
+    <BaseLayout campaign={campaign} content={content}>
+      <FallbackPage content={content.image_404} />
+    </BaseLayout>
   );
 };
 

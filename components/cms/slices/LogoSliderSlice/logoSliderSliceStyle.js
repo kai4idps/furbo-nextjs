@@ -36,7 +36,7 @@ const logoSliderSliceStyle = (theme) => ({
     fontSize: '36px',
     fontFamily: 'PingFang TC',
     fontWeight: 'bold',
-    color: '#f7cd3d',
+    color: theme.palette.yellow,
     top: '-15px',
     left: '-10px',
     [theme.breakpoints.down('sm')]: {
@@ -50,7 +50,7 @@ const logoSliderSliceStyle = (theme) => ({
     fontSize: '36px',
     fontFamily: 'PingFang TC',
     fontWeight: 'bold',
-    color: '#f7cd3d',
+    color: theme.palette.yellow,
     bottom: '-25px',
     right: '-10px',
     [theme.breakpoints.down('sm')]: {
@@ -61,7 +61,7 @@ const logoSliderSliceStyle = (theme) => ({
   },
   quote: {
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
     height: 'auto',
     width: 'auto',
     fontSize: '24px',
@@ -91,11 +91,11 @@ const logoSliderSliceStyle = (theme) => ({
   button: {
     margin: '5px',
     [theme.breakpoints.down('sm')]: {
-      backgroundColor: '#f7cd3d',
+      backgroundColor: theme.palette.yellow,
       width: '15px',
       height: '15px',
       '&,&:hover,&:focus': {
-        backgroundColor: '#f7cd3d',
+        backgroundColor: theme.palette.yellow,
       },
     },
   },

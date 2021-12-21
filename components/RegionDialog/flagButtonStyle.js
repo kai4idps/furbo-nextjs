@@ -1,4 +1,4 @@
-const flagButtonStyle = () => ({
+const flagButtonStyle = (theme) => ({
   button: {
     width: '100%',
     justifyContent: 'flex-start',
@@ -16,7 +16,7 @@ const flagButtonStyle = () => ({
   text: {
     fontSize: '16px',
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
     paddingLeft: '20px',
     textTransform: 'none',
   },

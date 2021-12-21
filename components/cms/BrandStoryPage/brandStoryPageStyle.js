@@ -24,6 +24,7 @@ const brandStoryPageStyle = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column',
     [theme.breakpoints.down('sm')]: {
       paddingTop: '40px',
       textAlign: 'center',

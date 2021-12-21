@@ -2,9 +2,9 @@ const footerStyle = (theme) => ({
   root: {
     width: '100%',
     height: 'auto',
-    backgroundColor: '#434343',
+    backgroundColor: theme.palette.black,
     fontFamily: 'Avenir',
-    color: '#ffffff',
+    color: theme.palette.white,
   },
   container: {
     display: 'flex',
@@ -20,7 +20,6 @@ const footerStyle = (theme) => ({
   },
   gridItem: {
     flexWrap: 'wrap',
-    maxHeight: '160px',
   },
   gridTitle: {
     fontSize: '18px',
@@ -32,11 +31,12 @@ const footerStyle = (theme) => ({
   },
   gridItemContainer: {
     width: '100%',
-    height: '120px',
+    height: 'auto',
+    maxHeight: '140px',
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'column',
-    whiteSpace: 'nowrap',
+    whiteSpace: 'pre-wrap',
   },
   socialLinkContainer: {
     width: '100%',
@@ -108,7 +108,7 @@ const footerStyle = (theme) => ({
   termsLinkButton: {
     padding: '0px 5px',
     textTransform: 'none',
-    color: '#ffffff',
+    color: theme.palette.white,
   },
   flagButton: {
     display: 'flex',
@@ -123,7 +123,7 @@ const footerStyle = (theme) => ({
     height: '26px',
   },
   flagText: {
-    color: '#ffffff',
+    color: theme.palette.white,
     fontFamily: 'Avenir',
     textTransform: 'none',
     paddingLeft: '15px',
@@ -141,11 +141,11 @@ const footerStyle = (theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: 0,
-    color: '#434343',
+    color: theme.palette.black,
     fontFamily: 'Avenir',
   },
   accordionTitle: {
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     fontSize: '16px',
     fontWeight: '500',
     height: '60px',

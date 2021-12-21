@@ -5,6 +5,9 @@ const { ANALYZE } = process.env;
 module.exports = {
   reactStrictMode: false,
   swcMinify: true,
+  experimental: {
+    scrollRestoration: true,
+  },
   async redirects() {
     return Redirect;
   },

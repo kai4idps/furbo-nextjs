@@ -1,4 +1,4 @@
-const emailInputStyle = () => ({
+const emailInputStyle = (theme) => ({
   root: {
     marginTop: '10px',
     height: '30px',
@@ -27,7 +27,7 @@ const emailInputStyle = () => ({
     borderBottomRightRadius: '5px',
     width: '32px',
     height: '30px',
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     display: 'flex',
   },
   blackTriangle: {

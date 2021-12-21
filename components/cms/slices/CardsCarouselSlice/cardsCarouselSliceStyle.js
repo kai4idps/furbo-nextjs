@@ -19,7 +19,7 @@ const cardsCarouselSliceStyle = (theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     textAlign: 'center',
-    color: '#434343',
+    color: theme.palette.black,
   },
   title: {
     display: 'flex',
@@ -27,7 +27,7 @@ const cardsCarouselSliceStyle = (theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     fontFamily: 'FuturaPT',
-    color: '#434343',
+    color: theme.palette.black,
     fontSize: '32px',
     textAlign: 'center',
     position: 'relative',
@@ -39,7 +39,7 @@ const cardsCarouselSliceStyle = (theme) => ({
     fontFamily: 'FuturaPT',
     fontSize: '20px',
     textAlign: 'center',
-    color: '#434343',
+    color: theme.palette.black,
     position: 'relative',
     [theme.breakpoints.down('sm')]: {
       fontSize: '18px',
@@ -91,7 +91,7 @@ const cardsCarouselSliceStyle = (theme) => ({
   cardContent: {
     textAlign: 'center',
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
     fontSize: '18px',
     [theme.breakpoints.down('xs')]: {
       fontSize: '16px',

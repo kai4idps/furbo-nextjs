@@ -1,4 +1,5 @@
 import { isEmpty, parseTime } from 'src/helpers';
+import theme from 'styles/theme';
 
 export const colorFont = (type, element, content, children, key) => {
   if (isEmpty(element)) {
@@ -9,7 +10,7 @@ export const colorFont = (type, element, content, children, key) => {
       return (
         <span
           style={{
-            color: '#f7cd3d',
+            color: theme.palette.yellow,
           }}
           key={key}
         >
@@ -42,7 +43,7 @@ export const colorFont = (type, element, content, children, key) => {
       return (
         <span
           style={{
-            color: '#1e7bac',
+            color: theme.palette.blue,
           }}
           key={key}
         >
@@ -53,7 +54,7 @@ export const colorFont = (type, element, content, children, key) => {
       return (
         <span
           style={{
-            color: '#ffffff',
+            color: theme.palette.white,
           }}
           key={key}
         >
@@ -74,7 +75,7 @@ export const colorFontTime = (type, element, content, children, key) => {
       return (
         <span
           style={{
-            color: '#f7cd3d',
+            color: theme.palette.yellow,
           }}
           key={key}
         >
@@ -107,7 +108,7 @@ export const colorFontTime = (type, element, content, children, key) => {
       return (
         <span
           style={{
-            color: '#1e7bac',
+            color: theme.palette.blue,
           }}
           key={key}
         >
@@ -118,7 +119,7 @@ export const colorFontTime = (type, element, content, children, key) => {
       return (
         <span
           style={{
-            color: '#ffffff',
+            color: theme.palette.white,
           }}
           key={key}
         >

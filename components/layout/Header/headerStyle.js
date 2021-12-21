@@ -6,7 +6,7 @@ const headerStyle = (theme) => ({
     width: '100%',
     height: 'auto',
     padding: '0px 0px 0px',
-    borderBottom: 'solid 3px #f7cd3d',
+    borderBottom: `solid 3px ${theme.palette.yellow}`,
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
     alignItems: 'center',
     flexFlow: 'row nowrap',

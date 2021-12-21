@@ -8,7 +8,7 @@ const regionDialogStyle = (theme) => ({
   underLine: {
     width: '100%',
     display: 'block',
-    borderTop: '1px solid #434343',
+    borderTop: `1px solid ${theme.palette.black}`,
     margin: '10px auto',
   },
   button: {
@@ -21,7 +21,7 @@ const regionDialogStyle = (theme) => ({
     },
   },
   closeIcon: {
-    color: '#434343',
+    color: theme.palette.black,
   },
   dialogContent: {
     backgroundColor: '#f7f7f7',
@@ -39,14 +39,14 @@ const regionDialogStyle = (theme) => ({
     fontSize: '20px',
     fontWeight: '500',
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
   },
   blockTitle: {
     padding: '10px 5px',
     fontSize: '20px',
     fontWeight: '500',
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
   },
   blockContainer: {
     flexDirection: 'column',

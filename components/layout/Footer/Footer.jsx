@@ -19,7 +19,6 @@ import FooterButton from './FooterButton';
 import EmailInput from './EmailInput';
 import FooterAccordion from './FooterAccordion';
 import styles from './footerStyle';
-import { isEmpty } from 'src/helpers';
 import SocialMediaButton from './SocialMediaButton';
 
 const useStyles = makeStyles(styles);
@@ -69,14 +68,10 @@ const date = new Date();
 const Footer = ({ content }) => {
   const classes = useStyles();
   const router = useRouter();
-  const { region, ...query } = router.query;
+  const { region = 'us', ...query } = router.query;
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'), { noSsr: true });
   const [openRegionList, setOpenRegionList] = useState(false);
-
-  if (isEmpty(region)) {
-    return null;
-  }
 
   const handleRegionEdit = () => {
     setOpenRegionList(!openRegionList);
@@ -161,14 +156,18 @@ const Footer = ({ content }) => {
         </Hidden>
         <Divider variant="middle" className={classes.divider} />
         <div className={classes.bottomGrid}>
-          <Button className={classes.flagButton} onClick={handleRegionEdit}>
+          <Button
+            id="footer-button"
+            className={classes.flagButton}
+            onClick={handleRegionEdit}
+          >
             <Image
               className={classes.flag}
-              src={REGION_INFO[region.toUpperCase()]?.image}
-              alt={REGION_INFO[region.toUpperCase()]?.code}
+              src={REGION_INFO[region]?.image}
+              alt={REGION_INFO[region]?.code}
             />
             <div className={classes.flagText}>
-              {REGION_INFO[region.toUpperCase()]?.country}
+              {REGION_INFO[region]?.country}
             </div>
           </Button>
           <div className={classes.termsLinkContainer}>
@@ -184,7 +183,10 @@ const Footer = ({ content }) => {
                       }}
                       passHref
                     >
-                      <Button className={classes.termsLinkButton}>
+                      <Button
+                        id="footer-button"
+                        className={classes.termsLinkButton}
+                      >
                         {info.title}
                       </Button>
                     </Link>

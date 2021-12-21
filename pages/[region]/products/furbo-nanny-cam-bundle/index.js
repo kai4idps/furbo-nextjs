@@ -15,12 +15,12 @@ const Faas = ({ campaign, faasPage, seo, content }) => {
   return (
     <>
       {content.enable_faas && (
-        <div style={{ backgroundColor: 'white' }}>
+        <>
           <SeoManager seo={seo} />
           <BaseLayout campaign={campaign} content={content}>
             <FaasSection faasPage={faasPage} />
           </BaseLayout>
-        </div>
+        </>
       )}
       {!content.enable_faas && <Error campaign={campaign} content={content} />}
     </>
@@ -28,8 +28,7 @@ const Faas = ({ campaign, faasPage, seo, content }) => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const code = params.region.toUpperCase();
-  const language = REGION_INFO[code].language;
+  const language = REGION_INFO[params.region].language;
   const contentData = await fetchHeaderFooterData(language);
   const campaignData = await fetchCampaignData(language);
   if (contentData.enable_faas !== true) {

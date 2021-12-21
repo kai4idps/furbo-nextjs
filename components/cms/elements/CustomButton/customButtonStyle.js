@@ -14,7 +14,7 @@ const customButtonStyle = (theme) => ({
     zIndex: 1000,
     width: '200px',
     height: '40px',
-    color: '#ffffff',
+    color: theme.palette.white,
     lineHeight: 'normal',
     fontSize: '18px',
     paddingTop: '8px', // centering font workaround

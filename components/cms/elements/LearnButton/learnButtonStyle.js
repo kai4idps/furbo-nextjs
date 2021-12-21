@@ -14,7 +14,7 @@ const learnButtonStyle = (theme) => ({
     zIndex: 1000,
     width: '200px',
     height: '40px',
-    color: '#ffffff',
+    color: theme.palette.white,
     fontSize: '20px',
     lineHeight: '20px',
     fontWeight: 500,

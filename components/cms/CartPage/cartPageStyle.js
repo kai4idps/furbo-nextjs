@@ -141,7 +141,7 @@ const cartPageStyle = (theme) => ({
     },
   },
   save: {
-    color: 'red',
+    color: theme.palette.red,
     fontSize: '16px',
     textAlign: 'center',
     [theme.breakpoints.down('xs')]: {
@@ -205,8 +205,8 @@ const cartPageStyle = (theme) => ({
     },
   },
   checkoutButton: {
-    color: 'white',
-    backgroundColor: '#f2775b',
+    color: theme.palette.white,
+    backgroundColor: theme.palette.orange,
     fontFamily: 'FuturaPT',
     textTransform: 'none',
     width: '180px',
@@ -215,7 +215,7 @@ const cartPageStyle = (theme) => ({
     fontSize: '24px',
     padding: '25px',
     '&,&:hover,&:focus': {
-      backgroundColor: '#f2775b',
+      backgroundColor: theme.palette.orange,
     },
   },
 });

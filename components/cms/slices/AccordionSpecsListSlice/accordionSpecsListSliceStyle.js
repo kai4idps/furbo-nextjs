@@ -4,15 +4,17 @@ const specStyle = (theme) => ({
     width: '100%',
   },
   header: {
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     height: '70px',
     fontFamily: 'FuturaPT',
     fontSize: '32px',
-    borderTop: '1px solid white',
-    borderBottom: '1px solid white',
+    lineHeight: '32px',
+    borderTop: `1px solid ${theme.palette.white}`,
+    borderBottom: `1px solid ${theme.palette.white}`,
     paddingTop: '5px', // centering workaround
     [theme.breakpoints.down('sm')]: {
       fontSize: '24px',
+      lineHeight: '24px',
     },
   },
   content: {
@@ -52,7 +54,7 @@ const specStyle = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexBasis: '25%',
-    color: '#434343',
+    color: theme.palette.black,
     [theme.breakpoints.down('sm')]: {
       flexBasis: '100%',
       padding: '15px 0px 15px',
@@ -64,7 +66,7 @@ const specStyle = (theme) => ({
     lineHeight: '30px',
     flexBasis: '75%',
     paddingLeft: '20px',
-    color: '#434343',
+    color: theme.palette.black,
     [theme.breakpoints.down('sm')]: {
       padding: '0px',
       flexBasis: '100%',

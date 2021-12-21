@@ -1,6 +1,6 @@
 const productSlideStyle = (theme) => ({
   root: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -11,13 +11,13 @@ const productSlideStyle = (theme) => ({
     },
   },
   center: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   indicatorContainerLeft: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     width: 'auto',
     height: 'auto',
     display: 'flex',
@@ -26,7 +26,7 @@ const productSlideStyle = (theme) => ({
     flexDirection: 'column',
   },
   indicatorContainerRight: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     width: 'auto',
     height: 'auto',
     display: 'flex',
@@ -39,7 +39,7 @@ const productSlideStyle = (theme) => ({
     // height: '100%',
   },
   carouselContainer: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     top: '100px',
     width: '100%',
     height: 'auto',
@@ -48,7 +48,7 @@ const productSlideStyle = (theme) => ({
     padding: '0px',
   },
   buttonContainer: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     margin: '10px',
     width: '62px',
     height: '62px',
@@ -58,7 +58,7 @@ const productSlideStyle = (theme) => ({
     height: '60px',
   },
   slide: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     padding: '30px',
     width: '100%',
     height: '100%',
@@ -69,14 +69,14 @@ const productSlideStyle = (theme) => ({
     maxWidth: '100%',
   },
   slideImage: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     width: '100%',
     height: '100%',
     maxHeight: '100%',
     maxWidth: '100%',
   },
   slideVideo: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
@@ -92,11 +92,11 @@ const productSlideStyle = (theme) => ({
     width: 30,
     height: 30,
     cursor: 'pointer',
-    backgroundColor: '#f7cd3d',
+    backgroundColor: theme.palette.yellow,
     padding: '0px',
     color: '#fff',
     '&,&:hover,&:focus': {
-      backgroundColor: '#f7cd3d',
+      backgroundColor: theme.palette.yellow,
     },
   },
 });

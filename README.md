@@ -25,7 +25,7 @@ furbo-web-nextjs
 
 # Prerequisite
 
-- Node.js 12.22 or higher
+- Node.js 14 or higher
 - Yarn
 
 # Development

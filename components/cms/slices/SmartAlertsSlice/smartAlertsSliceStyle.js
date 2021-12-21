@@ -46,14 +46,14 @@ const smartAlertsSliceStyle = (theme) => ({
     width: '60px',
     textTransform: 'none',
     lineHeight: 'normal',
-    color: '#434343',
+    color: theme.palette.black,
     [theme.breakpoints.down('xs')]: {
       fontSize: '12px',
     },
   },
   slide: {
     position: 'relative',
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.white,
     display: 'flex',
     justifyContent: 'center',
     height: 'auto',
@@ -76,10 +76,10 @@ const smartAlertsSliceStyle = (theme) => ({
       minHeight: '680px',
     },
     '@media (max-width: 450px)': {
-      minHeight: '610px',
+      minHeight: '630px',
     },
     '@media (max-width: 350px)': {
-      minHeight: '550px',
+      minHeight: '570px',
     },
   },
   contentContainer: {
@@ -98,7 +98,7 @@ const smartAlertsSliceStyle = (theme) => ({
   },
   title: {
     fontSize: '32px',
-    color: '#434343',
+    color: theme.palette.black,
     height: 'auto',
     lineHeight: '32px',
     padding: '15% 25px 0px',
@@ -115,7 +115,7 @@ const smartAlertsSliceStyle = (theme) => ({
   subtitle: {
     fontSize: '24px',
     fontWeight: 'lighter',
-    color: '#434343',
+    color: theme.palette.black,
     lineHeight: 'normal',
     padding: '10px 25px 0px',
     [theme.breakpoints.down('sm')]: {
@@ -127,7 +127,7 @@ const smartAlertsSliceStyle = (theme) => ({
   },
   textContent: {
     fontFamily: 'Avenir',
-    color: '#434343',
+    color: theme.palette.black,
     width: '100%',
     height: 'auto',
     fontSize: '24px',

@@ -14,15 +14,15 @@ const signInButtonStyle = (theme) => ({
     zIndex: 1000,
     width: '200px',
     height: '40px',
-    color: '#ffffff',
+    color: theme.palette.white,
     fontSize: '18px',
     fontWeight: '500',
-    backgroundColor: '#1e7bac',
+    backgroundColor: theme.palette.blue,
     textTransform: 'none',
     borderRadius: '100px',
     fontFamily: 'FuturaPT',
     '&,&:hover,&:focus': {
-      backgroundColor: '#1e7bac',
+      backgroundColor: theme.palette.blue,
       height: '35px',
     },
     [theme.breakpoints.down('sm')]: {

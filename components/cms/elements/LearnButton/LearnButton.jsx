@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useRouter } from 'next/router';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link';
+import { palette } from 'styles/theme';
 import styles from './learnButtonStyle';
 
 const useStyles = makeStyles(styles);
@@ -20,7 +21,7 @@ const getPath = (type) => {
 
 const getColor = (type) => {
   if (type === 'Blue') {
-    return '#1e7bac';
+    return palette.blue;
   } else if (type === 'Grey') {
     return '#d8d8d8';
   } else {
@@ -30,17 +31,17 @@ const getColor = (type) => {
 
 const getTextColor = (type) => {
   if (type === 'Blue') {
-    return '#ffffff';
+    return palette.white;
   } else {
-    return '#434343';
+    return palette.black;
   }
 };
 
 const getBorder = (type) => {
   if (type === 'Transparent, Blue Outline') {
-    return '2px #1e7bac solid';
+    return `2px ${palette.blue} solid`;
   } else if (type === 'Transparent, Grey Outline') {
-    return '2px #434343 solid';
+    return `2px ${palette.black} solid`;
   } else {
     return 'transparent';
   }

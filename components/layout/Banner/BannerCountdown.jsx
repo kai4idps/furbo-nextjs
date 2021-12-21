@@ -31,8 +31,11 @@ const BannerCountdown = ({ campaign }) => {
       const now = new Date().getTime();
       const target =
         new Date(campaign.countdown_date).getTime() -
-        REGION_INFO[region.toUpperCase()].timezone * 3600000;
-      const difference = target - now;
+        REGION_INFO[region].timezone * 3600000;
+      const difference =
+        target - now < 0
+          ? ((target - now) % 86400000) + 86400000
+          : target - now;
       const result = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
@@ -206,6 +209,7 @@ const BannerCountdown = ({ campaign }) => {
                     className={classes.units}
                     style={{
                       marginLeft: index !== 0 ? 0 : null,
+                      color: theme.palette.black,
                     }}
                   >
                     <span className={classes.unitsDigit}>{count}</span>

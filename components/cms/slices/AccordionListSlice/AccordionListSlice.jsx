@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from 'prismic-reactjs';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles, useTheme, makeStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
@@ -52,6 +52,7 @@ const Accordion = withStyles({
 
 const CustomAccordion = ({ item }) => {
   const classes = useStyles();
+  const theme = useTheme();
   const [open, setOpen] = useState(false);
   const handleChange = () => {
     setOpen((prev) => !prev);
@@ -66,9 +67,9 @@ const CustomAccordion = ({ item }) => {
         className={classes.itemHeader}
         expandIcon={
           open === true ? (
-            <Remove style={{ color: '#f7cd3d' }} />
+            <Remove style={{ color: theme.palette.yellow }} />
           ) : (
-            <Add style={{ color: '#f7cd3d' }} />
+            <Add style={{ color: theme.palette.yellow }} />
           )
         }
       >
@@ -89,6 +90,7 @@ CustomAccordion.propTypes = {
 
 const AccordionListSlice = (props) => {
   const classes = useStyles();
+  const theme = useTheme();
   const { expand, title, content } = props;
   const [open, setOpen] = useState(expand);
   return (
@@ -98,7 +100,7 @@ const AccordionListSlice = (props) => {
           className={classes.header}
           aria-controls={title}
           id={title}
-          expandIcon={<ExpandMore style={{ color: 'white' }} />}
+          expandIcon={<ExpandMore style={{ color: theme.palette.white }} />}
         >
           {title}
         </AccordionSummaryCenter>
