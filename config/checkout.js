@@ -45,11 +45,8 @@ export const CUSTOM_CHECKOUT_URL = (region, variantId, quantity) => {
     return `https://furbo-fr.myshopify.com/cart/${variantId}:${quantity}`;
   } else if (region === 'au') {
     return `https://furbo-global.myshopify.com/cart/${variantId}:${quantity}`;
-<<<<<<< HEAD
-=======
   } else if (region === 'jp') {
     return `https://furbo-jp.myshopify.com/cart/${variantId}:${quantity}`;
->>>>>>> 2f73c8ab0694b354ac52785294d69cd213ad3229
   }
   return `https://furbo-dog-camera.myshopify.com/cart/${variantId}:${quantity}`;
 };
