@@ -1,7 +1,8 @@
 export const CHECKOUT_URL = (region, quantity) => {
   const env = process.env.BUILD_ENV || 'development';
 
-  console.log('env=', env, 'process.env.BUILD_ENV=', process.env.BUILD_ENV);
+  console.log('env=', env);
+  console.log('process.env.BUILD_ENV=', process.env.BUILD_ENV);
   if (env !== 'production') {
     return `https://route-stg.furbo.com/cart/33333304329:${quantity}`;
   } else if (region === 'us') {
